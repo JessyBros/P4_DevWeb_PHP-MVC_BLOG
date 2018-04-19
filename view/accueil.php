@@ -1,4 +1,3 @@
-<?php session_start(); ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +24,7 @@
           
              
         </header>
-        
+       
         <section id="page1">
             <h1>Un billet simple pour l'alaska</h1>
         </section>
@@ -51,10 +50,7 @@
                 </aside>
             
            
-            <?php
-            }
-            $post->closeCursor();
-            ?>
+            <?php } $post->closeCursor(); ?>
               
                
                 <h2>Last Episode (montre les trois deniers episodes)</h2>
@@ -74,15 +70,10 @@
                     </a>
                 </aside>
 
-
-              <?php
-            }
-            
-            $posts->closeCursor();
-                   ?>          
+              <?php } $posts->closeCursor(); ?>          
         
         </section>
-           
+          
        <?php
                 while ($connexions = $connexion->fetch())
                 {
@@ -98,6 +89,7 @@
         </form>
      
         <?php
+                   
             if( (!empty($_POST['pseudo'])) && (!empty($_POST['motDePasse'])) )
             {
                 $pseudo = $_POST['pseudo'];
@@ -105,7 +97,8 @@
                 
                 if (  $pseudo==($connexions['pseudo']) && $mdp==($connexions['motDePasse']))
                 {
-                    header('Location:controller/lireBlogController.php');
+                   ?> <script language="Javascript"> document.location.replace("controller/lireBlogController.php");  </script> <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--> <?php
+                   
                     echo "<p>connexion reussi </p>";
                 }
                 else
