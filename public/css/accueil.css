@@ -64,6 +64,19 @@ header div{
         background-color: #8b9937;
         color: #161b26;
     }
+    #conteneurConnexion{
+        display: none;
+        height: 175px;
+        width: 270px;
+        position: fixed;
+        top: 150px;
+        left: 50%;
+        margin-left: -135px;
+        background-color: #161b26;
+        border: 2px solid #8b9937;
+        border-radius: 5px;
+        z-index: 2;
+    }
 #page1{
     position: relative;
     width: 100%;

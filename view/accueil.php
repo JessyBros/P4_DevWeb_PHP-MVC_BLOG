@@ -12,14 +12,12 @@
                 <img src="public/images/jeanForteroche.jpg" alt="Billet pour l'alaska">
                  <a href="controller/lireBlogController.php"><h1>Jean Forteroche</h1></a>
             </div>            
-           <button id="connexion">Connexion</button>
-            <script>
-                document.getElementById("#connexion").onclick = function()
+           <button id="connexion" onclick="connexion()">Connexion</button>
+            <script type="text/javascript">
+              function connexion()
                 {
-                   var p = document.createElement=('p');
-                    document.body.appendChild(p);
-                    p.textContent="test";
-                };
+                    document.getElementById('conteneurConnexion').style.display="block";
+                }
             </script>
           
              
@@ -78,8 +76,8 @@
                 while ($connexions = $connexion->fetch())
                 {
             ?>
- 
-        <form action="index.php" method="post">
+ <div id="conteneurConnexion">
+        <form  action="index.php" method="post">
 				
             <p><input name="pseudo" placeholder="pseudo" id="pseudo" type="text"></p>
 					
@@ -112,6 +110,7 @@
                 echo "<p>oublie du pseudo ou du mot de passe </p>";
             }
         ?>
+     </div>
           <?php
             }
             
