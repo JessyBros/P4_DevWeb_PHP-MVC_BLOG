@@ -2,6 +2,8 @@
 require('../model/model.php');
 
 
- $posts = getPosts();
+$postManager = new PostManager();
+$episode = $postManager->lectureEpisode(); 
+$id = $_POST["id"];
 
 require('../view/lireBlog.php');

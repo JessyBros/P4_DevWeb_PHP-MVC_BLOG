@@ -31,44 +31,48 @@
        
                <h2>Présentation du livre et petit lien vers le premier épisodes.</h2>
             <?php
-                while ($data = $post->fetch())
+                while ($data = $episode->fetch())
                 {
             ?>
                 
                <aside id="conteneurBlock">
-                    <a class="blockEpisode" href="controller/lireBlogController.php" >
+                    <div class="blockEpisode">
                         <h3 class="titreEpisode">Episode <?= htmlspecialchars($data['numeroEpisode']) ?></h3>
                         <img class="imageEpisode"src="public/images/alaska.jpg" alt="imageEpisode">
                         <p class="dateEpisode">publié le <?= htmlspecialchars($data['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($data['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <button class="buttonEpisode">Voir l'épisode</button>
+                            <a  href="controller/lireBlogController.php">
+                                <button class="buttonEpisode">Voir l'épisode</button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </aside>
             
            
-            <?php } $post->closeCursor(); ?>
+            <?php } $episode->closeCursor(); ?>
               
                
                 <h2>Last Episode (montre les trois deniers episodes)</h2>
             <?php
-                while ($datas = $posts->fetch())
+                while ($datas = $episodes->fetch())
                 {
             ?>
                 <aside id="conteneurBlock">
-                    <a class="blockEpisode" href="controller/lireBlogController.php" >
+                    <div class="blockEpisode">
                         <h3 class="titreEpisode">Episode <?= htmlspecialchars($datas['numeroEpisode']) ?></h3>
                         <img class="imageEpisode"src="public/images/alaska.jpg" alt="imageEpisode">
                         <p class="dateEpisode">publié le <?= htmlspecialchars($datas['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($datas['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <button class="buttonEpisode">Voir l'épisode</button>
+                            <a href="controller/lireBlogController.php">
+                                <button class="buttonEpisode">Voir l'épisode</button>
+                            </a>
                         </div>
-                    </a>
+                    </div>
                 </aside>
 
-              <?php } $posts->closeCursor(); ?>          
+              <?php } $episodes->closeCursor(); ?>          
         
         </section>
           

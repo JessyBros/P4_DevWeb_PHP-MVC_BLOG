@@ -15,8 +15,9 @@
         <section id="corpsDeLaPage">
             
         <?php
-        while ($data = $posts->fetch())
+        while ($data = $episode->fetch())
         {
+          
         ?>
             <aside id="blockEpisode">
                 <div class="headerEpisode">
@@ -43,7 +44,7 @@
             
              <?php
         }
-        $posts->closeCursor();
+        $episode->closeCursor();
         ?>
             
             
