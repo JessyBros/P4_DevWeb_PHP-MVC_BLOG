@@ -1,6 +1,7 @@
 <?php
-require('model/model.php');
+require('../model/model.php');
 
-/*$posts = getPosts();*/
+$postManagers = new PostManager(); // Création d'un objet
+$ajoutEpisode = $postManagers->ajoutEpisode();
 
-require('view/modifBlog.php');
+require('../view/modifBlog.php');

@@ -14,11 +14,7 @@
         
         <section id="corpsDeLaPage">
             
-        <?php
-        while ($data = $episode->fetch())
-        {
-          
-        ?>
+      
             <aside id="blockEpisode">
                 <div class="headerEpisode">
                     <img class="imageEpisode" src="../public/images/alaska.jpg" alt="image"/>
@@ -26,7 +22,7 @@
                     <div class="libeleEpisode">
                         <h2>Episode <?= htmlspecialchars($data['numeroEpisode']) ?></h2>
                         <h3><?= htmlspecialchars($data['titre']) ?></h3>
-                        <p>Publié le <?= htmlspecialchars($data['datePublication']) ?></p>
+                        
                     </div>
                     
                 </div>
@@ -42,10 +38,7 @@
                 
             </aside>
             
-             <?php
-        }
-        $episode->closeCursor();
-        ?>
+        
             
             
             <aside id="blockEcrireCommentaire">

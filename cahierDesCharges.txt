@@ -1,0 +1,28 @@
+Cahier des charges Blog PHP
+
+
+-mot de passe dans la base de donné protéger par un crypt.
+
+
+PAGE : lectureBlog.php.
+
+- Faire apparaitre l'épisode correspondant au click de l'utiliateur (PHP) Utilisation GET.
+
+- Initialisé les commentaires selon chaque épisode.
+
+- Utilisateur doit pouvoir signaler les commentaires
+
+PAGE : modifierBlog.php
+
+- rédaction des billet se fera par une interface WYSIWYG base sur TinyMCE
+
+--- création des billets.
+--- modification des billets.
+--- suppression des billets
+
+ARCHITECTURE MVC
+
+Manque la mise en place du routeur sur la page index.Php avec des conditions pour la lecture de chaque page selon le choix de l'utilisateur.
+
+
+TOUTE FIN : MISE EN PLACE DU CSS ! :D

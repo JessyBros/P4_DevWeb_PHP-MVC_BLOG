@@ -37,11 +37,23 @@ class PostManager{
                 return $req;
             }
         
-            //Page LectureDuBlog
-            public function lectureEpisode($id) // renvoie l'épisode selon le choix de l'utilisateur
+            //Page LectureDuBlog NE FONCTIONNE TOUJOURS PAS!
+            public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
                 {   
                     $connexion = $this-> connexion();
-                    $req = $connexion->query('SELECT * FROM tableepisode WHERE id="$id"');
+                    $req = $connexion->query('SELECT id, numeroEpisode, titre, texte FROM  WHERE id = ?');
+                    $req->execute(array($postId));
+                    $post = $req->fetch();
+
+                    return $post;
+                }
+    
+            //Page ModificationDuBlog
+            public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
+                {   
+                    $connexion = $this-> connexion($numeroEpisode, $titre, $description, $texte);
+                    $req = $connexion->query('INSER INRO tableepisode(numeroEpisode, titre, description, texte) VALUES($numeroEpisode, $titre, $description, $texte)');
+                    $retour = $connexion->exec($req);
                     return $req;
                 }
 

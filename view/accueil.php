@@ -42,7 +42,7 @@
                         <p class="dateEpisode">publié le <?= htmlspecialchars($data['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($data['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <a  href="controller/lireBlogController.php">
+                            <a  href="controller/lireBlogController.php?id=<?= $data['id'] ?>">
                                 <button class="buttonEpisode">Voir l'épisode</button>
                             </a>
                         </div>
@@ -65,7 +65,7 @@
                         <p class="dateEpisode">publié le <?= htmlspecialchars($datas['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($datas['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <a href="controller/lireBlogController.php">
+                            <a  href="controller/lireBlogController.php">
                                 <button class="buttonEpisode">Voir l'épisode</button>
                             </a>
                         </div>
@@ -101,7 +101,7 @@
                  
                 if (  $pseudo==($connexions['pseudo']) && $mdp==($connexions['motDePasse']))
                 {
-                   ?> <script language="Javascript"> document.location.replace("controller/lireBlogController.php");  </script> <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--> <?php
+                   ?> <script language="Javascript"> document.location.replace("controller/modifBlogController.php");  </script> <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--> <?php
                    
                 }
                 else if (  $pseudo!==($connexions['pseudo']) || $mdp!==($connexions['motDePasse']))
