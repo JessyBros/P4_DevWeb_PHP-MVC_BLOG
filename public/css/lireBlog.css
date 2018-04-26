@@ -72,7 +72,11 @@ header{
             display: flex;
             justify-content: space-between;
         }
-            .episodeSuivPrec{
+            .episodeSuiv{
+                margin: 5px;
+                border-radius: 10px;
+            }
+             .episodePrec{
                 margin: 5px;
                 border-radius: 10px;
             }

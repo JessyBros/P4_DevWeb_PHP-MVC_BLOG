@@ -19,7 +19,10 @@ class PostManager{
             {
                 $connexion = $this-> connexion();
                 $req = $connexion->query('SELECT * FROM tableepisode Limit 1');
-                return $req;
+                $req->execute(array());
+                $post = $req->fetch();
+
+                return $post;
             }
 
 
@@ -40,8 +43,8 @@ class PostManager{
             //Page LectureDuBlog NE FONCTIONNE TOUJOURS PAS!
             public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
                 {   
-                    $connexion = $this-> connexion();
-                    $req = $connexion->query('SELECT id, numeroEpisode, titre, texte FROM  WHERE id = ?');
+                    $connexion = $this-> connexion($postId);
+                    $req = $connexion->prepare('SELECT id, numeroEpisode, titre, texte FROM tableepisode WHERE numeroEpisode = ?');
                     $req->execute(array($postId));
                     $post = $req->fetch();
 
@@ -52,9 +55,15 @@ class PostManager{
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
                 {   
                     $connexion = $this-> connexion($numeroEpisode, $titre, $description, $texte);
-                    $req = $connexion->query('INSER INRO tableepisode(numeroEpisode, titre, description, texte) VALUES($numeroEpisode, $titre, $description, $texte)');
+                    $req = $connexion->query('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES($numeroEpisode, $titre, $description, $texte)');
                     $retour = $connexion->exec($req);
                     return $req;
                 }
+            public function TousLesEpisode() // affiche les trois dernier episode
+                    {   
+                        $connexion = $this-> connexion();
+                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ');
+                        return $req;
+                    }
 
 } 

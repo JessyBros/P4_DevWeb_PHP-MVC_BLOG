@@ -30,10 +30,7 @@
         <section id="page2">
        
                <h2>Présentation du livre et petit lien vers le premier épisodes.</h2>
-            <?php
-                while ($data = $episode->fetch())
-                {
-            ?>
+           
                 
                <aside id="conteneurBlock">
                     <div class="blockEpisode">
@@ -42,7 +39,7 @@
                         <p class="dateEpisode">publié le <?= htmlspecialchars($data['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($data['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <a  href="controller/lireBlogController.php?id=<?= $data['id'] ?>">
+                            <a  href="controller/lireBlogController.php?episode=<?= $data['numeroEpisode'] ?>">
                                 <button class="buttonEpisode">Voir l'épisode</button>
                             </a>
                         </div>
@@ -50,7 +47,7 @@
                 </aside>
             
            
-            <?php } $episode->closeCursor(); ?>
+            
               
                
                 <h2>Last Episode (montre les trois deniers episodes)</h2>
@@ -65,7 +62,7 @@
                         <p class="dateEpisode">publié le <?= htmlspecialchars($datas['datePublication']) ?></p>
                         <p class="textEpisode"><?= htmlspecialchars($datas['description']) ?></p>
                         <div id="conteneurButtonEpisode">
-                            <a  href="controller/lireBlogController.php">
+                            <a  href="controller/lireBlogController.php?episode=<?= $datas['numeroEpisode'] ?>">
                                 <button class="buttonEpisode">Voir l'épisode</button>
                             </a>
                         </div>

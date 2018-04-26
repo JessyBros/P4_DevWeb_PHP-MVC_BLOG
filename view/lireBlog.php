@@ -20,25 +20,42 @@
                     <img class="imageEpisode" src="../public/images/alaska.jpg" alt="image"/>
                 
                     <div class="libeleEpisode">
-                        <h2>Episode <?= htmlspecialchars($data['numeroEpisode']) ?></h2>
-                        <h3><?= htmlspecialchars($data['titre']) ?></h3>
+                        <h2>Episode <?= htmlspecialchars($post['numeroEpisode']) ?></h2>
+                        <h3><?= htmlspecialchars($post['titre']) ?></h3>
                         
                     </div>
                     
                 </div>
                 <br>
                 <article class="textEpisode">
-                   <?= htmlspecialchars($data['texte']) ?>
+                   <?= htmlspecialchars($post['texte']) ?>
                 </article>
                 
                 <div id="conteneurEpisodeSuivPrec">
-                    <button class="episodeSuivPrec">Episode précédent</button>
-                    <button class="episodeSuivPrec">Episode suivant</button>
+                   <a  href="lireBlogController.php?episode=<?= $post['numeroEpisode']-1 ?>">
+                       <button class="episodePrec">Episode précédent</button>
+                    </a>
+                   <a  href="lireBlogController.php?episode=<?= $post['numeroEpisode']+1 ?>">
+                       <button class="episodeSuiv">Episode suivant</button>
+                    </a>
                 </div>
                 
             </aside>
-            
-        
+            <?php
+            if ($post['numeroEpisode'] <2)
+            {
+            ?>
+                <style> .episodePrec{display: none;}</style>
+            <?php 
+            }
+            else if ( $post['numeroEpisode'] = strlen($post['numeroEpisode']) ) // episode n = n.. ex : 2 =2; 3=3  
+            {
+            ?>
+                <style> .episodeSuiv{display: none;}</style>
+            <?php
+            }
+            ?>
+       
             
             
             <aside id="blockEcrireCommentaire">

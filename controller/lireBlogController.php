@@ -3,7 +3,7 @@ require('../model/model.php');
 
 
 $postManager = new PostManager();
-$data = $postManager->lectureEpisode($_GET['id']); 
+$post = $postManager->lectureEpisode($_GET['episode']); 
 
 
 require('../view/lireBlog.php');
