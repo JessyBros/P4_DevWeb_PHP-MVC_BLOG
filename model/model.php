@@ -33,7 +33,7 @@ class PostManager{
                 return $req;
             }
 
-            public function moderateur() 
+            public function connexionDumoderateur() 
             {   
                 $connexion = $this-> connexion();
                 $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
@@ -54,16 +54,21 @@ class PostManager{
             //Page ModificationDuBlog
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
                 {   
-                    $connexion = $this-> connexion($numeroEpisode, $titre, $description, $texte);
-                    $req = $connexion->query('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES($numeroEpisode, $titre, $description, $texte)');
-                    $retour = $connexion->exec($req);
+                    $connexion = $this-> connexion();
+                    $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES("'.$_POST['numeroEpisode'].'", "'.$_POST['titre'].'", "'.$_POST['description'].'","'.$_POST['texte'].'")');
+                    $req->execute(array());
                     return $req;
                 }
-            public function TousLesEpisode() // affiche les trois dernier episode
+                   
+    
+    
+            public function nombreduDernierEpisode() // affiche le numéro correspondant au dernier épisode
                     {   
                         $connexion = $this-> connexion();
-                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ');
-                        return $req;
+                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode DESC Limit 1');
+                        $req->execute(array());
+                        $retour = $req->fetch();
+                        return $retour;
                     }
 
 } 

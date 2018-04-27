@@ -7,6 +7,6 @@ $postManager = new PostManager();
 $data = $postManager->premierEpisode();
 
 $connexionManager = new PostManager();
-$connexion = $connexionManager-> moderateur(); 
+$connexion = $connexionManager-> connexionDuModerateur(); 
 
 require('view/accueil.php');
