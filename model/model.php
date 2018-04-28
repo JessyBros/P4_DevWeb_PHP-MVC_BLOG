@@ -51,6 +51,26 @@ class PostManager{
                     return $post;
                 }
     
+            // LES COMMENTAIRES
+            public function getComments($postId)
+            {
+                $connexion = $this->connexion();
+                $commentaires = $connexion->prepare('SELECT id, autheur, commentaire, DATE_FORMAT(dateDuCommentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM commentaires WHERE post_id = ? ORDER BY dateDuCommentaire DESC');
+                $commentaires->execute(array($postId));
+
+                return $commentaires;
+            }
+
+            public function postComment($postId, $autheur, $commentaire)
+            {
+               $connexion = $this->connexion();
+                $commentaires = $connexion->prepare('INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES(?, ?, ?, NOW())');
+                $affectedLines = $commentaires->execute(array($postId, $autheur, $commentaire));
+
+                return $affectedLines;
+            }
+
+    
             //Page ModificationDuBlog
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
                 {   

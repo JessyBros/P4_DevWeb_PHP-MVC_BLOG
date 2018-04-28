@@ -110,11 +110,11 @@
                 {
                     echo "<p>Oublie du pseudo et du mot de passe ! </p>";
                 }  
-            else if  (empty($_POST['motDePasse']))  
+            else if  (empty($_POST['pseudo']))  
                 {
                     echo "<p>Oublie du pseudo !</p>";
                 }
-            else if  (empty($_POST['pseudo'])) 
+            else if  (empty($_POST['motDePasse'])) 
                 {
                     echo "<p>Oublie du mot de passe ! </p>";
                 } 
