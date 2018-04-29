@@ -40,7 +40,7 @@ class PostManager{
                 return $req;
             }
         
-            //Page LectureDuBlog NE FONCTIONNE TOUJOURS PAS!
+            //Page LectureDuBlog 
             public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
                 {   
                     $connexion = $this-> connexion($postId);
@@ -61,16 +61,17 @@ class PostManager{
                 return $commentaires;
             }
 
-            public function postComment($postId, $autheur, $commentaire)
+            public function postComment()
             {
                $connexion = $this->connexion();
-                $commentaires = $connexion->prepare('INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES(?, ?, ?, NOW())');
-                $affectedLines = $commentaires->execute(array($postId, $autheur, $commentaire));
+                $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES( "'.$_POST['numeroEpisode'].'", "'.$_POST['autheur'].'", "'.$_POST['commentaire'].'", NOW())');
+                $commentaires->execute(array());
 
-                return $affectedLines;
+                return $commentaires;
             }
 
-    
+
+   
             //Page ModificationDuBlog
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
                 {   

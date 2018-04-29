@@ -12,7 +12,10 @@ $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode
 $commentManager = new PostManager();
 $commentaires = $commentManager->getComments($_GET['episode']);
 
-function addComment($postId, $autheur, $commentaire)
+$commentManager = new PostManager(); // Création d'un objet
+$postComment = $commentManager->postComment();
+
+/*function addComment($postId, $autheur, $commentaire)
 {
     $commentManager = new PostManager();
 
@@ -24,6 +27,6 @@ function addComment($postId, $autheur, $commentaire)
     else {
         header('Location:lireBlogController.php?episode=<?= $post["numeroEpisode"]');
     }
-}
+}*/
 
 require('../view/lireBlog.php');
