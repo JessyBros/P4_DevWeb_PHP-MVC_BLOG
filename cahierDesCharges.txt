@@ -6,8 +6,6 @@ Cahier des charges Blog PHP
 
 PAGE : lectureBlog.php.
 
-- Initialisé les commentaires selon chaque épisode.
-
 - Utilisateur doit pouvoir signaler les commentaires
 
 PAGE : modifierBlog.php

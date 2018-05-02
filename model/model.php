@@ -92,4 +92,10 @@ class PostManager{
                         return $retour;
                     }
 
+public function choixEpisode() // affiche le numéro correspondant au dernier épisode
+                    {   
+                        $connexion = $this-> connexion();
+                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode ASC');
+                        return $req;
+                    }
 } 

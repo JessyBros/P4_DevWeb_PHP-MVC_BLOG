@@ -15,6 +15,9 @@ $commentaires = $commentManager->getComments($_GET['episode']);
 $commentManager = new PostManager(); // Création d'un objet
 $postComment = $commentManager->postComment();
 
+$commentManager = new PostManager();
+$choixEpisode = $commentManager->choixEpisode();
+
 /*function addComment($postId, $autheur, $commentaire)
 {
     $commentManager = new PostManager();
