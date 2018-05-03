@@ -73,7 +73,12 @@ class PostManager{
                 return $commentaires;
             }
 
-
+            public function choixEpisode() // affiche le numéro correspondant au dernier épisode
+                    {   
+                        $connexion = $this-> connexion();
+                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode ASC');
+                        return $req;
+                    }
    
             //Page ModificationDuBlog
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
@@ -95,10 +100,5 @@ class PostManager{
                         return $retour;
                     }
 
-public function choixEpisode() // affiche le numéro correspondant au dernier épisode
-                    {   
-                        $connexion = $this-> connexion();
-                        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode ASC');
-                        return $req;
-                    }
-} 
+           
+}

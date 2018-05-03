@@ -12,3 +12,8 @@ body {
 a{
     text-decoration: none;
 }
+
+#formAjouter, #apercuDesEpisodes
+{
+    display: none;
+}
