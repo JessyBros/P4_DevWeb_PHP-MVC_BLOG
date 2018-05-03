@@ -37,7 +37,10 @@ class PostManager{
             {   
                 $connexion = $this-> connexion();
                 $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
-                return $req;
+                $req->execute(array());
+                $post = $req->fetch();
+
+                return $post;
             }
         
             //Page LectureDuBlog 
