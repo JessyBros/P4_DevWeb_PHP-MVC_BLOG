@@ -30,7 +30,7 @@
                 <img class="imageEpisode" src="../public/images/alaska.jpg" alt="image" />
                 <div class="libeleEpisode">
                     <h2>Episode
-                        <?= htmlspecialchars($post['numeroEpisode']) ?>
+                        <?= htmlspecialchars($post['numeroEpisode']) ?> 
                     </h2>
                     <h3>
                         <?= htmlspecialchars($post['titre']) ?>

@@ -1,8 +1,8 @@
 <?php
 class PostManager{
 
-    // connexion à la base de donné
-     private function connexion()
+    
+     private function connexion()// connexion à la base de donné
     {
         try
         {
@@ -33,7 +33,7 @@ class PostManager{
                 return $req;
             }
 
-            public function connexionDumoderateur() 
+            public function connexionDumoderateur() // permet à Jean Forteroche de se connecter
             {   
                 $connexion = $this-> connexion();
                 $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
@@ -55,7 +55,7 @@ class PostManager{
                 }
     
             // LES COMMENTAIRES
-            public function getComments($postId)
+            public function getComments($postId) // montre les commentaire du plus récents au plus ancien
             {
                 $connexion = $this->connexion();
                 $commentaires = $connexion->prepare('SELECT id, autheur, commentaire, DATE_FORMAT(dateDuCommentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM commentaires WHERE post_id = ? ORDER BY dateDuCommentaire DESC');
@@ -64,7 +64,7 @@ class PostManager{
                 return $commentaires;
             }
 
-            public function postComment()
+            public function postComment() // insère un commentaire
             {
                $connexion = $this->connexion();
                 $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES( "'.$_POST['numeroEpisode'].'", "'.$_POST['autheur'].'", "'.$_POST['commentaire'].'", NOW())');
@@ -84,7 +84,7 @@ class PostManager{
             public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
                 {   
                     $connexion = $this-> connexion();
-                    $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES("'.$_POST['numeroEpisode'].'", "'.$_POST['titre'].'", "'.$_POST['description'].'","'.$_POST['texte'].'")');
+                    $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES(".$numeroEpisode.",".$titre.",".$description.",".$texte.")');
                     $req->execute(array());
                     return $req;
                 }
@@ -100,5 +100,37 @@ class PostManager{
                         return $retour;
                     }
 
-           
+            public function listEpisode() // affiche tous les épisodes seulement numéro et son titre
+            {   
+                $connexion = $this-> connexion();
+                $req = $connexion->query('SELECT numeroEpisode, titre FROM tableepisode ORDER BY id ASC');
+                return $req;
+            }
+            
+            public function donnéesEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
+                {   
+                    $connexion = $this-> connexion($postId);
+                    $req = $connexion->prepare('SELECT * FROM tableepisode WHERE numeroEpisode = ?');
+                    $req->execute(array($postId));
+                    $post = $req->fetch();
+
+                    return $post;
+                }
+      public function modificationEpisode($titre,$description,$texte) // ne fonctionne pas
+            {   
+                $connexion = $this-> connexion();
+                $req = ('UPDATE tableepisode SET titre = $titre ,description = $description ,texte = $texte WHERE numeroEpisode = "$_POST["modifNumeroEpisode"]"');
+                $retour= $connexion->exec($req);
+                return $retour;
+            }
+ 
+    
+        
+       public function suppressionEpisode() // en beta
+            {
+                $connexion = $this-> connexion();
+                $req=('DELETE FROM tableepisode WHERE numeroEpisode = ?');
+                $retour=$connexion->exec($req);
+                return $retour; 
+            }
 }

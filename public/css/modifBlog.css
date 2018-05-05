@@ -13,7 +13,11 @@ a{
     text-decoration: none;
 }
 
-#formAjouter, #apercuDesEpisodes
+#formAjouter, #apercuDesEpisodes, /*#formEditionEpisode*/
 {
     display: none;
+}
+#editezUnEpisode
+{
+    display: block;
 }

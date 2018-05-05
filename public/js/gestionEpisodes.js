@@ -1,7 +1,6 @@
 var formAjouter = true;
 var formEditer = true;
-var formModifier = true; 
-var formSupprimer = true;
+var episodeClickUtilisateur = true;
 
  function ajouterUnEpisode()
 {
@@ -30,29 +29,19 @@ function editerUnEpisode()
     }
     
 }
- function modifierUnEpisode()
+ /* DONT WORK !
+function episodeClickUtilisateur()
 {
-    if (formModifier)
+    if (episodeClickUtilisateur)
     {
-        /*code*/
-        formModifier  = false;
+        document.getElementById("formEditionEpisode").style.display = "inline-block";
+        episodeClickUtilisateur  = false;
     }
     else
     {
-        /*code*/
-        formModifier  = true;
+        document.getElementById("formEditionEpisode").style.display = "none";
+        episodeClickUtilisateur  = true;
     }
 }
-function supprimerUnEpisode()
-{
-    if (formSupprimer)
-    {
-        /*code*/
-        formSupprimer  = false;
-    }
-    else
-    {
-        /*code*/
-        formSupprimer  = true;
-    }
-}
+
+*/

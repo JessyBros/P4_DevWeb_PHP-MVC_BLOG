@@ -1,4 +1,6 @@
 <?php require('../public/functions/ajouterUnEpisode.php'); ?>
+<?php require('../public/functions/modifierUnEpisode.php'); ?>
+<?php require('../public/functions/supprimerUnEpisode.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -11,13 +13,30 @@
 
 
 <body>
+  
     <button onclick="ajouterUnEpisode()">ajouter un épisode</button>
-    <button onclick="editerUnEpisode()" id="editezUnEpisode">editer un épisode</button>
+    <button onclick="editerUnEpisode()" id="editerUnEpisode">editer un épisode</button>
     
-    <section id="apercuDesEpisodes">
-    <button onclick="modifierUnEpisode()" id="modifierUnEpisode">Modifier l'épisode</button>
-    <button onclick="supprimerUnEpisode()" id="supprimerUnEpisode">Supprimer l'épisode</button>
+    <!-- Apparait au click du boutton éditer un épisode -->
+    <section id="apercuDesEpisodes">        
+    <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+     <a href="modifBlogController.php?episode=<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+         <p onclick="episodeClickUtilisateur()"> Episode <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :  <?= htmlspecialchars($listEpisodes['titre']) ?></p>
+        </a>
+    <?php } $listEpisode->closeCursor(); ?>  
     </section>
+    
+     <!-- Apparait au click d'un épisode NON TERMINE-->
+    <form action="modifBlogController.php" method="post" id="formEditionEpisode">
+        <p>Episode <?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?></p>
+        <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
+        <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donnéesEpisode['titre']) ?>" required="" type="text"></p>
+        <p>description : <input name="modifDescription" value="<?= htmlspecialchars($donnéesEpisode['description']) ?>" required="" type="text"></p>
+        <p>texte : <input name="modifTexte" value="<?= htmlspecialchars($donnéesEpisode['texte']) ?>" required="" type="text"></p>
+        <input type="submit" name="modifier" value="modifier l'épisode" />
+        <input type="submit" name="supprimer" value="supprimer l'épisode" />
+    </form>  <?php echo  $_POST['texte'].$texte;?>
+     
     <!-- Au click de éditer, affichez tous les épisodes par ligne.
         au click d'un des épisodes afficher sur la droite l'épisode correspondant avec le boutton modifier et supprimer
         si modifier >>> modifier, si supprimer >> etes vous sur?>>> si oui supprimer

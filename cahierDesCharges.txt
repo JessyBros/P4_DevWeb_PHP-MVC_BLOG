@@ -12,7 +12,6 @@ PAGE : modifierBlog.php
 
 - rédaction des billet se fera par une interface WYSIWYG base sur TinyMCE
 
---- création des billets.
 --- modification des billets.
 --- suppression des billets
 
