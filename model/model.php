@@ -81,11 +81,16 @@ class PostManager{
                     }
    
             //Page ModificationDuBlog
-            public function ajoutEpisode() // renvoie l'épisode selon le choix de l'utilisateur
+            public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte) // renvoie l'épisode selon le choix de l'utilisateur
                 {   
-                    $connexion = $this-> connexion();
-                    $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES(".$numeroEpisode.",".$titre.",".$description.",".$texte.")');
-                    $req->execute(array());
+                    $connexion = $this-> connexion($postNumeroEpisode,$postTitre,$postDescription,$postTexte);
+                    $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES(?,?,?,?)');
+                    $req->execute(array(
+                        $postNumeroEpisode,
+                        $postTitre,
+                        $postDescription,
+                        $postTexte
+                    ));
                     return $req;
                 }
                    

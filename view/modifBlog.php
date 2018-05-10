@@ -13,7 +13,7 @@
 
 
 <body>
-  
+ 
     <button onclick="ajouterUnEpisode()">ajouter un épisode</button>
     <button onclick="editerUnEpisode()" id="editerUnEpisode">editer un épisode</button>
     
@@ -35,7 +35,7 @@
         <p>texte : <input name="modifTexte" value="<?= htmlspecialchars($donnéesEpisode['texte']) ?>" required="" type="text"></p>
         <input type="submit" name="modifier" value="modifier l'épisode" />
         <input type="submit" name="supprimer" value="supprimer l'épisode" />
-    </form>  <?php echo  $_POST['texte'].$texte;?>
+    </form>  
      
     <!-- Au click de éditer, affichez tous les épisodes par ligne.
         au click d'un des épisodes afficher sur la droite l'épisode correspondant avec le boutton modifier et supprimer
