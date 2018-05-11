@@ -121,21 +121,23 @@ class PostManager{
 
                     return $post;
                 }
-      public function modificationEpisode($titre,$description,$texte) // ne fonctionne pas
+      public function modificationEpisode($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode) // ne fonctionne pas
             {   
-                $connexion = $this-> connexion();
-                $req = ('UPDATE tableepisode SET titre = $titre ,description = $description ,texte = $texte WHERE numeroEpisode = "$_POST["modifNumeroEpisode"]"');
-                $retour= $connexion->exec($req);
-                return $retour;
+                $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode);
+                 $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ? WHERE numeroEpisode = ?');
+                $req->execute(array($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode));
+                return $req;
             }
  
     
         
-       public function suppressionEpisode() // en beta
+       public function suppressionEpisode($supEpisode) // en beta
             {
-                $connexion = $this-> connexion();
-                $req=('DELETE FROM tableepisode WHERE numeroEpisode = ?');
-                $retour=$connexion->exec($req);
-                return $retour; 
+                $connexion = $this-> connexion($supEpisode);
+                $req= $connexion->prepare('DELETE FROM tableepisode WHERE numeroEpisode = ?');
+                $req->execute(array($supEpisode));
+                return $req; 
             }
 }
+
+  

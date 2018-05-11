@@ -2,12 +2,11 @@
 
 require('../model/model.php');
 
-$postManagers = new PostManager(); // Création d'un objet
-    $numeroEpisode = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
-    $titre = isset($_POST['titre']) ? $_POST['titre'] : NULL;
-    $description = isset($_POST['description']) ? $_POST['description'] : NULL;
-    $texte = isset($_POST['texte']) ? $_POST['texte'] : NULL;
-$ajoutEpisode = $postManagers->ajoutEpisode($numeroEpisode,$titre,$description,$texte);
+$ajoutEpisodeManagers = new PostManager(); // Création d'un objet
+
+
+
+
 
 $nombreduDernierEpisodeManager = new PostManager();
 $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
@@ -16,11 +15,16 @@ $listEpisodeManagers = new PostManager(); // Création d'un objet
 $listEpisode = $listEpisodeManagers->listEpisode(); // Appel d'une fonction de cet objet
 
 $donnéesEpisodeManager = new PostManager();
-$donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode(isset($_GET['episode']));
+    $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
+$donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
 
-/*$modificationEpisodeManagers = new PostManager(); // Création d'un objet
-$modificationEpisode = $modificationEpisodeManagers->modificationEpisode($titre,$description,$texte);
+$modificationEpisodeManagers = new PostManager();
+     $modifNumeroEpisode = isset($_POST['modifNumeroEpisode']) ? $_POST['modifNumeroEpisode'] : NULL;
+     $modifTitre = isset($_POST['modifTitre']) ? $_POST['modifTitre'] : NULL;
+     $modifDescription = isset($_POST['modifDescription']) ? $_POST['modifDescription'] : NULL;
+     $modifTexte= isset($_POST['modifTexte']) ? $_POST['modifTexte'] : NULL;
+$modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode);
 
-$suppressionEpisodeManagers = new PostManager(); // Création d'un objet
-$suppressionEpisode = $suppressionEpisodeManagers->suppressionEpisode(isset($_GET['episode']));*/
+$suppressionEpisodeManagers = new PostManager();
+ // check supprimer un episode.php
 require('../view/modifBlog.php');

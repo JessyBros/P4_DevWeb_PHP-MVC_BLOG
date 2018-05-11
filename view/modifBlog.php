@@ -13,7 +13,6 @@
 
 
 <body>
- 
     <button onclick="ajouterUnEpisode()">ajouter un épisode</button>
     <button onclick="editerUnEpisode()" id="editerUnEpisode">editer un épisode</button>
     
@@ -30,6 +29,7 @@
     <form action="modifBlogController.php" method="post" id="formEditionEpisode">
         <p>Episode <?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?></p>
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
+        <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
         <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donnéesEpisode['titre']) ?>" required="" type="text"></p>
         <p>description : <input name="modifDescription" value="<?= htmlspecialchars($donnéesEpisode['description']) ?>" required="" type="text"></p>
         <p>texte : <input name="modifTexte" value="<?= htmlspecialchars($donnéesEpisode['texte']) ?>" required="" type="text"></p>
