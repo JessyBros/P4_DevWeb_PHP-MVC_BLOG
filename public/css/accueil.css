@@ -93,7 +93,7 @@ header div{
         text-shadow: 1px 1px 2px #8b9937;
         font-size: 400%;
     }
-#page2{
+ #page2{
     position: relative;
     width: 100%;
     max-width: 1500px;
@@ -103,48 +103,25 @@ header div{
      #page2 h2{
             text-align: center;
         }
-
-
-    #conteneurBlock{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
     
 
-        .blockEpisode{
+        #blockPremierEpisode{
+             margin: auto;
+            text-align: center;
             width: 65%;
             min-width: 250px;
-            height: 400px;
+            min-height: 150px;
             border-radius: 10px;
             border: 2px solid grey;
-            margin : 0 10px 10px 10px;
-            text-align: center;
-           
+          
         }
-        .blockEpisode:hover{
+        #blockPremierEpisode:hover{
             border: 2px solid white;
         }
 
-         .blockEpisode:hover #conteneurButtonEpisode{
+         #blockPremierEpisode:hover #conteneurButtonEpisode{
             border-top: 1px solid white; 
         }
-            .titreEpisode{
-                position: absolute;
-                width: 250px;
-                margin: auto;
-            }
-            #conteneurButtonEpisode{
-                width: 100%;
-                border-top: 1px solid grey;
-                position: relative;
-                bottom: 20px;
-            }
-                .imageEpisode{
-                    height: 55%;
-                    width: 100%;
-                    border-radius: 10px;
-                }
 
             .dateEpisode{
                 color: grey;
@@ -160,6 +137,8 @@ header div{
             }
             
             .buttonEpisode{
+                position: relative;
+                bottom: 10px;
                 display: inline;
                 text-align: center;
                 background-color: #161b26;
@@ -167,6 +146,35 @@ header div{
                 border: 1px solid #8b9937;
                 border-radius: 5px;
             }
+        
+        #conteneurBlockLastEpisode {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .blockLastEpisode:nth-child(1) {
+            order: 3;
+        }
+
+        .blockLastEpisode:nth-child(2) {
+            order: 2;
+        }
+
+        .blockLastEpisode:nth-child(3) {
+            order: 1;
+        }
+
+        .blockLastEpisode {
+            width: 250px;
+            min-height: 150px;
+            border-radius: 10px;
+            border: 2px solid grey;
+            margin: 0 10px 10px 10px;
+            text-align: center;
+            margin : 10px;
+        }
+
 
 footer{
     position: relative;

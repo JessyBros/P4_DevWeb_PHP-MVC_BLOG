@@ -12,8 +12,8 @@ $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode
 $commentManager = new PostManager();
 $commentaires = $commentManager->getComments($_GET['episode']);
 
-$commentManager = new PostManager(); // Création d'un objet
-$postComment = $commentManager->postComment();
+$commentManager = new PostManager(); 
+/*ajouterUnCommentaire.php*/
 
 $commentManager = new PostManager();
 $choixEpisode = $commentManager->choixEpisode();

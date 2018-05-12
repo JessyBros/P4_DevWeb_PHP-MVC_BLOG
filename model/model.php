@@ -66,9 +66,13 @@ class PostManager{
 
             public function postComment() // insère un commentaire
             {
-               $connexion = $this->connexion();
+               $connexion = $this->connexion($postNumeroEpisode,$postAutheur,$postCommentaire);
                 $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES( "'.$_POST['numeroEpisode'].'", "'.$_POST['autheur'].'", "'.$_POST['commentaire'].'", NOW())');
-                $commentaires->execute(array());
+                $commentaires->execute(array(
+                    $postNumeroEpisode,
+                    $postAutheur,
+                    $postCommentaire
+                ));
 
                 return $commentaires;
             }
@@ -77,6 +81,14 @@ class PostManager{
                     {   
                         $connexion = $this-> connexion();
                         $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode ASC');
+                        return $req;
+                    }
+    
+            //Page ListesEpisodes
+      public function listesEpisodes() // affiche le numéro correspondant au dernier épisode
+                    {   
+                        $connexion = $this-> connexion();
+                        $req = $connexion->query('SELECT numeroEpisode, titre, description, datePublication FROM tableepisode ORDER BY numeroEpisode ASC');
                         return $req;
                     }
    

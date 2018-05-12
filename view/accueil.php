@@ -1,4 +1,4 @@
- <?php require('public/functions/espaceConnexion.php'); ?>
+<?php require('public/functions/espaceConnexion.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -36,57 +36,51 @@
     </section>
 
     <section id="page2">
+        
         <!-- Aperçu du premier épisode -->
-        <h2>Présentation du livre et petit lien vers le premier épisodes.</h2>
-        <aside id="conteneurBlock">
-            <div class="blockEpisode">
-                <h3 class="titreEpisode">Episode
-                    <?= htmlspecialchars($data['numeroEpisode']) ?>
-                </h3>
-                <img class="imageEpisode" src="public/images/alaska.jpg" alt="imageEpisode">
-                <p class="dateEpisode">publié le
-                    <?= htmlspecialchars($data['datePublication']) ?>
-                </p>
-                <p class="textEpisode">
-                    <?= htmlspecialchars($data['description']) ?>
-                </p>
-                <div id="conteneurButtonEpisode">
-                    <a href="controller/lireBlogController.php?episode=<?= $data['numeroEpisode'] ?>">
-                        <button class="buttonEpisode">Voir l'épisode</button>
-                    </a>
-                </div>
-            </div>
+        <h2>Le commencement ce fait toujours par le premier épisode :)</h2>
+
+        <aside id="blockPremierEpisode">
+            <h3 class="numeroEpisode">Episode <?= htmlspecialchars($data['numeroEpisode']) ?></h3>
+            <h4 class="titreEpisode"><?= htmlspecialchars($data['titre']) ?></h4>
+            <p class="textEpisode"><?= htmlspecialchars($data['description']) ?></p>
+            <p class="dateEpisode">publié le <?= htmlspecialchars($data['datePublication']) ?></p>
+            <a href="controller/lireBlogController.php?episode=<?= $data['numeroEpisode'] ?>">
+                <button class="buttonEpisode">Lire l'épisode</button>
+            </a>
         </aside>
 
+
         <!-- Aperçu des trois derniers épisodes -->
-        <h2>Last Episode (montre les trois deniers episodes)</h2>
-        <?php while ($datas = $episodes->fetch()) { ?>
-        <aside id="conteneurBlock">
-            <div class="blockEpisode">
-                <h3 class="titreEpisode">Episode
-                    <?= htmlspecialchars($datas['numeroEpisode']) ?>
-                </h3>
+        <h2>Les trois derniers épisodes actuels</h2>
+        
+        <section id="conteneurBlockLastEpisode">
+            <?php while ($datas = $episodes->fetch()) { ?>
+            <aside class="blockLastEpisode">
+                <h3 class="titreEpisode">Episode<?= htmlspecialchars($datas['numeroEpisode']) ?></h3>
                 <img class="imageEpisode" src="public/images/alaska.jpg" alt="imageEpisode">
-                <p class="dateEpisode">publié le
-                    <?= htmlspecialchars($datas['datePublication']) ?>
-                </p>
-                <p class="textEpisode">
-                    <?= htmlspecialchars($datas['description']) ?>
-                </p>
+                <p class="dateEpisode">publié le <?= htmlspecialchars($datas['datePublication']) ?></p>
+                <p class="textEpisode"><?= htmlspecialchars($datas['description']) ?></p>
                 <div id="conteneurButtonEpisode">
                     <a href="controller/lireBlogController.php?episode=<?= $datas['numeroEpisode'] ?>">
-                                <button class="buttonEpisode">Voir l'épisode</button>
-                            </a>
+                        <button class="buttonEpisode">Lire l'épisode</button>
+                    </a>
                 </div>
-            </div>
-        </aside>
-        <?php } $episodes->closeCursor(); ?>
+            </aside>
+            <?php } $episodes->closeCursor(); ?>
+        </section>
         
+        <p>Vous avez appréciez le livre ou meme certains épisodes ? </p>
+        <p> Dites nous votre ressentis en laissant un commentaire ! :p</p>
+         <a href="controller/listesEpisodesController.php">
+        <button>Listes des episodes</button>
+        </a>
     </section>
     <hr>
     <footer>© 2018 - Mentions Légales -</footer>
 
-   
+  
+
 </body>
 
 </html>

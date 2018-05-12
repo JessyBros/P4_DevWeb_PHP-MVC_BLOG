@@ -29,7 +29,7 @@ function editerUnEpisode()
     }
     
 }
- /* DONT WORK !
+
 function episodeClickUtilisateur()
 {
     if (episodeClickUtilisateur)
@@ -44,4 +44,3 @@ function episodeClickUtilisateur()
     }
 }
 
-*/

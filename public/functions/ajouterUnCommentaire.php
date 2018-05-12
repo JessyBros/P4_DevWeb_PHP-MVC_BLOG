@@ -1,12 +1,13 @@
-<?php
- 
-if (isset($_POST['publie']))   
+<?php 
+if ( isset($_POST['publie']) )
 {
-    if ( isset($_POST['numeroEpisode']) && isset($_POST['autheur']) && isset($_POST['commentaire']) )
-    {
-        
-        
-        if ($postComment)
+    $postNumeroEpisode = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
+    $postAutheur = isset($_POST['autheur']) ? $_POST['autheur'] : NULL;
+    $postCommentaire = isset($_POST['commentaire']) ? $_POST['commentaire'] : NULL;
+    
+   $postComment = $commentManager->postComment($postNumeroEpisode,$postAutheur,$postCommentaire);
+    
+      if ($postComment)
         {
     ?>
     <script language="Javascript">
@@ -15,12 +16,11 @@ if (isset($_POST['publie']))
     <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js-->
     <?php
 
-            echo"commentaire ajouté";        
+            echo '<script>alert(" commentaire ajouté ");</script>';        
         }
         else
         {
-            echo"commentaire non ajouté";  
+           echo '<script>alert(" Erreur, aucun commentaire n\'a été ajouté ");</script>';
         }
-    }
+    
 }
-?>

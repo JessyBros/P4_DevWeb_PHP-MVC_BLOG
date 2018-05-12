@@ -13,9 +13,10 @@
 
 
 <body>
+    <div>
     <button onclick="ajouterUnEpisode()">ajouter un épisode</button>
     <button onclick="editerUnEpisode()" id="editerUnEpisode">editer un épisode</button>
-    
+    </div>
     <!-- Apparait au click du boutton éditer un épisode -->
     <section id="apercuDesEpisodes">        
     <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
@@ -54,6 +55,22 @@
     </form>
     
     <script src="../public/js/gestionEpisodes.js"></script>
+    <style>
+#formAjouter, #apercuDesEpisodes, /*#formEditionEpisode*/
+{
+    display: none;
+}
+#editezUnEpisode
+{
+    display: block;
+}
+
+#formAjouter
+{
+    border: 2px solid black;
+    background-color: red;
+    
+}</style>
 </body>
 
 </html>
