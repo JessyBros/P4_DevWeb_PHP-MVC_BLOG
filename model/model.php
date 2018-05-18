@@ -64,10 +64,10 @@ class PostManager{
                 return $commentaires;
             }
 
-            public function postComment() // insère un commentaire
+            public function postComment($postNumeroEpisode,$postAutheur,$postCommentaire) // insère un commentaire
             {
                $connexion = $this->connexion($postNumeroEpisode,$postAutheur,$postCommentaire);
-                $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES( "'.$_POST['numeroEpisode'].'", "'.$_POST['autheur'].'", "'.$_POST['commentaire'].'", NOW())');
+                $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES(?,?,?, NOW())');
                 $commentaires->execute(array(
                     $postNumeroEpisode,
                     $postAutheur,

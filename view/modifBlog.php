@@ -1,14 +1,15 @@
-<?php require('../public/functions/ajouterUnEpisode.php'); ?>
-<?php require('../public/functions/modifierUnEpisode.php'); ?>
-<?php require('../public/functions/supprimerUnEpisode.php'); ?>
+<?php require('public/functions/ajouterUnEpisode.php'); ?>
+<?php require('public/functions/modifierUnEpisode.php'); ?>
+<?php require('public/functions/supprimerUnEpisode.php'); ?>
 
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    <link href="../public/css/modifBlog.css" rel="stylesheet" />
-    <title>Modification du blog</title>
     
+    <link href="public/css/modifBlog.css" rel="stylesheet" />
+    <title>Modification du blog</title>
+    <script src="public/js/gestionEpisodes.js"></script>
 </head>
 
 
@@ -54,7 +55,7 @@
         <input type="submit" name="publie" value="Publié" />
     </form>
     
-    <script src="../public/js/gestionEpisodes.js"></script>
+    
     <style>
 #formAjouter, #apercuDesEpisodes, /*#formEditionEpisode*/
 {

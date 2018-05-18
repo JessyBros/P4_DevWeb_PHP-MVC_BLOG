@@ -2,7 +2,11 @@ Cahier des charges Blog PHP
 
 
 -mot de passe dans la base de donné protéger par un crypt.
+- voir UML
 
+PAGE Utilisateur:
+-Mettre en place le meme header 
+ return page accueil, lites episodes et episodes.
 
 PAGE : lectureBlog.php.
 

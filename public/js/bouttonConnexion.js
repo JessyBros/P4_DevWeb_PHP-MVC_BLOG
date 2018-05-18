@@ -1,4 +1,16 @@
- function connexion()
+var buttonConnexion = true; 
+
+function connexion()
 {
-    document.getElementById('conteneurConnexion').style.display = "block";
+    if (buttonConnexion)
+    {
+        document.getElementById('conteneurConnexion').style.display = "block";
+        buttonConnexion  = false;
+    }
+    else
+    {
+        document.getElementById('conteneurConnexion').style.display = "none";
+        buttonConnexion  = true;
+    }
+    
 }

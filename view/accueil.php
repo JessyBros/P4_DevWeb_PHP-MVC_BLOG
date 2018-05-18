@@ -1,4 +1,4 @@
-<?php require('public/functions/espaceConnexion.php'); ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -7,29 +7,17 @@
     <meta charset="utf-8" />
     <title>Mon blog</title>
     <link href="public/css/accueil.css" rel="stylesheet" />
-    <script src="public/js/bouttonConnexion.js"></script>
+    <script src="public/js/menuEpisode.js"></script>
+    
 
 </head>
 
 <body>
-    <header>
-        <div>
-            <img src="public/images/jeanForteroche.jpg" alt="Billet pour l'alaska">
-            <a href="controller/lireBlogController.php">
-                <h1>Jean Forteroche</h1>
-            </a>
-        </div>
-        <button id="connexion" onclick="connexion()">Connexion</button>
-
-        <!-- Espace connexion qui apparait au click du boutton connexion en position fixed -->
-        <div id="conteneurConnexion">
-            <form action="index.php" method="post">
-                <p><input name="pseudo" placeholder="pseudo" id="pseudo" type="text"></p>
-                <p><input name="motDePasse" placeholder="Mot de passe" id="password" type="password"></p>
-                <p><input value="connectez-Vous" name="connectezVous" type="submit"></p>
-            </form>
-        </div>
-    </header>
+    <?php 
+    require('public/textFunctions/header.php');
+    require('public/textFunctions/formConnexion.php');
+?>
+   
 
     <section id="page1">
         <h1>Un billet simple pour l'alaska</h1>
@@ -45,7 +33,7 @@
             <h4 class="titreEpisode"><?= htmlspecialchars($data['titre']) ?></h4>
             <p class="textEpisode"><?= htmlspecialchars($data['description']) ?></p>
             <p class="dateEpisode">publié le <?= htmlspecialchars($data['datePublication']) ?></p>
-            <a href="controller/lireBlogController.php?episode=<?= $data['numeroEpisode'] ?>">
+            <a  href="index.php?action=lectureEpisode&amp;episode=<?= htmlspecialchars($data['numeroEpisode']) ?>">
                 <button class="buttonEpisode">Lire l'épisode</button>
             </a>
         </aside>
@@ -61,25 +49,23 @@
                 <img class="imageEpisode" src="public/images/alaska.jpg" alt="imageEpisode">
                 <p class="dateEpisode">publié le <?= htmlspecialchars($datas['datePublication']) ?></p>
                 <p class="textEpisode"><?= htmlspecialchars($datas['description']) ?></p>
-                <div id="conteneurButtonEpisode">
-                    <a href="controller/lireBlogController.php?episode=<?= $datas['numeroEpisode'] ?>">
-                        <button class="buttonEpisode">Lire l'épisode</button>
-                    </a>
-                </div>
+                <a  href="index.php? action=lectureEpisode&amp;episode=<?= $datas['numeroEpisode'] ?>">
+                    <button class="buttonEpisode">Lire l'épisode</button>
+                </a>
             </aside>
+            
             <?php } $episodes->closeCursor(); ?>
+           
         </section>
         
         <p>Vous avez appréciez le livre ou meme certains épisodes ? </p>
         <p> Dites nous votre ressentis en laissant un commentaire ! :p</p>
-         <a href="controller/listesEpisodesController.php">
+         <a  href="index.php? action=listesEpisodes">
         <button>Listes des episodes</button>
         </a>
     </section>
     <hr>
     <footer>© 2018 - Mentions Légales -</footer>
-
-  
 
 </body>
 

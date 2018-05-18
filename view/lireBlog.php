@@ -1,33 +1,29 @@
-<?php require('../public/functions/ajouterUnCommentaire.php'); ?>
-<?php require('../public/functions/buttonEpisodeSuivPrec.php'); ?>
+<?php require('public/functions/ajouterUnCommentaire.php'); ?>
+<?php require('public/functions/buttonEpisodeSuivPrec.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <title>Mon blog</title>
-    <link href="../public/css/lireBlog.css" rel="stylesheet" />
-    <script src="../public/js/menuEpisode.js"></script>
+    <link href="public/css/lireBlog.css" rel="stylesheet" />
+    <script src="public/js/menuEpisode.js"></script>
+
 
 </head>
 
 <body>
     <!-- En tête en position fixed -->
-    <header>
-        <p><a href="../index.php">Un billet simple pour l'Alaska</a></p>
-        <nav id="choixEpisode">Choix de l'épisode
-            <ul id="menuEpisode" style="display:none;">
-                <?php while ($choixDeLepisode = $choixEpisode->fetch()) { ?>
-                <li><a href="lireBlogController.php?episode=<?= $choixDeLepisode['numeroEpisode']?>">episode <?= $choixDeLepisode['numeroEpisode'] ?></a></li>
-                <?php } $choixEpisode->closeCursor(); ?>
-            </ul>
-        </nav>
-    </header>
+<?php 
+    require('public/textFunctions/header.php');
+    require('public/textFunctions/formConnexion.php');
+?>
+  
 
     <!-- Visuel de l'épisode -->
     <section id="corpsDeLaPage">
         <aside id="blockEpisode">
             <div class="headerEpisode">
-                <img class="imageEpisode" src="../public/images/alaska.jpg" alt="image" />
+                <img class="imageEpisode" src="public/images/alaska.jpg" alt="image" />
                 <div class="libeleEpisode">
                     <h2>Episode
                         <?= htmlspecialchars($post['numeroEpisode']) ?> 
@@ -42,10 +38,11 @@
                 <?= htmlspecialchars($post['texte']) ?>
             </article>
             <div id="conteneurEpisodeSuivPrec">
-                <a href="lireBlogController.php?episode=<?= $post['numeroEpisode']-1 ?>">
+                
+                <a href="index.php?action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']-1 ?>">
                 <button class="episodePrec">Episode précédent</button>
             </a>
-                <a href="lireBlogController.php?episode=<?= $post['numeroEpisode']+1 ?>">
+                <a href="index.php?action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']+1 ?>">
                 <button class="episodeSuiv">Episode suivant</button>
             </a>
             </div>
@@ -59,7 +56,7 @@
                         Écrivez votre commentaire !
                     </h3>
                 </div>
-                <form action="lireBlogController.php?episode=<?= $post['numeroEpisode']?>" method="post">
+                <form action="index.php? action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']?>" method="post">
                     <div>
                         <label for="autheur">Choisissez votre Pseudo</label><br />
                         <input type="text" id="autheur" name="autheur" />
@@ -93,6 +90,7 @@
                     <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
                 </p>
             </div>
+            <button>Signaler</button>
             <?php } $commentaires->closeCursor(); ?>
         </aside>
     </section>

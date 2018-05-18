@@ -18,8 +18,10 @@ a{
     text-decoration: none;
 }
 
-header
+#titre
 {
+    position: relative;
+    top:50px;
     text-align: center;
 }
 

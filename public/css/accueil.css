@@ -27,57 +27,7 @@ a{
     text-decoration: none;
 }
 
-
-header{
-    display: flex;
-    justify-content: space-around;
-    position: fixed;
-    z-index: 1;
-    height: 80px;
-    width: 100%;
-    background-color: #161b26;
-    border-bottom: 2px solid #8b9937;
-}
-header div{
-    display: flex;
-}
-    header img{
-        height: 100%;
-        width: 80px;
-    }
-
-    header h1{
-        
-        align-self: center;
-        color: #161b26;
-        text-shadow: 1px 1px 2px #8b9937; 
-    }
-    #connexion{
-        background-color: #161b26;
-        height:25px;
-        color: #8b9937;
-        border: 1px solid #8b9937;
-        border-radius: 5px;
-        align-self: center;
-    }
-    #connexion:hover{
-        background-color: #8b9937;
-        color: #161b26;
-    }
-    #conteneurConnexion{
-        display: none;
-        height: 175px;
-        width: 270px;
-        position: fixed;
-        top: 150px;
-        left: 50%;
-        margin-left: -135px;
-        background-color: #161b26;
-        border: 2px solid #8b9937;
-        border-radius: 5px;
-        z-index: 2;
-        text-align: center;
-    }
+ 
 #page1{
     position: relative;
     width: 100%;
@@ -122,31 +72,6 @@ header div{
          #blockPremierEpisode:hover #conteneurButtonEpisode{
             border-top: 1px solid white; 
         }
-
-            .dateEpisode{
-                color: grey;
-                font-style: italic;
-                margin: 0;
-                padding: 0;
-                font-size: 80%;
-                text-align: left;
-            }
-            .textEpisode{
-               height:105px;
-               color: orange;
-            }
-            
-            .buttonEpisode{
-                position: relative;
-                bottom: 10px;
-                display: inline;
-                text-align: center;
-                background-color: #161b26;
-                color: #8b9937;
-                border: 1px solid #8b9937;
-                border-radius: 5px;
-            }
-        
         #conteneurBlockLastEpisode {
             display: flex;
             flex-wrap: wrap;
@@ -167,13 +92,43 @@ header div{
 
         .blockLastEpisode {
             width: 250px;
-            min-height: 150px;
+            height: 350px;
             border-radius: 10px;
             border: 2px solid grey;
-            margin: 0 10px 10px 10px;
             text-align: center;
             margin : 10px;
         }
+
+
+            .dateEpisode{
+                color: grey;
+                font-style: italic;
+                margin: 0;
+                padding: 0;
+                font-size: 80%;
+                text-align: left;
+            }
+            .textEpisode{
+               height:75px;
+               color: orange;
+            }
+            
+            .buttonEpisode{
+                position: relative;
+                bottom: 10px;
+                display: inline;
+                text-align: center;
+                background-color: #161b26;
+                color: #8b9937;
+                border: 1px solid #8b9937;
+                border-radius: 5px;
+            }
+        
+        
+            .imageEpisode{
+                width: 100%;
+                height: 150px;
+            }
 
 
 footer{

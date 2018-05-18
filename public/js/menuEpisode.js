@@ -1,13 +1,13 @@
-var menuEpisode = document.getElementById("menuEpisode");
 menu = true;
 
 // fonction au clik de l'utilisateur
-document.getElementById("choixEpisode").addEventListener("click", function (e) {
+function choixEpisode()
+{
     if (menu) {
-        menuEpisode.style.display = "block";
+        document.getElementById("menuEpisode").style.display = "block";
         menu = false;
     } else {
-        menuEpisode.style.display = "none";
+        document.getElementById("menuEpisode").style.display = "none";
         menu = true;
     }
 });

@@ -9,13 +9,15 @@ if ( isset($_POST['publie']) )
     
       if ($postComment)
         {
-    ?>
+          
+   /*?>
     <script language="Javascript">
-        document.location.replace("lireBlogController.php?episode=<?= $post['numeroEpisode']?>");
+        document.location.replace("index.php?action=lectureEpisode&;episode=<?= $postNumeroEpisode ?>");
     </script>
     <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js-->
-    <?php
-
+    <?php*/
+       
+header("Location: index.php?action=lectureEpisode&episode=$postNumeroEpisode");
             echo '<script>alert(" commentaire ajouté ");</script>';        
         }
         else
