@@ -8,6 +8,10 @@ try {
         {
             accueil();
         }
+         elseif ($_GET['action'] == 'connexion') 
+        {
+            connexion();
+        }
          elseif ($_GET['action'] == 'listesEpisodes') 
         {
             listesEpisodes();

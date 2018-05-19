@@ -15,7 +15,7 @@
     <!-- En tête en position fixed -->
 <?php 
     require('public/textFunctions/header.php');
-    require('public/textFunctions/formConnexion.php');
+    
 ?>
   
 

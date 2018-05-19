@@ -15,7 +15,7 @@
 <body>
     <?php 
     require('public/textFunctions/header.php');
-    require('public/textFunctions/formConnexion.php');
+    
 ?>
    
 

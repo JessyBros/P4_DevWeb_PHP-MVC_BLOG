@@ -17,7 +17,7 @@ var episodeClickUtilisateur = true;
 }
 function editerUnEpisode()
 {
-     if (formEditer)
+    if (formEditer)
     {
         document.getElementById("apercuDesEpisodes").style.display = "inline-block";
         formEditer  = false;

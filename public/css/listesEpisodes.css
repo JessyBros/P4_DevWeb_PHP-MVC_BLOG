@@ -18,17 +18,27 @@ a{
     text-decoration: none;
 }
 
-#titre
+#corpsDeLaPage
 {
     position: relative;
-    top:50px;
-    text-align: center;
+    top: 80px;
+    width: 100%;
+    max-width: 1500px;
+    margin: auto; 
 }
+    #titre
+    {
+        font-size: 150%;
+        text-align: center;
+    }
 
-.blockEpisodes
-{
-    background-color: white;
-    margin: 10px auto 10px auto;
-    min-width: 250px;
-    width: 60%;
-}
+        .blockEpisodes
+    {
+        position: relative;
+        background-color: white;
+        margin: 10px auto 10px auto;
+        min-width: 250px;
+        width: 60%;
+    }
+    
+

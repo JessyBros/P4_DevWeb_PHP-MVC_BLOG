@@ -3,8 +3,7 @@ require('model/model.php');
 
 function accueil()
 {
-    $connexionManager = new PostManager(); /* connexion à l'espace modérateur */
-    $connexion = $connexionManager-> connexionDuModerateur(); 
+   
     
     $commentManager = new PostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
@@ -18,10 +17,34 @@ function accueil()
     require('view/accueil.php');
 }
 
-function lectureEpisode()
+function connexion()
 {
     $connexionManager = new PostManager(); /* connexion à l'espace modérateur */
-    $connexion = $connexionManager-> connexionDuModerateur(); 
+    $connexion = $connexionManager-> connexionDuModerateur();
+    
+    $commentManager = new PostManager(); /* header */
+    $choixEpisode = $commentManager->choixEpisode();
+
+    require('view/connexion.php');
+
+}
+
+function listesEpisodes()
+{
+    $commentManager = new PostManager(); /* header */
+    $choixEpisode = $commentManager->choixEpisode();
+
+    $listesEpisodesManager = new PostManager(); /* Listes de chaque épisodes crées*/
+    $listesEpisodes = $listesEpisodesManager->listesEpisodes();
+
+
+    require('view/listesEpisodes.php');
+
+}
+
+function lectureEpisode()
+{
+   
     
     $commentManager = new PostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
@@ -69,15 +92,4 @@ function modifEpisode()
     require('view/modifBlog.php');
 }
 
-function listesEpisodes()
-{
-    $commentManager = new PostManager(); /* header */
-    $choixEpisode = $commentManager->choixEpisode();
 
-    $listesEpisodesManager = new PostManager(); /* Listes de chaque épisodes crées*/
-    $listesEpisodes = $listesEpisodesManager->listesEpisodes();
-
-
-    require('view/listesEpisodes.php');
-
-}
