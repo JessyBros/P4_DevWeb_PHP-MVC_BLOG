@@ -1,0 +1,20 @@
+   h1, p{color: red;}
+    
+    #conteneurConnexion{
+        position: relative;
+        top: 150px;
+       height: 300px;
+        min-width: 270px;
+        width: 60%;
+       margin: auto;
+        background-color: #161b26;
+        border: 2px solid #8b9937;
+        border-radius: 5px;
+        z-index: 2;
+        text-align: center;
+    }
+    
+    #conteneurConnexion input {
+        text-align: center;
+        width: 50%;
+    }

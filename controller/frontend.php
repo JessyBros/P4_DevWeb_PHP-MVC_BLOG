@@ -14,7 +14,7 @@ function accueil()
     $postManagers = new PostManager(); // aperçu des trois derniers épisodes
     $episodes = $postManagers->dernierEpisode(); 
 
-    require('view/accueil.php');
+    require('view/utilisateur/accueil.php');
 }
 
 function connexion()
@@ -25,7 +25,7 @@ function connexion()
     $commentManager = new PostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    require('view/connexion.php');
+    require('view/utilisateur/connexion.php');
 
 }
 
@@ -38,7 +38,7 @@ function listesEpisodes()
     $listesEpisodes = $listesEpisodesManager->listesEpisodes();
 
 
-    require('view/listesEpisodes.php');
+    require('view/utilisateur/listesDesEpisodes.php');
 
 }
 
@@ -61,7 +61,7 @@ function lectureEpisode()
 
     $commentManager = new PostManager();  /* ajout un commentaire de la part de l'utilisateur */
 
-    require('view/lireBlog.php');
+    require('view/utilisateur/lecturesDesEpisodes.php');
 
 }
 
@@ -89,7 +89,7 @@ function modifEpisode()
 
     $suppressionEpisodeManagers = new PostManager();
 
-    require('view/modifBlog.php');
+    require('view/moderateur/espaceModerateur.php');
 }
 
 

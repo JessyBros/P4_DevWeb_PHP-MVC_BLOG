@@ -1,8 +1,8 @@
 <?php
 class PostManager{
 
-    
-     private function connexion()// connexion à la base de donné
+    // connexion à la BASE DE DONNE
+     private function connexion()
     {
         try
         {
@@ -14,54 +14,54 @@ class PostManager{
         }
         return $db;
     }
-            //Page d'accueil
-            public function premierEpisode() // affiche le premier episode
-            {
-                $connexion = $this-> connexion();
-                $req = $connexion->query('SELECT * FROM tableepisode Limit 1');
-                $req->execute(array());
-                $post = $req->fetch();
-
-                return $post;
-            }
-
-
-            public function dernierEpisode() // affiche les trois dernier episode
-            {   
-                $connexion = $this-> connexion();
-                $req = $connexion->query('SELECT * FROM tableepisode ORDER BY id DESC Limit 3');
-                return $req;
-            }
-
-            public function connexionDumoderateur() // permet à Jean Forteroche de se connecter
-            {   
-                $connexion = $this-> connexion();
-                $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
-                $req->execute(array());
-                $post = $req->fetch();
-
-                return $post;
-            }
-        
-            //Page LectureDuBlog 
-            public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
-                {   
-                    $connexion = $this-> connexion($postId);
-                    $req = $connexion->prepare('SELECT id, numeroEpisode, titre, texte FROM tableepisode WHERE numeroEpisode = ?');
-                    $req->execute(array($postId));
-                    $post = $req->fetch();
-
-                    return $post;
-                }
     
-            // LES COMMENTAIRES
-            public function getComments($postId) // montre les commentaire du plus récents au plus ancien
-            {
-                $connexion = $this->connexion();
-                $commentaires = $connexion->prepare('SELECT id, autheur, commentaire, DATE_FORMAT(dateDuCommentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM commentaires WHERE post_id = ? ORDER BY dateDuCommentaire DESC');
-                $commentaires->execute(array($postId));
+    
+    // --- ESPACE UTILISATEUR --- \\
+    
+    // page d'accueil \\
+    
+    public function premierEpisode() // affiche le premier episode
+    {
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT * FROM tableepisode Limit 1');
+        $req->execute(array());
+        $post = $req->fetch();
+        return $post;
+    }
 
-                return $commentaires;
+    public function dernierEpisode() // affiche les trois dernier episode
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT * FROM tableepisode ORDER BY id DESC Limit 3');
+        return $req;
+    }
+
+    public function connexionDumoderateur() // permet à Jean Forteroche de se connecter
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
+        $req->execute(array());
+        $post = $req->fetch();
+        return $post;
+    }
+        
+    // page lectureDesEpisodes \\
+    public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
+    {   
+        $connexion = $this-> connexion($postId);
+        $req = $connexion->prepare('SELECT id, numeroEpisode, titre, texte FROM tableepisode WHERE numeroEpisode = ?');
+        $req->execute(array($postId));
+        $post = $req->fetch();
+        return $post;
+    }
+    
+    // LES COMMENTAIRES
+    public function getComments($postId) // montre les commentaire du plus récents au plus ancien
+    {
+        $connexion = $this->connexion();
+        $commentaires = $connexion->prepare('SELECT id, autheur, commentaire, DATE_FORMAT(dateDuCommentaire, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM commentaires WHERE post_id = ? ORDER BY dateDuCommentaire DESC');
+        $commentaires->execute(array($postId));
+        return $commentaires;
             }
 
             public function postComment($postNumeroEpisode,$postAutheur,$postCommentaire) // insère un commentaire

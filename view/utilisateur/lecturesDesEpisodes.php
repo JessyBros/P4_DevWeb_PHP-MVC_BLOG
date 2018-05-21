@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Mon blog</title>
-    <link href="public/css/lireBlog.css" rel="stylesheet" />
+    <link href="public/css/utilisateur/lecturesDesEpisodes.css" rel="stylesheet" />
     <script src="public/js/menuEpisode.js"></script>
 
 

@@ -6,7 +6,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Mon blog</title>
-    <link href="public/css/accueil.css" rel="stylesheet" />
+    <link href="public/css/utilisateur/accueil.css" rel="stylesheet" />
     <script src="public/js/menuEpisode.js"></script>
     
 
