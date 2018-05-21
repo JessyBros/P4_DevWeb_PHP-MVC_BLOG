@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<?php require('public/textFunctions/header.php');?>
+<?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
 <div id="conteneurConnexion">
     <h1>Connexion</h1>

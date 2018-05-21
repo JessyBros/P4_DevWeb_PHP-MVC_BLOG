@@ -12,3 +12,8 @@ body {
 a{
     text-decoration: none;
 }
+
+#corpsDeLaPage{
+    position: relative;
+    top:50px;
+}

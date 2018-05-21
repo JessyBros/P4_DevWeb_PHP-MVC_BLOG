@@ -1,4 +1,4 @@
-html, body {
+html, body{
     margin: 0;
     padding: 0;
 }
@@ -11,4 +11,20 @@ body {
 }
 a{
     text-decoration: none;
+    margin: 0;
+}
+
+#corpsDeLaPage{
+    position: relative;
+    top: 150px;
+    text-align: center;
+}
+
+#corpsDeLaPage p{
+    min-width: 270px;
+    width: 30%;
+    font-size: 200%;
+    border: 2px solid black;
+    border-radius: 2px;
+    margin: 50px auto;   
 }

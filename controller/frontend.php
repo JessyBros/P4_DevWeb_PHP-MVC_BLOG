@@ -66,30 +66,52 @@ function lectureEpisode()
 }
 
 
-function modifEpisode()
+function espaceModerateur()
 {
-    $ajoutEpisodeManagers = new PostManager(); // Création d'un objet
+    
+    require('view/moderateur/espaceModerateur.php');
+}
 
-    $nombreduDernierEpisodeManager = new PostManager();
+function apercuDesEpisodes()
+{
+    $listEpisodeManagers = new PostManager(); 
+    $listEpisode = $listEpisodeManagers->listEpisode(); 
+    require('view/moderateur/apercuDesEpisodes.php');
+}
+
+function ajouterUnEpisode()
+{
+    $ajoutEpisodeManagers = new PostManager();
+    
+     $nombreduDernierEpisodeManager = new PostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
+    
+    require('view/moderateur/ajouterUnEpisode.php');
+}
 
-    $listEpisodeManagers = new PostManager(); // Création d'un objet
-    $listEpisode = $listEpisodeManagers->listEpisode(); // Appel d'une fonction de cet objet
-
-    $donnéesEpisodeManager = new PostManager();
-        $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
-    $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
-
+function modifierUnEpisode()
+{
     $modificationEpisodeManagers = new PostManager();
          $modifNumeroEpisode = isset($_POST['modifNumeroEpisode']) ? $_POST['modifNumeroEpisode'] : NULL;
          $modifTitre = isset($_POST['modifTitre']) ? $_POST['modifTitre'] : NULL;
          $modifDescription = isset($_POST['modifDescription']) ? $_POST['modifDescription'] : NULL;
          $modifTexte= isset($_POST['modifTexte']) ? $_POST['modifTexte'] : NULL;
     $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode);
-
-    $suppressionEpisodeManagers = new PostManager();
-
-    require('view/moderateur/espaceModerateur.php');
+    
+    $donnéesEpisodeManager = new PostManager();
+        $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
+    $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
+    
+    require('view/moderateur/modifierUnEpisode.php');
 }
 
+function supprimerUnEpisode()
+{
+    $suppressionEpisodeManagers = new PostManager();
+    require('view/moderateur/supprimerUnEpisode.php');
+}
 
+function signalerUnCommentaire()
+{
+    require('view/moderateur/signalerUnCommentaire.php');
+}

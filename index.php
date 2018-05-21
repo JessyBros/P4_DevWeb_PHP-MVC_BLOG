@@ -8,11 +8,11 @@ try {
         {
             accueil();
         }
-         elseif ($_GET['action'] == 'connexion') 
+        elseif ($_GET['action'] == 'connexion') 
         {
             connexion();
         }
-         elseif ($_GET['action'] == 'listesEpisodes') 
+        elseif ($_GET['action'] == 'listesEpisodes') 
         {
             listesEpisodes();
         }
@@ -20,9 +20,29 @@ try {
         {
             lectureEpisode();
         }
-        elseif ($_GET['action'] == 'modifEpisode')
+        elseif ($_GET['action'] == 'espaceModerateur')
         {
-             modifEpisode();
+             espaceModerateur();
+        }
+        elseif ($_GET['action'] == 'apercuDesEpisodes') 
+        {
+            apercuDesEpisodes();
+        }
+        elseif ($_GET['action'] == 'ajouterUnEpisode') 
+        {
+            ajouterUnEpisode();
+        }
+          elseif ($_GET['action'] == 'modifierUnEpisode') 
+        {
+            modifierUnEpisode();
+        }
+          elseif ($_GET['action'] == 'supprimerUnEpisode') 
+        {
+            supprimerUnEpisode();
+        }
+          elseif ($_GET['action'] == 'signalerUnCommentaire') 
+        {
+            signalerUnCommentaire();
         }
         else
         {

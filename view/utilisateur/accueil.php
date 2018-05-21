@@ -13,10 +13,7 @@
 </head>
 
 <body>
-    <?php 
-    require('public/textFunctions/header.php');
-    
-?>
+    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
    
 
     <section id="page1">

@@ -1,27 +1,39 @@
-
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
-    
-    <link href="public/css/modifBlog.css" rel="stylesheet" />
-    <title>Modification du blog</title>
-    <script src="public/js/gestionEpisodes.js"></script>
+    <link href="public/css/moderateur/espaceModerateur.css" rel="stylesheet" />
+    <title>EspaceDuModérateur</title>
+    <script src="public/js/menuModerateur.js"></script>
 </head>
 
 
 <body>
-  
-    <!-- Apparait au click du boutton éditer un épisode -->
-  
+   <?php require('public/textFunctions/headerModerateur.php'); ?>
     
+<section id="corpsDeLaPage">
+    
+    <a  href="index.php? action=apercuDesEpisodes">
+        <p>Aperçu des épisodes</p>
+    </a>
      
-     
-    <!-- Au click de éditer, affichez tous les épisodes par ligne.
-        au click d'un des épisodes afficher sur la droite l'épisode correspondant avec le boutton modifier et supprimer
-        si modifier >>> modifier, si supprimer >> etes vous sur?>>> si oui supprimer
-        -->
-  
+    <a  href="index.php? action=ajouterUnEpisode">
+        <p>Ajouter un épisode</p>
+    </a>
+    
+    <a  href="index.php? action=modifierUnEpisode">
+        <p>Modifier un épisode</p>
+    </a>
+    
+    <a  href="index.php? action=supprimerUnEpisode">
+        <p>supprimer un épisode</p>
+    </a>
+    
+    <a  href="index.php? action=signalerUnCommentaire">
+        <p>Les commentaires signalés</p>
+    </a>
+
+</section>
 
 </body>
 

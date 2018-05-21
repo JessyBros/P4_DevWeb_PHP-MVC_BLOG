@@ -1,6 +1,22 @@
 <?php require('public/functions/ajouterUnEpisode.php'); ?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link href="public/css/moderateur/ajouterUnEpisode.css" rel="stylesheet" />
+    <title>ajouter un épisode</title>
+    <script src="public/js/menuModerateur.js"></script>
+</head>
 
-<form action="modifBlogController.php" method="post" id="formAjouter">
+
+<body>
+   <?php require('public/textFunctions/headerModerateur.php'); ?>
+    
+<section id="corpsDeLaPage">
+
+    <h1>Ajouter un épisode</h1>
+    
+    <form action="index.php?action=ajouterUnEpisode" method="post" id="formAjouter">
         <p>Episode
             <?= htmlspecialchars($nombreduDernierEpisode['numeroEpisode'] +1) ?>
         </p>
@@ -11,3 +27,13 @@
         <p>Texte <input name="texte" id="texte" required="" type="text"></p>
         <input type="submit" name="publie" value="Publié" />
     </form>
+    
+</section>
+
+</body>
+
+</html>
+
+
+
+
