@@ -4,10 +4,10 @@ if (isset($_POST['modifier']))
      
     if ($modificationEpisode)
     {
-        echo '<script>alert(" L\'épisode ' . $_POST['numeroEpisode'] . ' a été modifié ");</script>';
+        echo '<script>alert(" L\'épisode ' . $donnéesEpisode['numeroEpisode'] . ' a été modifié ");</script>';
     ?>
     
-        <script language="Javascript">document.location.replace("modifBlogController.php");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
+        <script language="Javascript">document.location.replace("index.php?action=modifierUnEpisode&episode=<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
     }
     else
     {

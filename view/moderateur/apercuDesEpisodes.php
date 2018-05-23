@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,9 +10,33 @@
 
 
 <body>
-   <?php require('public/textFunctions/headerModerateur.php'); ?>
-    
+   
+   <?php require('public/textFunctions/headerModerateur.php'); ?>-
 <section id="corpsDeLaPage">
+     <h1>Aperçu des épisodes</h1>
+    
+     <!-- Affiche un message d'erreur en cas de trafic d'url-->
+    <?php require('public/functions/verificationApercuDesEpisodes.php'); ?>    
+    <div id="message"><?php echo $message ?></div>
+    
+      <aside id="blockEpisode">
+            <div class="headerEpisode">
+                <img class="imageEpisode" src="public/images/alaska.jpg" alt="image" />
+                <div class="libeleEpisode">
+                    <h2>Episode
+                        <?= htmlspecialchars($post['numeroEpisode']) ?> 
+                    </h2>
+                    <h3>
+                        <?= htmlspecialchars($post['titre']) ?>
+                    </h3>
+                </div>
+            </div>
+            <br>
+            <article class="textEpisode">
+                <?= htmlspecialchars($post['texte']) ?>
+            </article>
+       
+        </aside>
 
     <h2>Listes des épisodes</h2>
     
@@ -23,16 +48,9 @@
             </a>
         <?php } $listEpisode->closeCursor(); ?>  
     </nav>
-    <h1>Aperçu des épisodes</h1>
-    
     
 </section>
-
+          
 </body>
 
 </html>
-
-
-  
-
-

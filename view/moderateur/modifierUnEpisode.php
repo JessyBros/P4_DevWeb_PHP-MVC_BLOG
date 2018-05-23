@@ -16,8 +16,12 @@
 
     <h1>Modifier un épisode</h1>
     
+     <!-- Affiche un message d'erreur en cas de trafic d'url-->
+    <?php require('public/functions/verificationModifierUnEpisode.php'); ?>    
+    <div id="message"><?php echo $message ?></div>
+    
     <!-- Montre le formulaire préremplis avec la fonction get-->
-    <form action="modifBlogController.php" method="post" id="formEditionEpisode">
+    <form action="index.php?action=modifierUnEpisode&amp;episode=<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="formEditionEpisode">
         <p>Episode <?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?></p>
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
@@ -26,7 +30,18 @@
         <p>texte : <input name="modifTexte" value="<?= htmlspecialchars($donnéesEpisode['texte']) ?>" required="" type="text"></p>
         <input type="submit" name="modifier" value="modifier l'épisode" />
         <input type="submit" name="supprimer" value="supprimer l'épisode" />
-    </form> 
+    </form>
+    
+    <h2>Listes des épisodes</h2>
+    
+
+    <nav id="apercuDesEpisodes">        
+        <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+         <a href="index.php?action=modifierUnEpisode&amp;episode=<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+             <p onclick="episodeClickUtilisateur()"> Episode <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :  <?= htmlspecialchars($listEpisodes['titre']) ?></p>
+            </a>
+        <?php } $listEpisode->closeCursor(); ?>  
+    </nav>
     
 </section>
 

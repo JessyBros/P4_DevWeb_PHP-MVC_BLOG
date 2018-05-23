@@ -108,7 +108,11 @@ class PostManager{
     
     // page EspaceModerateur \\
     
+    
+    
     // page apercuDesEpisodes \\ 
+    
+    // + function listEpisode() + nombreduDernierEpisode()
     
     public function listEpisode() // affiche tous les épisodes seulement numéro et son titre
     {   
@@ -120,6 +124,8 @@ class PostManager{
      
     
     // page ajouterUnEpisode \\
+    
+     // + function listEpisode()
     
     public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte) // renvoie l'épisode selon le choix de l'utilisateur
     {   
@@ -146,11 +152,19 @@ class PostManager{
     
     // page modifierUnEpisode \\
     
-    public function modificationEpisode($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode) // ne fonctionne pas
+    // + fuction listEpisode() + nombreduDernierEpisode()
+    
+    public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode) // ne fonctionne pas
     {   
-        $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode);
-        $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ? WHERE numeroEpisode = ?');
-        $req->execute(array($modifTitre,$modifDescription,$modifTitre,$modifNumeroEpisode));
+        $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode);
+        $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ? WHERE id = ?');
+        $req->execute(array(
+            $modifTitre,
+            $modifDescription,
+            $modifTexte,
+            $modifNumeroEpisode
+            
+        ));
         return $req;
     }
     

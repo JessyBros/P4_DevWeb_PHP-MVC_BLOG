@@ -17,3 +17,39 @@ a{
     position: relative;
     top:50px;
 }
+#blockEpisode{
+        margin: auto;
+        background-color: aqua;
+        position: relative;
+        top: 10px;
+        width: 100%;
+        border-radius: 10px;
+    }
+        .headerEpisode{
+            display: flex;
+            flex-wrap:wrap;
+        }
+                .imageEpisode{
+                    height: 300px;
+                    width: 284px;
+                    flex: 1;
+                    border-top-left-radius: 10px;
+                }
+                .libeleEpisode{
+                    align-self: center;
+                    font-size: 150%;
+                    text-align: center;
+                    flex: 2;
+                }
+        .textEpisode{
+            text-align: justify;
+            margin-right: 20px;
+            margin-left: 20px;
+        }
+ #message { /*message lors que l'utilisateur trafic l'url*/
+     display: none;
+     height: 400px;
+     line-height: 400px;
+     font-size: 150%;
+     text-align: center;
+}

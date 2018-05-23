@@ -16,7 +16,7 @@ try {
         {
             listesEpisodes();
         }
-        elseif ($_GET['action'] == 'lectureEpisode' && $_GET['episode'] > "0" ) 
+        elseif ($_GET['action'] == 'lectureEpisode' /*&& $_GET['episode'] > "0" */) 
         {
             lectureEpisode();
         }

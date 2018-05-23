@@ -1,5 +1,5 @@
 <?php
-if ($post['numeroEpisode'] <2)
+if (isset($post['numeroEpisode']) <2)
 {
 ?>
 <style>

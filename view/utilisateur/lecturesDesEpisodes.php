@@ -1,5 +1,7 @@
+
 <?php require('public/functions/ajouterUnCommentaire.php'); ?>
 <?php require('public/functions/buttonEpisodeSuivPrec.php'); ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,17 +9,23 @@
     <title>Mon blog</title>
     <link href="public/css/utilisateur/lecturesDesEpisodes.css" rel="stylesheet" />
     <script src="public/js/menuEpisode.js"></script>
-
-
 </head>
 
 <body>
+    
     <!-- En tête en position fixed -->
 <?php require('public/textFunctions/headerUtilisateur.php'); ?>
   
+  
+ 
 
     <!-- Visuel de l'épisode -->
     <section id="corpsDeLaPage">
+        
+        <!-- Affiche un message d'erreur en cas de trafic d'url-->
+        <?php require('public/functions/verificationLecturesDesEpisodes.php'); ?>
+        <div id="message"><?php echo $message ?></div>
+        
         <aside id="blockEpisode">
             <div class="headerEpisode">
                 <img class="imageEpisode" src="public/images/alaska.jpg" alt="image" />
@@ -90,15 +98,14 @@
             <button>Signaler</button>
             <?php } $commentaires->closeCursor(); ?>
         </aside>
+       
     </section>
-
-
+    
     <!-- Pied de page -->
     <footer>
         © 2018 - Mentions Légales -
     </footer>
-
-    <script src="../public/js/menuEpisode.js"></script>
+ 
 </body>
 
 </html>
