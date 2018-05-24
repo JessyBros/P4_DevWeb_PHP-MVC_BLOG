@@ -3,9 +3,12 @@ if(isset($_POST['oui']))
 {  
 
     $supEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
-   $suppressionEpisode = $suppressionEpisodeManagers->suppressionEpisode($supEpisode);//echec
+    $suppressionEpisode = $suppressionEpisodeManagers->suppressionEpisode($supEpisode);
+    
+    $supCommentaire  = isset($donnéesEpisode['numeroEpisode']) ? $_GET['episode'] : NULL;
+    $suppressionCommentaire = $suppressionCommentaireManagers->suppressionCommentaire($supCommentaire);
         
-        if ($suppressionEpisode)
+        if ($suppressionEpisode && $suppressionCommentaire)
         {
             echo '<script>alert(" L\'épisode ' . $donnéesEpisode['numeroEpisode'] . ' a bien été supprimé ");</script>';
          ?>

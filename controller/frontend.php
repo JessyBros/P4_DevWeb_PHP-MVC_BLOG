@@ -1,17 +1,18 @@
 <?php
-require('model/model.php');
+require('model/utilisateur.php');
+require('model/moderateur.php');
 
 function accueil()
 {
    
     
-    $commentManager = new PostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $postManager = new PostManager(); /* aperçu du premier épisode*/
+    $postManager = new UtilisateurPostManager(); /* aperçu du premier épisode*/
     $data = $postManager->premierEpisode();
 
-    $postManagers = new PostManager(); // aperçu des trois derniers épisodes
+    $postManagers = new UtilisateurPostManager(); // aperçu des trois derniers épisodes
     $episodes = $postManagers->dernierEpisode(); 
 
     require('view/utilisateur/accueil.php');
@@ -19,10 +20,10 @@ function accueil()
 
 function connexion()
 {
-    $connexionManager = new PostManager(); /* connexion à l'espace modérateur */
+    $connexionManager = new UtilisateurPostManager(); /* connexion à l'espace modérateur */
     $connexion = $connexionManager-> connexionDuModerateur();
     
-    $commentManager = new PostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
     require('view/utilisateur/connexion.php');
@@ -31,10 +32,10 @@ function connexion()
 
 function listesEpisodes()
 {
-    $commentManager = new PostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $listesEpisodesManager = new PostManager(); /* Listes de chaque épisodes crées*/
+    $listesEpisodesManager = new UtilisateurPostManager(); /* Listes de chaque épisodes crées*/
     $listesEpisodes = $listesEpisodesManager->listesEpisodes();
 
 
@@ -46,28 +47,28 @@ function lectureEpisode()
 {
    
     
-    $commentManager = new PostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $postManager = new PostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
+    $postManager = new UtilisateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
     if (isset($_GET['episode']))
     {
          $post = $postManager->lectureEpisode($_GET['episode']); 
     }
      
 
-    $nombreduDernierEpisodeManager = new PostManager(); /* nombre du dernier épisode */
+    $nombreduDernierEpisodeManager = new UtilisateurPostManager(); /* nombre du dernier épisode */
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
 
 
-    $commentManager = new PostManager();  /* récupère tous les commentaires selon l'épisodes*/
+    $commentManager = new UtilisateurPostManager();  /* récupère tous les commentaires selon l'épisodes*/
     if (isset($_GET['episode']))
     {
           $commentaires = $commentManager->getComments($_GET['episode']);
     }
    
 
-    $commentManager = new PostManager();  /* ajout un commentaire de la part de l'utilisateur */
+    $commentManager = new UtilisateurPostManager();  /* ajout un commentaire de la part de l'utilisateur */
 
     require('view/utilisateur/lecturesDesEpisodes.php');
 
@@ -82,13 +83,13 @@ function espaceModerateur()
 
 function apercuDesEpisodes()
 {
-    $listEpisodeManagers = new PostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new PostManager(); /* nombre du dernier épisode */
+    $nombreduDernierEpisodeManager = new ModerateurPostManager(); /* nombre du dernier épisode */
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $postManager = new PostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
+    $postManager = new ModerateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
      if (isset($_GET['episode']))
     {
          $post = $postManager->lectureEpisode($_GET['episode']); 
@@ -101,9 +102,9 @@ function apercuDesEpisodes()
 
 function ajouterUnEpisode()
 {
-    $ajoutEpisodeManagers = new PostManager();
+    $ajoutEpisodeManagers = new ModerateurPostManager();
     
-    $nombreduDernierEpisodeManager = new PostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
     require('view/moderateur/ajouterUnEpisode.php');
@@ -111,20 +112,20 @@ function ajouterUnEpisode()
 
 function modifierUnEpisode()
 {
-    $listEpisodeManagers = new PostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new PostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $modificationEpisodeManagers = new PostManager();
+    $modificationEpisodeManagers = new ModerateurPostManager();
          $modifNumeroEpisode = isset($_POST['modifNumeroEpisode']) ? $_POST['modifNumeroEpisode'] : NULL;
          $modifTitre = isset($_POST['modifTitre']) ? $_POST['modifTitre'] : NULL;
          $modifDescription = isset($_POST['modifDescription']) ? $_POST['modifDescription'] : NULL;
          $modifTexte = isset($_POST['modifTexte']) ? $_POST['modifTexte'] : NULL;
     $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode);
     
-    $donnéesEpisodeManager = new PostManager();
+    $donnéesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
     $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
     
@@ -133,17 +134,19 @@ function modifierUnEpisode()
 
 function supprimerUnEpisode()
 {
-    $listEpisodeManagers = new PostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new PostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $donnéesEpisodeManager = new PostManager();
+    $donnéesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
     $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
     
-    $suppressionEpisodeManagers = new PostManager();
+    $suppressionEpisodeManagers = new ModerateurPostManager();
+    
+    $suppressionCommentaireManagers = new ModerateurPostManager();
     
     require('view/moderateur/supprimerUnEpisode.php');
 }
