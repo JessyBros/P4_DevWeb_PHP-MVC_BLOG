@@ -133,7 +133,18 @@ function modifierUnEpisode()
 
 function supprimerUnEpisode()
 {
+    $listEpisodeManagers = new PostManager(); 
+    $listEpisode = $listEpisodeManagers->listEpisode();
+    
+    $nombreduDernierEpisodeManager = new PostManager();
+    $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
+    
+    $donnéesEpisodeManager = new PostManager();
+        $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
+    $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
+    
     $suppressionEpisodeManagers = new PostManager();
+    
     require('view/moderateur/supprimerUnEpisode.php');
 }
 

@@ -17,3 +17,10 @@ a{
     position: relative;
     top:50px;
 }
+
+#confirmationSuppressionEpisode{
+    display:none;
+}
+#message{
+    display:none;
+}

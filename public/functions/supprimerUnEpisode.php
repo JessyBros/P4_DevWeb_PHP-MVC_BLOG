@@ -1,16 +1,16 @@
 <?php
-if(isset($_POST['supprimer']))
+if(isset($_POST['oui']))
 {  
-    echo '<script>alert(" touche supprimé ");</script>';
+
     $supEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
    $suppressionEpisode = $suppressionEpisodeManagers->suppressionEpisode($supEpisode);//echec
         
         if ($suppressionEpisode)
         {
-            echo '<script>alert(" L\'épisode  a été supprimé ");</script>';
+            echo '<script>alert(" L\'épisode ' . $donnéesEpisode['numeroEpisode'] . ' a bien été supprimé ");</script>';
          ?>
 
-           <script language="Javascript">document.location.replace("modifBlogController.php");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
+           <script language="Javascript">document.location.replace("index.php?action=supprimerUnEpisode");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
         }
         else
         {
@@ -18,5 +18,11 @@ if(isset($_POST['supprimer']))
         }  
     
    
+}
+elseif (isset($_POST['non']))
+{
+     ?>
+
+           <script language="Javascript">document.location.replace("index.php?action=supprimerUnEpisode");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
 }
 ?>
