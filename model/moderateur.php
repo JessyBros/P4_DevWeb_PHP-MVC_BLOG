@@ -103,7 +103,7 @@ class ModerateurPostManager{
     public function suppressionCommentaire($supCommentaire) // en beta
     {
         $connexion = $this-> connexion($supCommentaire);
-        $req= $connexion->prepare('DELETE FROM commentaires WHERE numeroEpisode = ?');
+        $req= $connexion->prepare('DELETE FROM commentaires WHERE post_id = ?');
         $req->execute(array($supCommentaire));
         return $req; 
     }
