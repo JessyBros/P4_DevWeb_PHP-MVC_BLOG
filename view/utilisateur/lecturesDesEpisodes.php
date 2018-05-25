@@ -1,6 +1,7 @@
 
 <?php require('public/functions/ajouterUnCommentaire.php'); ?>
 <?php require('public/functions/buttonEpisodeSuivPrec.php'); ?>
+<?php require('public/functions/signalerUnCommentaire.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +15,7 @@
 <body>
     
     <!-- En tête en position fixed -->
-<?php require('public/textFunctions/headerUtilisateur.php'); ?>
+
   
   
  
@@ -74,7 +75,7 @@
                         <input type="hidden" id="numeroEpisode" name="numeroEpisode" value="<?= $post['numeroEpisode']?>" />
                     </div>
                     <div>
-                        <input name="publie" type="submit" />
+                        <input name="publie" type="submit" value="publie" />
                     </div>
                 </form>
             </div>
@@ -95,7 +96,17 @@
                     <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
                 </p>
             </div>
-            <button>Signaler</button>
+            
+            <!-- permet de récupérer le commentaire signalé -->
+             <form action="index.php? action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']?>" method="post">
+                 
+                <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
+                
+                <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
+                 
+                <input name="signaler" type="submit" value="Signaler" />
+            </form>
+            
             <?php } $commentaires->closeCursor(); ?>
         </aside>
        

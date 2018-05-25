@@ -1,18 +1,21 @@
 <?php
-if (isset($post['numeroEpisode']) <2)
+if (isset($post['numeroEpisode']))
 {
-?>
-<style>
-    .episodePrec{display: none;}
-</style>
-<?php 
-}
-else if ( $post['numeroEpisode'] === $nombreduDernierEpisode['numeroEpisode'] ) // episode n = n.. ex : 2 =2; 3=3  
-{
-?>
-<style>
-    .episodeSuiv{display: none;}
-</style>
-<?php
+    if ( $post['numeroEpisode'] == 1 )
+    {
+        ?>
+        <style>
+            .episodePrec{display: none;}
+        </style>
+        <?php 
+    }
+    elseif ( $post['numeroEpisode'] === $nombreduDernierEpisode['numeroEpisode'] ) 
+    {
+        ?>
+        <style>
+            .episodeSuiv{display: none;}
+        </style>
+        <?php
+    }
 }
 ?>

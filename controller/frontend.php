@@ -69,6 +69,8 @@ function lectureEpisode()
    
 
     $commentManager = new UtilisateurPostManager();  /* ajout un commentaire de la part de l'utilisateur */
+    
+    $signalementDuCommentaire  = new UtilisateurPostManager();
 
     require('view/utilisateur/lecturesDesEpisodes.php');
 

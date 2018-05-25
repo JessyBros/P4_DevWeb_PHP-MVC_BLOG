@@ -88,7 +88,7 @@ class UtilisateurPostManager{
     public function postComment($postNumeroEpisode,$postAutheur,$postCommentaire) // insère un commentaire
     {
         $connexion = $this->connexion($postNumeroEpisode,$postAutheur,$postCommentaire);
-        $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire) VALUES(?,?,?, NOW())');
+        $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire, commentaireSignaler) VALUES(?,?,?, NOW(), "") ');
         $commentaires->execute(array(
             $postNumeroEpisode,
             $postAutheur,
@@ -97,6 +97,17 @@ class UtilisateurPostManager{
         return $commentaires;
     }
 
+     public function commentaireSignaler($idCommentaire) // insère un commentaire
+    {
+        $connexion = $this->connexion($idCommentaire);
+        $commentaires = $connexion->prepare(' UPDATE commentaires SET commentaireSignaler = "signaler" WHERE id = ?');
+        $commentaires->execute(array(
+            $idCommentaire
+        ));
+        return $commentaires;
+    }
+
+    
     
     
     // page ListesDesEpisodes \\
