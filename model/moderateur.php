@@ -41,7 +41,7 @@ class ModerateurPostManager{
     
      // + function listEpisode()
     
-    public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte) // renvoie l'épisode selon le choix de l'utilisateur
+    public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte) 
     {   
         $connexion = $this-> connexion($postNumeroEpisode,$postTitre,$postDescription,$postTexte);
         $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES(?,?,?,?)');
@@ -54,7 +54,7 @@ class ModerateurPostManager{
         return $req;
     }
     
-    public function nombreduDernierEpisode() // affiche le numéro correspondant au dernier épisode
+    public function nombreduDernierEpisode()
     {   
         $connexion = $this-> connexion();
         $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode DESC Limit 1');
@@ -68,7 +68,7 @@ class ModerateurPostManager{
     
     // + fuction listEpisode() + nombreduDernierEpisode()
     
-    public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode) // ne fonctionne pas
+    public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode)
     {   
         $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode);
         $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ? WHERE id = ?');
@@ -92,7 +92,7 @@ class ModerateurPostManager{
     }
     
     // page supprimerUnEpisode \\
-    public function suppressionEpisode($supEpisode) // en beta
+    public function suppressionEpisode($supEpisode) 
     {
         $connexion = $this-> connexion($supEpisode);
         $req= $connexion->prepare('DELETE FROM tableepisode WHERE numeroEpisode = ?');
@@ -100,13 +100,50 @@ class ModerateurPostManager{
         return $req; 
     }
     
-    public function suppressionCommentaire($supCommentaire) // en beta
+    public function suppressionCommentaire($supCommentaire) 
     {
         $connexion = $this-> connexion($supCommentaire);
         $req= $connexion->prepare('DELETE FROM commentaires WHERE post_id = ?');
         $req->execute(array($supCommentaire));
         return $req; 
     }
-           
+    
+    // page signalerUnCommentaire \\
+    
+    public function afficheLesCommentairesSignaler() 
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT id, autheur, commentaire FROM commentaires WHERE commentaireSignaler = "signaler"');
+        return $req;
+    }
+    
+     public function commentaireSelectionner($idCommentaire) // renvoie l'épisode selon le choix de l'utilisateur
+    {   
+        $connexion = $this-> connexion($idCommentaire);
+        $req = $connexion->prepare('SELECT id, autheur, commentaire FROM commentaires WHERE id = ?');
+        $req->execute(array($idCommentaire));
+        $post = $req->fetch();
+        return $post;
+    }
+    
+   public function supprimerUnCommentaireSignaler($idCommentaire) 
+    {
+        $connexion = $this-> connexion($idCommentaire);
+        $req= $connexion->prepare('DELETE FROM commentaires WHERE id = ?');
+        $req->execute(array($idCommentaire));
+        return $req; 
+    }
+    
+     public function conserverLeCommentairSignaler($idCommentaire) // insère un commentaire
+    {
+        $connexion = $this->connexion($idCommentaire);
+        $commentaires = $connexion->prepare(' UPDATE commentaires SET commentaireSignaler = "" WHERE id = ?');
+        $commentaires->execute(array(
+            $idCommentaire
+        ));
+        return $commentaires;
+    }
+    
+    
        
 }

@@ -1,3 +1,5 @@
+<?php require('public/functions/supprimerUnCommentaire.php'); ?>
+<?php require('public/functions/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -15,27 +17,37 @@
 
     <section id="corpsDeLaPage">
         
+        
+        <!-- Afficher la liste des commentaires signalés-->
         <aside>
-            <p>Le commentaire X</p>
-            <p>associé à l'épisode X</p>
-            <button onclick="supprimerUnCommentaire()">Supression du commentaire</button>
-            <button onclick="validerUnCommentaire()">Commentaire valide</button>
-
-            <div id="supprimerUnCommentaire">
-                <p>Souhaitez-vous réellement supprimer ce comentaire?</p>
-                <button onclick="supprimerOui()">Oui</button>
-                <span>ou</span>
-                <button onclick="supprimerNon()">Non</button>
-            </div>
-
-            <div id="validerUnCommentaire">
-                <p>Validez-vous ce comentaire?</p>
-                <button onclick="validerOui()">Oui</button>
-                <span>ou</span>
-                <button onclick="validerNon()">Non</button>
-            </div>
-
+            <h2>Liste des épisodes signalés par les internautes</h2>
+            <?php while ($commentaireSignaler = $afficheLesCommentairesSignaler->fetch()) { ?>
+            <p>
+            <a  href="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($commentaireSignaler['id'])?>">
+                <?= htmlspecialchars($commentaireSignaler['autheur']) ?> :
+                <?= htmlspecialchars($commentaireSignaler['commentaire']) ?>
+            </a>            
+            </p>
+            <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
+        
+        
+        
+        <!-- Afficher le commentaire sélectionné-->        
+        <form action="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
+            <div>
+                <p>Pseudo :<p>
+                <p><?= htmlspecialchars($commentaireSelectionner['autheur'])?></p>
+                <p>Commentaire :</p>
+                <p><?= htmlspecialchars($commentaireSelectionner['commentaire'])?></p> 
+            </div>
+            
+            <p>Je souhaite supprimer définitivement ce commmentaire <input type="submit" name="supprimer" value="supprimer" /></p>
+            <p>Ce commentaire est valide et je souhaite le conserver <input type="submit" name="conserver" value="conserver" /></p>
+       </form>
+        
+        
+                
         
     </section>
 

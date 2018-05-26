@@ -155,5 +155,16 @@ function supprimerUnEpisode()
 
 function signalerUnCommentaire()
 {
+    $afficheLesCommentairesSignalerManager = new ModerateurPostManager();
+    $afficheLesCommentairesSignaler = $afficheLesCommentairesSignalerManager->afficheLesCommentairesSignaler();
+    
+    $commentaireSelectionnerManager = new ModerateurPostManager();
+        $idCommentaire  = isset($_GET['commentaire']) ? $_GET['commentaire'] : NULL;
+    $commentaireSelectionner = $commentaireSelectionnerManager->commentaireSelectionner($idCommentaire);
+    
+    $supprimerUnCommentaireSignalerManager = new ModerateurPostManager();
+    
+    $conserverLeCommentairSignalerManager = new ModerateurPostManager();
+    
     require('view/moderateur/signalerUnCommentaire.php');
 }

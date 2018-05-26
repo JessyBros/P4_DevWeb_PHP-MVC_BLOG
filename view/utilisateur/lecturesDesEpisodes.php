@@ -17,7 +17,7 @@
     <!-- En tête en position fixed -->
 
   
-  
+  <?php require('public/textFunctions/headerUtilisateur.php'); ?>
  
 
     <!-- Visuel de l'épisode -->

@@ -41,23 +41,23 @@
        
         <ul id="menuModerateur">
             <li>
-                <a href="index.php? action=apercuDesEpisodes">Aperçu des épisodes</a>
+                <a href="index.php?action=apercuDesEpisodes">Aperçu des épisodes</a>
             </li>
                 
             <li>
-                <a href="index.php? action=ajouterUnEpisode">Ajouter un épisode</a>
+                <a href="index.php?action=ajouterUnEpisode">Ajouter un épisode</a>
             </li>
             
             <li>
-                <a href="index.php? action=modifierUnEpisode">Modifier un épisode</a>
+                <a href="index.php?action=modifierUnEpisode">Modifier un épisode</a>
             </li>
             
             <li>
-                <a href="index.php? action=supprimerUnEpisode">supprimer un épisode</a>
+                <a href="index.php?action=supprimerUnEpisode">supprimer un épisode</a>
             </li>
             
             <li>
-                <a href="index.php? action=signalerUnCommentaire">Les commentaires signalés</a>
+                <a href="index.php?action=signalerUnCommentaire">Les commentaires signalés</a>
             </li>
         </ul>
         
