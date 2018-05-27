@@ -18,3 +18,8 @@ a{
     top:50px;
     text-align: center;
 }
+
+ #formEpisodeSignaler
+    {
+        display: none;
+    } 

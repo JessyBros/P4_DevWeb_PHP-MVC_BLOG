@@ -88,7 +88,7 @@ class UtilisateurPostManager{
     public function postComment($postNumeroEpisode,$postAutheur,$postCommentaire) // insère un commentaire
     {
         $connexion = $this->connexion($postNumeroEpisode,$postAutheur,$postCommentaire);
-        $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire, commentaireSignaler) VALUES(?,?,?, NOW(), "") ');
+        $commentaires = $connexion->prepare(' INSERT INTO commentaires(post_id, autheur, commentaire, dateDuCommentaire, commentaireSignaler) VALUES(?,?,?, NOW(), "nonSignaler") ');
         $commentaires->execute(array(
             $postNumeroEpisode,
             $postAutheur,

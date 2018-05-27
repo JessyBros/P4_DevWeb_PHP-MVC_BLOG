@@ -120,7 +120,7 @@ class ModerateurPostManager{
      public function commentaireSelectionner($idCommentaire) // renvoie l'épisode selon le choix de l'utilisateur
     {   
         $connexion = $this-> connexion($idCommentaire);
-        $req = $connexion->prepare('SELECT id, autheur, commentaire FROM commentaires WHERE id = ?');
+        $req = $connexion->prepare('SELECT id, autheur, commentaire, commentaireSignaler FROM commentaires WHERE id = ?');
         $req->execute(array($idCommentaire));
         $post = $req->fetch();
         return $post;
@@ -137,7 +137,7 @@ class ModerateurPostManager{
      public function conserverLeCommentairSignaler($idCommentaire) // insère un commentaire
     {
         $connexion = $this->connexion($idCommentaire);
-        $commentaires = $connexion->prepare(' UPDATE commentaires SET commentaireSignaler = "" WHERE id = ?');
+        $commentaires = $connexion->prepare(' UPDATE commentaires SET commentaireSignaler = "nonSignaler" WHERE id = ?');
         $commentaires->execute(array(
             $idCommentaire
         ));

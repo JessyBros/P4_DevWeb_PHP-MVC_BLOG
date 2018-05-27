@@ -25,7 +25,7 @@
         <!--<p>image <input name="image" required="" type="text"></p>-->
         <p>Description <input name="description" id="description" required="" type="text"></p>
         <p>Texte <input name="texte" id="texte" required="" type="text"></p>
-        
+        <input type="submit" name="publie" value="Publié" />
     </form>
     
 </section>

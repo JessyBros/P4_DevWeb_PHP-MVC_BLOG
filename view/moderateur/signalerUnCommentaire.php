@@ -1,4 +1,5 @@
-<?php require('public/functions/supprimerUnCommentaire.php'); ?>
+<?php require('public/functions/verificationSignalerUnCommentaire.php'); ?> 
+<?php require('public/functions/supprimerUnCommentaire.php'); ?> 
 <?php require('public/functions/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -19,22 +20,30 @@
         
         
         <!-- Afficher la liste des commentaires signalés-->
-        <aside>
+        <aside id="listeDesCommentairesSignales">
             <h2>Liste des épisodes signalés par les internautes</h2>
             <?php while ($commentaireSignaler = $afficheLesCommentairesSignaler->fetch()) { ?>
             <p>
             <a  href="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($commentaireSignaler['id'])?>">
-                <?= htmlspecialchars($commentaireSignaler['autheur']) ?> :
-                <?= htmlspecialchars($commentaireSignaler['commentaire']) ?>
+                <p>
+                    commentaire
+                    <?= htmlspecialchars($commentaireSignaler['id']) ?> :
+                    <?= htmlspecialchars($commentaireSignaler['autheur']) ?>
+                    <?= htmlspecialchars($commentaireSignaler['commentaire']) ?>
+                </p>                 
             </a>            
             </p>
+            
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
         
+        <?php echo $message; ?>
         
+        
+       
         
         <!-- Afficher le commentaire sélectionné-->        
-        <form action="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
+        <form id="formEpisodeSignaler" action="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
             <div>
                 <p>Pseudo :<p>
                 <p><?= htmlspecialchars($commentaireSelectionner['autheur'])?></p>
