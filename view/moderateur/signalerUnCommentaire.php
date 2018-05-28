@@ -33,7 +33,7 @@
                 </p>                 
             </a>            
             </p>
-            
+            <?php $aucunCommentaireSignaler; ?>
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
         
@@ -55,8 +55,6 @@
             <p>Ce commentaire est valide et je souhaite le conserver <input type="submit" name="conserver" value="conserver" /></p>
        </form>
         
-        
-                
         
     </section>
 

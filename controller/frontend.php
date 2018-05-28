@@ -166,5 +166,8 @@ function signalerUnCommentaire()
     
     $conserverLeCommentairSignalerManager = new ModerateurPostManager();
     
+    $aucunCommentaireSignalerManager = new ModerateurPostManager(); /* aperçu du premier épisode*/
+    $aucunCommentaireSignaler = $aucunCommentaireSignalerManager->aucunCommentaireSignaler();
+    
     require('view/moderateur/signalerUnCommentaire.php');
 }

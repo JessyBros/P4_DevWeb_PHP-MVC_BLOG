@@ -2,7 +2,6 @@
 $message = "";
 
 
-
 if (isset($_GET['commentaire']))    
 {
    
@@ -32,7 +31,8 @@ if (isset($_GET['commentaire']))
         $message = "ce commentaire n'existe pas";
     }
 }
-elseif(/*Condition non trouvé*/)
+
+elseif($aucunCommentaireSignaler['commentaireSignaler'] != "signaler")
 {
     $message = "Aucun commentaire n'a été signalé :D";
 }

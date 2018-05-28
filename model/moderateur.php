@@ -144,6 +144,13 @@ class ModerateurPostManager{
         return $commentaires;
     }
     
-    
+     public function aucunCommentaireSignaler() // affiche le premier episode
+    {
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT * FROM commentaires WHERE commentaireSignaler = "signaler" Limit 1');
+        $req->execute(array());
+        $post = $req->fetch();
+        return $post;
+    }
        
 }
