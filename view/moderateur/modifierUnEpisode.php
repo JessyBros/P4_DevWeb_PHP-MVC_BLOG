@@ -6,6 +6,7 @@
     <link href="public/css/moderateur/modifierUnEpisode.css" rel="stylesheet" />
     <title>modifier un épisode</title>
     <script src="public/js/menuModerateur.js"></script>
+    <script src="public/js/editeurDeTexte.js"></script>
 </head>
 
 
@@ -26,10 +27,17 @@
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
         <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donnéesEpisode['titre']) ?>" required="" type="text"></p>
-        <p>description : <input name="modifDescription" value="<?= htmlspecialchars($donnéesEpisode['description']) ?>" required="" type="text"></p>
-        <p>texte : <input name="modifTexte" value="<?= htmlspecialchars($donnéesEpisode['texte']) ?>" required="" type="text"></p>
-        <input type="submit" name="modifier" value="modifier l'épisode" />
-        <input type="submit" name="supprimer" value="supprimer l'épisode" />
+        <p>description : <input name="modifDescription" value="<?= $donnéesEpisode['description'] ?>" required="" type="text"></p>
+        
+        <?php require('public/textFunctions/editeurHTML.php'); ?>
+        
+        <div id="editeur" contentEditable><?= $donnéesEpisode['texte'] ?></div>
+        
+        <input  name="modifTexte" id="modifTexte"  required="" type="hidden">
+        
+        
+        <input onclick="modifEpisode();" type="submit" name="modifier" value="modifier l'épisode" />
+        
     </form>
     
     <h2>Listes des épisodes</h2>

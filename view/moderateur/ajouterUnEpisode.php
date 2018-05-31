@@ -6,6 +6,7 @@
     <link href="public/css/moderateur/ajouterUnEpisode.css" rel="stylesheet" />
     <title>ajouter un épisode</title>
     <script src="public/js/menuModerateur.js"></script>
+    <script src="public/js/editeurDeTexte.js"></script>
 </head>
 
 
@@ -24,12 +25,23 @@
         <p>titre <input name="titre" id="titre" required="" type="text"></p>
         <!--<p>image <input name="image" required="" type="text"></p>-->
         <p>Description <input name="description" id="description" required="" type="text"></p>
-        <p>Texte <input name="texte" id="texte" required="" type="text"></p>
-        <input type="submit" name="publie" value="Publié" />
+ 
+        <?php require('public/textFunctions/editeurHTML.php'); ?>
+<div id="editeur" contentEditable></div>
+       
+        <input name="texte" id="texte" required="" type="hidden" >
+        <input onclick="ajoutEpisode();" type="submit" name="publie" value="Publié" />
     </form>
     
 </section>
 
+    <script>
+        
+</script>
+    
+
+
+</style>
 </body>
 
 </html>

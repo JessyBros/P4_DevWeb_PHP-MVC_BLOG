@@ -2,26 +2,8 @@ Cahier des charges Blog PHP
 
 
 -mot de passe dans la base de donné protéger par un crypt.
-- voir UML
+-Gérez le reste des erreurs XXS
 
-PAGE Utilisateur:
--Mettre en place le meme header 
- return page accueil, lites episodes et episodes.
+-Mise en place du css.
 
-PAGE : lectureBlog.php.
-
-- Utilisateur doit pouvoir signaler les commentaires
-
-PAGE : modifierBlog.php
-
-- rédaction des billet se fera par une interface WYSIWYG base sur TinyMCE
-
---- modification des billets.
---- suppression des billets
-
-ARCHITECTURE MVC
-
-Manque la mise en place du routeur sur la page index.Php avec des conditions pour la lecture de chaque page selon le choix de l'utilisateur.
-
-Gérez les erreurs XXS.git s
-TOUTE FIN : MISE EN PLACE DU CSS ! :D
+-mettre le site sur un site d'hébergement

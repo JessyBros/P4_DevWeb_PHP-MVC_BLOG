@@ -1,4 +1,4 @@
-<?php require('public/functions/verificationSignalerUnCommentaire.php'); ?> 
+
 <?php require('public/functions/supprimerUnCommentaire.php'); ?> 
 <?php require('public/functions/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
@@ -19,6 +19,7 @@
     <section id="corpsDeLaPage">
         
         
+        
         <!-- Afficher la liste des commentaires signalés-->
         <aside id="listeDesCommentairesSignales">
             <h2>Liste des épisodes signalés par les internautes</h2>
@@ -37,9 +38,10 @@
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
         
+        
+    <!-- Affiche un message d'erreur en cas de trafic d'url-->
+        <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?> 
         <?php echo $message; ?>
-        
-        
        
         
         <!-- Afficher le commentaire sélectionné-->        

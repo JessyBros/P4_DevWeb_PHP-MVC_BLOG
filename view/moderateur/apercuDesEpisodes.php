@@ -33,7 +33,7 @@
             </div>
             <br>
             <article class="textEpisode">
-                <?= htmlspecialchars($post['texte']) ?>
+                <?= $post['texte'] ?>
             </article>
        
         </aside>
