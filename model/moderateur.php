@@ -62,7 +62,15 @@ class ModerateurPostManager{
         $retour = $req->fetch();
         return $retour;
     }
-
+    
+     public function verificationEpisodeExistant($numeroEpisode) // dont work
+    {   
+        $connexion = $this-> connexion($numeroEpisode);
+        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode where numeroEpisode = $numeroEpisode');
+        return $req;
+    }
+    
+    
     
     // page modifierUnEpisode \\
     

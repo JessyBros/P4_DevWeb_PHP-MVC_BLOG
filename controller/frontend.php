@@ -109,6 +109,9 @@ function ajouterUnEpisode()
     $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
+    $verificationEpisodeExistantManagers = new ModerateurPostManager(); // 
+    
+    
     require('view/moderateur/ajouterUnEpisode.php');
 }
 
