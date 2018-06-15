@@ -5,9 +5,10 @@
             if( (!empty($_POST['pseudo'])) && (!empty($_POST['motDePasse'])) )
             {
                 $pseudo = $_POST['pseudo'];
+                
                 $mdp = $_POST['motDePasse'];
                  
-                if (  $pseudo==($connexion['pseudo']) && $mdp==($connexion['motDePasse']))
+                if (  $pseudo==($connexion['pseudo']) &&  password_verify($mdp, $connexion['motDePasse']))
                 {
                    ?> <script language="Javascript"> document.location.replace("index.php?action=espaceModerateur");  </script> <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--> <?php
                    

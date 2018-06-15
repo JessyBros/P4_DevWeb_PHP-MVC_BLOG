@@ -1,7 +1,7 @@
 Cahier des charges Blog PHP
 
+- Mettre en place une image pour chaque épisode sur la page d'accueil
 
--mot de passe dans la base de donné protéger par un crypt.
 -Gérez le reste des erreurs XXS
 
 -Mise en place du css.

@@ -160,5 +160,28 @@ class ModerateurPostManager{
         $post = $req->fetch();
         return $post;
     }
-       
+    
+    // page moderateurPseudoMdp \\
+    
+    public function moderateurPseudoMdp()
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT pseudo, motDePasse FROM moderateur');
+        $req->execute(array());
+        $retour = $req->fetch();
+        return $retour;
+    }
+    
+    
+       public function modificationPseudoMdp($pseudo,$motDePasse)
+    {   
+        $connexion = $this-> connexion($pseudo,$motDePasse);
+        $motDePasse = password_hash($motDePasse, PASSWORD_DEFAULT);
+        $req = $connexion->prepare('UPDATE moderateur SET pseudo = ?, motDePasse = ?');
+        $req->execute(array(
+            $pseudo,
+            $motDePasse
+        ));
+        return $req;
+    }
 }

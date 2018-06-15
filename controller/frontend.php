@@ -174,3 +174,16 @@ function signalerUnCommentaire()
     
     require('view/moderateur/signalerUnCommentaire.php');
 }
+
+function moderateurPseudoMdp()
+{
+    $dataManager = new ModerateurPostManager(); /* récupération donnés modérateur */
+    $data = $dataManager-> moderateurPseudoMdp();
+    
+    $modificationPseudoMdpManagers = new ModerateurPostManager();
+        $pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : NULL;
+        $motDePasse = isset($_POST['motDePasse']) ? $_POST['motDePasse'] : NULL;        
+    $modificationPseudoMdp = $modificationPseudoMdpManagers->modificationPseudoMdp($pseudo,$motDePasse);
+        
+    require('view/moderateur/moderateurPseudoMdp.php');
+}

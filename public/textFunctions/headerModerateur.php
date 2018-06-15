@@ -59,6 +59,10 @@
             <li>
                 <a href="index.php?action=signalerUnCommentaire">Les commentaires signalés</a>
             </li>
+            
+            <li>
+                <a href="index.php?action=moderateurPseudoMdp">modification : Pseudo / Mot de passe</a>
+            </li>
         </ul>
         
     </div>

@@ -44,6 +44,10 @@ try {
         {
             signalerUnCommentaire();
         }
+            elseif ($_GET['action'] == 'moderateurPseudoMdp') 
+        {
+            moderateurPseudoMdp();
+        }
         else
         {
             throw new Exception('Aucun identifiant de billet envoyé');

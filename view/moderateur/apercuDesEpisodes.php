@@ -21,7 +21,6 @@
     
       <aside id="blockEpisode">
             <div class="headerEpisode">
-                <img class="imageEpisode" src="public/images/alaska.jpg" alt="image" />
                 <div class="libeleEpisode">
                     <h2>Episode
                         <?= htmlspecialchars($post['numeroEpisode']) ?> 

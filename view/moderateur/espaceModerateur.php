@@ -32,6 +32,10 @@
     <a  href="index.php? action=signalerUnCommentaire">
         <p>Les commentaires signalés</p>
     </a>
+    
+    <a  href="index.php? action=moderateurPseudoMdp">
+        <p>Modification : <br> Pseudo / Mot de passe</p>
+    </a>
 
 </section>
 
