@@ -1,0 +1,43 @@
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+#--------------------------------------------------
+# Répertoire : /blogphpoc/
+#--------------------------------------------------
+
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
+RewriteEngine on
+
+#ErrorDocument 404 http://localhost/blogphpoc
+#--------------------------------------------------
+# Règles de réécriture d'URL : Utilisateur
+#--------------------------------------------------
+
+RewriteRule ^$ index.php
+RewriteRule ^listesDesEpisodes$ index.php?action=listesEpisodes
+RewriteRule ^episode/([0-9]+)/?$ http://www.localhost/blogphpoc/index.php?action=lectureEpisode&episode=$1 [L]
+RewriteRule ^connexion$ index.php?action=connexion
+
+
+#--------------------------------------------------
+# Règles de réécriture d'URL : Modérateur
+#--------------------------------------------------
+RewriteRule ^espaceModerateur$ index.php?action=espaceModerateur
+
+RewriteRule ^apercuDesEpisodes$ index.php?action=apercuDesEpisodes
+
+RewriteRule ^apercuDesEpisodes/([0-9]+)$ index.php?action=apercuDesEpisodes?&episode=$1  [L,QSA,NC]
+
+
+
+RewriteRule ^ajouterUnEpisode$ index.php?action=ajouterUnEpisode
+RewriteRule ^modifierUnEpisode$ index.php?action=modifierUnEpisode
+RewriteRule ^supprimerUnEpisode$ index.php?action=supprimerUnEpisode
+RewriteRule ^signalerUnCommentaire$ index.php?action=signalerUnCommentaire
+RewriteRule ^moderateurPseudoMdp$ index.php?action=moderateurPseudoMdp
+

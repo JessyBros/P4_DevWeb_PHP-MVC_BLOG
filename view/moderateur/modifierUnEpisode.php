@@ -28,6 +28,7 @@
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
         <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donnéesEpisode['titre']) ?>" required="" type="text"></p>
         <p>description : <input name="modifDescription" value="<?= $donnéesEpisode['description'] ?>" required="" type="text"></p>
+        <p>Url de l'image d'aperçu : <input name="modifImageApercu" value="<?= $donnéesEpisode['imageApercu'] ?>" required="" type="text"></p>
         
         <?php require('public/textFunctions/editeurHTML.php'); ?>
         

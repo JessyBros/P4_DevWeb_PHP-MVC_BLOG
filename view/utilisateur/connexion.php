@@ -18,7 +18,7 @@
 
 <div id="conteneurConnexion">
     <h1>Connexion</h1>
-    <form action="index.php?action=connexion" method="post">
+    <form action="connexion" method="post">
         <p><input name="pseudo" placeholder="Pseudo" id="pseudo" type="text"></p>
         <p><input name="motDePasse" placeholder="Mot de passe" id="password" type="password"></p>
         <p><input value="connectez-Vous" name="connectezVous" type="submit"></p>

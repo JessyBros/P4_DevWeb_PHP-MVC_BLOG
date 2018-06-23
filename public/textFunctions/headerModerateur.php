@@ -41,27 +41,27 @@
        
         <ul id="menuModerateur">
             <li>
-                <a href="index.php?action=apercuDesEpisodes">Aperçu des épisodes</a>
+                <a href="apercuDesEpisodes">Aperçu des épisodes</a>
             </li>
                 
             <li>
-                <a href="index.php?action=ajouterUnEpisode">Ajouter un épisode</a>
+                <a href="ajouterUnEpisode">Ajouter un épisode</a>
             </li>
             
             <li>
-                <a href="index.php?action=modifierUnEpisode">Modifier un épisode</a>
+                <a href="modifierUnEpisode">Modifier un épisode</a>
             </li>
             
             <li>
-                <a href="index.php?action=supprimerUnEpisode">supprimer un épisode</a>
+                <a href="supprimerUnEpisode">supprimer un épisode</a>
             </li>
             
             <li>
-                <a href="index.php?action=signalerUnCommentaire">Les commentaires signalés</a>
+                <a href="signalerUnCommentaire">Les commentaires signalés</a>
             </li>
             
             <li>
-                <a href="index.php?action=moderateurPseudoMdp">modification : Pseudo / Mot de passe</a>
+                <a href="moderateurPseudoMdp">modification : Pseudo / Mot de passe</a>
             </li>
         </ul>
         
@@ -69,14 +69,14 @@
     
     <div class="headerElement">
         
-        <a href="index.php? action=espaceModerateur">
+        <a href="espaceModerateur">
             <p>Espace Modérateur</p>
         </a>
         
     </div>
     
     <div class="headerElement">
-        <a href="index.php? action=accueil">
+        <a href="blogPhpOc">
             <button>Déconnexion</button>
         </a>
     </div>

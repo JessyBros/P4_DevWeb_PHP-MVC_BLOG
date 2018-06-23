@@ -128,7 +128,8 @@ function modifierUnEpisode()
          $modifTitre = isset($_POST['modifTitre']) ? $_POST['modifTitre'] : NULL;
          $modifDescription = isset($_POST['modifDescription']) ? $_POST['modifDescription'] : NULL;
          $modifTexte = isset($_POST['modifTexte']) ? $_POST['modifTexte'] : NULL;
-    $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode);
+         $modifImageApercu = isset($_POST['modifImageApercu']) ? $_POST['modifImageApercu'] : NULL;
+    $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode);
     
     $donnéesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;

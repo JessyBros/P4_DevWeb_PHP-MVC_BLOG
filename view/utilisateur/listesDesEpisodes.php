@@ -5,6 +5,9 @@
     <title>Mon blog</title>
     <link href="public/css/utilisateur/listesDesEpisodes.css" rel="stylesheet" />
     <script src="public/js/menuEpisode.js"></script>
+    <META NAME="Description" CONTENT="Listes de chaque épisode publié. 'un simple billet pour l'alaska'">
+    <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
+    <META NAME="Keywords" CONTENT="blog, alaska, episodes, listes">
 </head>
 
 <body>
@@ -17,7 +20,7 @@
         <p>Episode : <?= $listesEpisode['numeroEpisode'] ?> - <?= $listesEpisode['titre'] ?> </p>
         <p><?= $listesEpisode['description'] ?></p>
         <p><?= $listesEpisode['datePublication'] ?></p>
-        <a href="index.php? action=lectureEpisode&amp;episode=<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
+        <a href="episode/<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
     </aside>
     <?php } $listesEpisodes->closeCursor(); ?>
 

@@ -8,14 +8,14 @@ body {
     font-size: 100%;
     height: 100vh;
     width: 100%;
-    background-color:rgb(38,81,76);
+    background-color: #d1e0eb;
     color: #161b26;
-    text-shadow: 1px 1px 2px #8b9937;
     word-wrap: break-word;
 }
 
 a{
     text-decoration: none;
+    color: #0F056B;
 }
 
 #corpsDeLaPage
@@ -35,7 +35,9 @@ a{
         .blockEpisodes
     {
         position: relative;
-        background-color: white;
+        background-color: #0c3c60;
+        color: white;
+        border: 1px solid #0F056B;
         margin: 10px auto 10px auto;
         min-width: 250px;
         width: 60%;

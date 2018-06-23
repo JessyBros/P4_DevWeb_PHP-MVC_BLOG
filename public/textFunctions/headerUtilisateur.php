@@ -10,18 +10,20 @@
     justify-content: space-around;
     align-items: center;
     padding: 5px;
-    background-color: #161b26;
-    border-bottom: 2px solid #8b9937;
+    background-color: #0c3c60;
+    border-bottom: 2px solid #0F056B;
 }
     #header #jeanForteroche
     {
         display: flex;
         align-items: center;
+        text-decoration: none;
+        color: #1798ca;
     }
     
          #header .jeanForterocheElement:nth-child(1) /* portrait JeanForteroche */
         {
-            height: 50px;
+            height: 60px;
             width: 100px;
         }
     
@@ -32,9 +34,8 @@
     
     #header button
     {
-        background-color: #161b26;
-        
-        color: #8b9937;
+        background-color: #0F056B;
+        color:#1798ca;
         border: 1px solid #8b9937;
         border-radius: 5px;
         margin-left: 5px;
@@ -73,12 +74,12 @@
     
     <div class="headerElement" id="jeanForteroche">
         
-        <a  href="index.php?action=accueil">
+        <a  href="http://www.localhost/blogphpoc/"> <!-- faux lien -->
             <img class="jeanForterocheElement" src="public/images/jeanForteroche.jpg" />
         </a>
         
         <div class="jeanForterocheElement">
-            <a href="index.php?action=accueil">Jean Forteroche</a>
+            <a href="http://www.localhost/blogphpoc/">Jean Forteroche</a> <!-- faux lien -->
         </div>
         
     </div>
@@ -91,12 +92,12 @@
             
             <ul id="choixEpisode">
                 <li>
-                    <a  href="index.php? action=listesEpisodes"> Listes des épisodes</a>
+                    <a  href="listesDesEpisodes"> Listes des épisodes</a>
                 </li>
                 <hr>
                 <?php while ($choixDeLepisode = $choixEpisode->fetch()) { ?>
                 <li>
-                    <a href="index.php?action=lectureEpisode&amp;episode=<?= $choixDeLepisode['numeroEpisode']?>">episode <?= $choixDeLepisode['numeroEpisode'] ?></a>
+                    <a href="episode/<?= $choixDeLepisode['numeroEpisode']?>">episode <?= $choixDeLepisode['numeroEpisode'] ?></a>
                  </li>
                 <?php } $choixEpisode->closeCursor(); ?>
             </ul>
@@ -104,7 +105,7 @@
         </nav>
       
                    
-        <a href="index.php?action=connexion"> 
+        <a href="connexion"> 
             <button class="bouttonHeaderElement">Connexion</button>
         </a>
         

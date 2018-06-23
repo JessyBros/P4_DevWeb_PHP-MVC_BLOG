@@ -42,7 +42,7 @@
 
     <nav id="apercuDesEpisodes">        
         <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
-         <a href="index.php?action=apercuDesEpisodes&amp;episode=<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+         <a href="http://localhost/blogphpoc/apercuDesEpisodes/<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
              <p onclick="episodeClickUtilisateur()"> Episode <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :  <?= htmlspecialchars($listEpisodes['titre']) ?></p>
             </a>
         <?php } $listEpisode->closeCursor(); ?>  

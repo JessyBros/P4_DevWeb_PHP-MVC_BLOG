@@ -10,6 +10,9 @@
     <title>Mon blog</title>
     <link href="public/css/utilisateur/lecturesDesEpisodes.css" rel="stylesheet" />
     <script src="public/js/menuEpisode.js"></script>
+    <META NAME="Description" CONTENT=" épisode intégral du livre 'un simple billet pour l'alaska'. numéro de l'épisode concercerné, titre, description, texte. Les internautes peuvent également lire mais écrire un commentaires et donnez leur avis sur l'épisode.">
+    <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
+    <META NAME="Keywords" CONTENT="blog, alaska, episodes, voyage, lecture, commentaire, avis.">
 </head>
 
 <body>
@@ -29,7 +32,6 @@
         
         <aside id="blockEpisode">
             <div class="headerEpisode">
-                <img class="imageEpisode" src="public/images/alaska.jpg" alt="image" />
                 <div class="libeleEpisode">
                     <h2>Episode
                         <?= htmlspecialchars($post['numeroEpisode']) ?> 
@@ -45,10 +47,10 @@
             </article>
             <div id="conteneurEpisodeSuivPrec">
                 
-                <a href="index.php?action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']-1 ?>">
+                <a href="episode/<?= $post['numeroEpisode']-1 ?>">
                 <button class="episodePrec">Episode précédent</button>
             </a>
-                <a href="index.php?action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']+1 ?>">
+                <a href="episode/<?= $post['numeroEpisode']+1 ?>">
                 <button class="episodeSuiv">Episode suivant</button>
             </a>
             </div>
@@ -62,7 +64,7 @@
                         Écrivez votre commentaire !
                     </h3>
                 </div>
-                <form action="index.php? action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']?>" method="post">
+                <form action="episode/<?= $post['numeroEpisode']?>" method="post">
                     <div>
                         <label for="autheur">Choisissez votre Pseudo</label><br />
                         <input type="text" id="autheur" name="autheur" />
@@ -98,7 +100,7 @@
             </div>
             
             <!-- permet de récupérer le commentaire signalé -->
-             <form action="index.php? action=lectureEpisode&amp;episode=<?= $post['numeroEpisode']?>" method="post">
+             <form action="episode/<?= $post['numeroEpisode']?>" method="post">
                  
                 <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
                 
@@ -116,7 +118,7 @@
     <footer>
         © 2018 - Mentions Légales -
     </footer>
- 
+
 </body>
 
 </html>

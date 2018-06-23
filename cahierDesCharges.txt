@@ -1,9 +1,15 @@
 Cahier des charges Blog PHP
 
-- Mettre en place une image pour chaque épisode sur la page d'accueil
+-----
+https://openclassrooms.com/forum/sujet/set-cookie-et-connexion-automatique-95087
 
--Gérez le reste des erreurs XXS
+-cookie connexion modérateur
+--------
+
+-.hataccess -> changé l'url du site
 
 -Mise en place du css.
 
 -mettre le site sur un site d'hébergement
+
+- meta description

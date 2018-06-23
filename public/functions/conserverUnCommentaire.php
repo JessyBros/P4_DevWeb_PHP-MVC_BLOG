@@ -11,7 +11,7 @@ if(isset($_POST['conserver']))
             echo '<script>alert(" le commentaire ' . $idCommentaire .' a été conserver ");</script>';
          ?>
 
-           <script language="Javascript">document.location.replace("index.php?action=signalerUnCommentaire");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
+           <script language="Javascript">document.location.replace("signalerUnCommentaire");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
         }
         else
         {

@@ -17,7 +17,7 @@ if ( isset($_POST['publie']) )
     <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js-->
     <?php*/
        
-            header("Location: index.php?action=lectureEpisode&episode=$postNumeroEpisode");
+            header("Location: Episode/$postNumeroEpisode");
             echo '<script>alert(" '. $postNumeroEpisode . $postAutheur . $postCommentaire .'commentaire ajouté ");</script>';        
         }
         else

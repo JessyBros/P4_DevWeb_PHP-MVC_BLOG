@@ -41,15 +41,16 @@ class ModerateurPostManager{
     
      // + function listEpisode()
     
-    public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte) 
+    public function ajoutEpisode($postNumeroEpisode,$postTitre,$postDescription,$postTexte,$postImageApercu) 
     {   
-        $connexion = $this-> connexion($postNumeroEpisode,$postTitre,$postDescription,$postTexte);
-        $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte) VALUES(?,?,?,?)');
+        $connexion = $this-> connexion($postNumeroEpisode,$postTitre,$postDescription,$postTexte,$postImageApercu);
+        $req = $connexion->prepare('INSERT INTO tableepisode(numeroEpisode, titre, description, texte, imageApercu) VALUES(?,?,?,?,?)');
         $req->execute(array(
             $postNumeroEpisode,
             $postTitre,
             $postDescription,
-            $postTexte
+            $postTexte,
+            $postImageApercu
         ));
         return $req;
     }
@@ -76,16 +77,16 @@ class ModerateurPostManager{
     
     // + fuction listEpisode() + nombreduDernierEpisode()
     
-    public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode)
+    public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode)
     {   
-        $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTexte,$modifNumeroEpisode);
-        $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ? WHERE id = ?');
+        $connexion = $this-> connexion($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode);
+        $req = $connexion->prepare('UPDATE tableepisode SET titre = ? ,description = ? ,texte = ?, imageApercu = ? WHERE id = ?');
         $req->execute(array(
             $modifTitre,
             $modifDescription,
             $modifTexte,
+            $modifImageApercu,
             $modifNumeroEpisode
-            
         ));
         return $req;
     }

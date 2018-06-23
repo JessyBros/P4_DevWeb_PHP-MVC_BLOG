@@ -14,8 +14,9 @@ if ( isset($_POST['publie']) )
         $titre = isset($_POST['titre']) ? $_POST['titre'] : NULL;
         $description = isset($_POST['description']) ? $_POST['description'] : NULL;
         $texte = isset($_POST['texte']) ? $_POST['texte'] : NULL;
+        $imageApercu = isset($_POST['imageApercu']) ? $_POST['imageApercu'] : NULL;
 
-        $ajoutEpisode = $ajoutEpisodeManagers->ajoutEpisode($numeroEpisode,$titre,$description,$texte);
+        $ajoutEpisode = $ajoutEpisodeManagers->ajoutEpisode($numeroEpisode,$titre,$description,$texte,$imageApercu);
         
         if ($ajoutEpisode)
         {

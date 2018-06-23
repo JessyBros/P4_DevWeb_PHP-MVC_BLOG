@@ -10,8 +10,7 @@
                  
                 if (  $pseudo==($connexion['pseudo']) &&  password_verify($mdp, $connexion['motDePasse']))
                 {
-                   ?> <script language="Javascript"> document.location.replace("index.php?action=espaceModerateur");  </script> <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--> <?php
-                   
+                    header("Location:espaceModerateur");                 
                 }
                 else if (  $pseudo!==($connexion['pseudo']) || $mdp!==($connexion['motDePasse']))
                 {

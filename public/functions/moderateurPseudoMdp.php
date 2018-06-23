@@ -6,7 +6,7 @@ if (isset($_POST['modifier']))
         echo '<script>alert(" Modification réussi ");</script>';
     ?>
     
-        <script language="Javascript">document.location.replace("index.php?action=moderateurPseudoMdp");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
+        <script language="Javascript">document.location.replace("moderateurPseudoMdp");</script><!-- Ne fonctionne que si l'utilisateur ne desactive pas le js--><?php
     }
     else
     {

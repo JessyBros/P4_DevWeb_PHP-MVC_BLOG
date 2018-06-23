@@ -24,6 +24,8 @@
         <p>titre <input name="titre" id="titre" required="" type="text"></p>
         <!--<p>image <input name="image" required="" type="text"></p>-->
         <p>Description <input name="description" id="description" required="" type="text"></p>
+        
+        <p>Url de l'image d'aperçu <input name="imageApercu" id="imageApercu" required="" type="text"></p>
  
         <?php require('public/textFunctions/editeurHTML.php'); ?>
 <div id="editeur" contentEditable></div>
