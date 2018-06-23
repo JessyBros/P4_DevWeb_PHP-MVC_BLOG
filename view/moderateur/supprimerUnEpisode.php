@@ -23,14 +23,14 @@
     <nav id="apercuDesEpisodes">
          
         <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
-         <a href="index.php?action=supprimerUnEpisode&amp;episode=<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+         <a href="supprimer-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
              <p onclick="episodeClickUtilisateur()"> Episode <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :  <?= htmlspecialchars($listEpisodes['titre']) ?></p>
             </a>
         <?php } $listEpisode->closeCursor(); ?>  
     </nav>
     
     
-    <form action="index.php?action=supprimerUnEpisode&episode=<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="confirmationSuppressionEpisode">
+    <form action="supprimer-episode-<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="confirmationSuppressionEpisode">
         <p>Voulez-vous réellement supprimer l'épisode <?= $donnéesEpisode['numeroEpisode'] ?></p>
         <p>attention celui-ci sera déprimé définitivement !</p>
         <input name="numeroEpisode" value="<?= $donnéesEpisode['numeroEpisode'] ?>" type="hidden">

@@ -90,6 +90,10 @@ a {
     justify-content: center;
 }
 
+.blockLastEpisode:hover {
+    border: black;
+}
+
 .blockLastEpisode:nth-child(1) {
     order: 3;
 }
@@ -112,9 +116,13 @@ a {
     margin: 10px;
 }
 
+.blockLastEpisode h3 {
+    margin: 10px;
+}
 
 .dateEpisode {
     color: grey;
+    text-shadow: 1px 1px 2px grey;
     font-style: italic;
     margin: 0;
     padding: 0;
@@ -124,7 +132,7 @@ a {
 
 .textEpisode {
     height: 75px;
-    color: orange;
+    color: white;
 }
 
 .buttonEpisode {
@@ -132,10 +140,19 @@ a {
     bottom: 10px;
     display: inline;
     text-align: center;
-    background-color: #161b26;
-    color: #8b9937;
-    border: 1px solid #8b9937;
+    background-color: #0c3c60;
+    ;
+    color: #0F056B;
+    border: 1px solid #0c3c60;
+    ;
     border-radius: 5px;
+    text-shadow: 1px 1px 2px white;
+}
+
+.buttonEpisode:hover {
+
+    background-color: white;
+    color: #161b26;
 }
 
 
@@ -144,6 +161,22 @@ a {
     height: 150px;
 }
 
+#conteneurListeDesEpisodes {
+    font-size: 175%;
+    width: 60%;
+    min-width: 245px;
+    height: 150px;
+    line-height: 150px;
+    margin: auto;
+    text-align: center;
+    background-color: #0c3c60;
+    ;
+    color: #0F056B;
+    border: 1px solid #0c3c60;
+    ;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px white;
+}
 
 footer {
     position: relative;

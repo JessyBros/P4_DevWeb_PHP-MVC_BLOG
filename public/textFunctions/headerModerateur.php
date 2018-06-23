@@ -76,7 +76,7 @@
     </div>
     
     <div class="headerElement">
-        <a href="blogPhpOc">
+        <a href="http://localhost/blogphpoc/">
             <button>Déconnexion</button>
         </a>
     </div>

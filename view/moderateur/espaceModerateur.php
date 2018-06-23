@@ -13,27 +13,27 @@
     
 <section id="corpsDeLaPage">
     
-    <a  href="index.php? action=apercuDesEpisodes">
+    <a  href="apercuDesEpisodes">
         <p>Aperçu des épisodes</p>
     </a>
      
-    <a  href="index.php? action=ajouterUnEpisode">
+    <a  href="ajouterUnEpisode">
         <p>Ajouter un épisode</p>
     </a>
     
-    <a  href="index.php? action=modifierUnEpisode">
+    <a  href="modifierUnEpisode">
         <p>Modifier un épisode</p>
     </a>
     
-    <a  href="index.php? action=supprimerUnEpisode">
+    <a  href="supprimerUnEpisode">
         <p>supprimer un épisode</p>
     </a>
     
-    <a  href="index.php? action=signalerUnCommentaire">
+    <a  href="signalerUnCommentaire">
         <p>Les commentaires signalés</p>
     </a>
     
-    <a  href="index.php? action=moderateurPseudoMdp">
+    <a  href="moderateurPseudoMdp">
         <p>Modification : <br> Pseudo / Mot de passe</p>
     </a>
 

@@ -40,7 +40,7 @@
             <p class="dateEpisode">publié le
                 <?= htmlspecialchars($data['datePublication']) ?>
             </p>
-            <a href="Episode/<?= htmlspecialchars($data['numeroEpisode']) ?>">
+            <a href="http://www.localhost/blogphpoc/episode-<?= htmlspecialchars($data['numeroEpisode']) ?>">
                 <button class="buttonEpisode">Lire l'épisode</button>
             </a>
         </aside>
@@ -52,30 +52,28 @@
         <section id="conteneurBlockLastEpisode">
             <?php while ($datas = $episodes->fetch()) { ?>
             <aside class="blockLastEpisode">
-                <h3 class="titreEpisode">Episode
-                    <?= htmlspecialchars($datas['numeroEpisode']) ?>
-                </h3>
-                <img class="imageEpisode" src="<?= $datas['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($datas['titre']) ?>">
-                <p class="dateEpisode">publié le
-                    <?= htmlspecialchars($datas['datePublication']) ?>
-                </p>
-                <p class="textEpisode">
-                    <?= htmlspecialchars($datas['description']) ?>
-                </p>
-                <a href="Episode/<?= $datas['numeroEpisode'] ?>">
-                    <button class="buttonEpisode">Lire l'épisode</button>
+                <a href="http://www.localhost/blogphpoc/episode-<?= $datas['numeroEpisode'] ?>">
+                    <h3 class="titreEpisode">Episode
+                        <?= htmlspecialchars($datas['numeroEpisode']) ?>
+                    </h3>
+                    <img class="imageEpisode" src="<?= $datas['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($datas['titre']) ?>">
+                    <p class="dateEpisode">publié le
+                        <?= htmlspecialchars($datas['datePublication']) ?>
+                    </p>
+                    <p class="textEpisode">
+                        <?= htmlspecialchars($datas['description']) ?>
+                    </p>
+
                 </a>
             </aside>
 
             <?php } $episodes->closeCursor(); ?>
 
         </section>
-
-        <p>Vous avez appréciez le livre ou meme certains épisodes ? </p>
-        <p> Dites nous votre ressentis en laissant un commentaire ! :p</p>
         <a href="listesDesEpisodes">
-        <button>Listes des episodes</button>
+            <div id="conteneurListeDesEpisodes">Tous les épisodes</div>
         </a>
+
     </section>
     <hr>
     <footer>© 2018 - Mentions Légales -</footer>

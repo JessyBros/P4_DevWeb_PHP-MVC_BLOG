@@ -22,7 +22,7 @@
     <div id="message"><?php echo $message ?></div>
     
     <!-- Montre le formulaire préremplis avec la fonction get-->
-    <form action="index.php?action=modifierUnEpisode&amp;episode=<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="formEditionEpisode">
+    <form action="modifier-episode-<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="formEditionEpisode">
         <p>Episode <?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?></p>
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
         <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
@@ -46,7 +46,7 @@
 
     <nav id="apercuDesEpisodes">        
         <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
-         <a href="index.php?action=modifierUnEpisode&amp;episode=<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+         <a href="modifier-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
              <p onclick="episodeClickUtilisateur()"> Episode <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :  <?= htmlspecialchars($listEpisodes['titre']) ?></p>
             </a>
         <?php } $listEpisode->closeCursor(); ?>  

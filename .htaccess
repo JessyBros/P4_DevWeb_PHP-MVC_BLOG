@@ -13,14 +13,18 @@ Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
 RewriteEngine on
 
-#ErrorDocument 404 http://localhost/blogphpoc
+ErrorDocument 404 http://localhost/blogphpoc
+
 #--------------------------------------------------
 # Règles de réécriture d'URL : Utilisateur
 #--------------------------------------------------
 
 RewriteRule ^$ index.php
+
 RewriteRule ^listesDesEpisodes$ index.php?action=listesEpisodes
-RewriteRule ^episode/([0-9]+)/?$ http://www.localhost/blogphpoc/index.php?action=lectureEpisode&episode=$1 [L]
+
+RewriteRule ^episode-([0-9]+)$ index.php?action=lectureEpisode&episode=$1
+
 RewriteRule ^connexion$ index.php?action=connexion
 
 
@@ -30,14 +34,17 @@ RewriteRule ^connexion$ index.php?action=connexion
 RewriteRule ^espaceModerateur$ index.php?action=espaceModerateur
 
 RewriteRule ^apercuDesEpisodes$ index.php?action=apercuDesEpisodes
-
-RewriteRule ^apercuDesEpisodes/([0-9]+)$ index.php?action=apercuDesEpisodes?&episode=$1  [L,QSA,NC]
-
-
+RewriteRule ^apercuDesEpisodes-([0-9]+)$ index.php?action=apercuDesEpisodes&episode=$1 
 
 RewriteRule ^ajouterUnEpisode$ index.php?action=ajouterUnEpisode
+
 RewriteRule ^modifierUnEpisode$ index.php?action=modifierUnEpisode
+RewriteRule ^modifier-episode-([0-9]+)$ index.php?action=modifierUnEpisode&episode=$1
+
 RewriteRule ^supprimerUnEpisode$ index.php?action=supprimerUnEpisode
+RewriteRule ^supprimer-episode-([0-9]+)$ index.php?action=supprimerUnEpisode&episode=$1
+
 RewriteRule ^signalerUnCommentaire$ index.php?action=signalerUnCommentaire
+
 RewriteRule ^moderateurPseudoMdp$ index.php?action=moderateurPseudoMdp
 

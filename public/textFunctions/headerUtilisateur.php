@@ -1,5 +1,8 @@
   
 <style>
+    a{
+        color: #0F056B;
+    }
 #header
 { 
     height: 50px;
@@ -23,29 +26,32 @@
     
          #header .jeanForterocheElement:nth-child(1) /* portrait JeanForteroche */
         {
-            height: 60px;
+            height: 65px;
             width: 100px;
-        }
+        } 
+
     
     #header #bouttonHeader
     {
        display: flex;
     }
     
-    #header button
+   #header button
     {
-        background-color: #0F056B;
-        color:#1798ca;
-        border: 1px solid #8b9937;
+        background-color: #0c3c60;;
+        color: #0F056B;
+        border: 1px solid #0c3c60;;
         border-radius: 5px;
         margin-left: 5px;
         margin-right: 5px;
+        text-shadow: 1px 1px 2px white;
     }
+    
     
     #header button:hover
     {
         
-        background-color: #8b9937;
+        background-color: white;
         color: #161b26;
     }
    
@@ -97,7 +103,7 @@
                 <hr>
                 <?php while ($choixDeLepisode = $choixEpisode->fetch()) { ?>
                 <li>
-                    <a href="episode/<?= $choixDeLepisode['numeroEpisode']?>">episode <?= $choixDeLepisode['numeroEpisode'] ?></a>
+                    <a href="episode-<?= $choixDeLepisode['numeroEpisode']?>">episode <?= $choixDeLepisode['numeroEpisode'] ?></a>
                  </li>
                 <?php } $choixEpisode->closeCursor(); ?>
             </ul>
