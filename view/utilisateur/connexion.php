@@ -27,9 +27,7 @@
 </div>
     
 
-<style>
- 
-</style>
     </body>
+
 
 </html>

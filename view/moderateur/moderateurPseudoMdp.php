@@ -26,7 +26,41 @@
     </form>
     
 </section>
+<style>#corpsDeLaPage{
+    position: relative;
+    top:100px;
+    width: 60%;
+    min-width: 245px;
+    margin: auto;
+    text-align: center;
+    background-color: #0c3c60;
+    color: #0F056B;
+    border: 1px solid #0c3c60;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px white;
+    padding: 10px;
 
+}
+    #corpsDeLaPage h1{margin:0;}
+    
+    
+     #corpsDeLaPage input[type="submit"] {
+        background-color: #0a385b;
+        color: #0F056B;
+        border: 1px solid #0c3c60;
+        border-radius: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+        text-shadow: 1px 1px 2px white;
+    }
+
+
+    #corpsDeLaPage input[type="submit"]:hover {
+
+        background-color: white;
+        color: #161b26;
+    }
+</style>
 </body>
 
 </html>

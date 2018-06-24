@@ -51,19 +51,21 @@
 
         <section id="conteneurBlockLastEpisode">
             <?php while ($datas = $episodes->fetch()) { ?>
+            
             <aside class="blockLastEpisode">
                 <a href="http://www.localhost/blogphpoc/episode-<?= $datas['numeroEpisode'] ?>">
-                    <h3 class="titreEpisode">Episode
-                        <?= htmlspecialchars($datas['numeroEpisode']) ?>
-                    </h3>
-                    <img class="imageEpisode" src="<?= $datas['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($datas['titre']) ?>">
-                    <p class="dateEpisode">publié le
-                        <?= htmlspecialchars($datas['datePublication']) ?>
-                    </p>
-                    <p class="textEpisode">
-                        <?= htmlspecialchars($datas['description']) ?>
-                    </p>
-
+                    <nav class="LastEpisode">
+                        <h3 class="titreEpisode">Episode
+                            <?= htmlspecialchars($datas['numeroEpisode']) ?>
+                        </h3>
+                        <img class="imageEpisode" src="<?= $datas['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($datas['titre']) ?>">
+                        <p class="dateEpisode">publié le
+                            <?= htmlspecialchars($datas['datePublication']) ?>
+                        </p>
+                        <p class="textEpisode">
+                            <?= htmlspecialchars($datas['description']) ?>
+                        </p>
+                    </nav>
                 </a>
             </aside>
 
@@ -77,6 +79,7 @@
     </section>
     <hr>
     <footer>© 2018 - Mentions Légales -</footer>
+
 
 </body>
 

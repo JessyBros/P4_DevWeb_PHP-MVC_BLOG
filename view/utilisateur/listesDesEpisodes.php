@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Mon blog</title>
@@ -11,22 +12,30 @@
 </head>
 
 <body>
-   <?php require('public/textFunctions/headerUtilisateur.php'); ?>
-<section id="corpsDeLaPage">
-    <aside id="titre"> <h1>Les épisodes</h1></aside>
+    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
+    <section id="corpsDeLaPage">
+        <aside id="titre">
+            <h1>Les épisodes</h1>
+        </aside>
 
-    <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
-    <aside class="blockEpisodes">
-        <p>Episode : <?= $listesEpisode['numeroEpisode'] ?> - <?= $listesEpisode['titre'] ?> </p>
-        <p><?= $listesEpisode['description'] ?></p>
-        <p><?= $listesEpisode['datePublication'] ?></p>
-        <a href="episode/<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
-    </aside>
-    <?php } $listesEpisodes->closeCursor(); ?>
+        <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
+        <aside class="blockEpisodes">
+            <p>Episode :
+                <?= $listesEpisode['numeroEpisode'] ?> -
+                    <?= $listesEpisode['titre'] ?>
+            </p>
+            <p>
+                <?= $listesEpisode['description'] ?>
+            </p>
+            <p>
+                <?= $listesEpisode['datePublication'] ?>
+            </p>
+            <a href="episode-<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
+        </aside>
+        <?php } $listesEpisodes->closeCursor(); ?>
 
-</section>
-    
-    
+    </section>
+
 </body>
 
 </html>

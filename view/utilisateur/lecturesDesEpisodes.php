@@ -1,10 +1,10 @@
-
 <?php require('public/functions/ajouterUnCommentaire.php'); ?>
 <?php require('public/functions/buttonEpisodeSuivPrec.php'); ?>
 <?php require('public/functions/signalerUnCommentaire.php'); ?>
 
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Mon blog</title>
@@ -16,25 +16,27 @@
 </head>
 
 <body>
-    
+
     <!-- En tête en position fixed -->
 
-  
-  <?php require('public/textFunctions/headerUtilisateur.php'); ?>
- 
+
+    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
+
 
     <!-- Visuel de l'épisode -->
     <section id="corpsDeLaPage">
-        
+
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
         <?php require('public/functions/verificationLecturesDesEpisodes.php'); ?>
-        <div id="message"><?php echo $message ?></div>
-        
+        <div id="message">
+            <?php echo $message ?>
+        </div>
+
         <aside id="blockEpisode">
             <div class="headerEpisode">
                 <div class="libeleEpisode">
                     <h2>Episode
-                        <?= htmlspecialchars($post['numeroEpisode']) ?> 
+                        <?= htmlspecialchars($post['numeroEpisode']) ?>
                     </h2>
                     <h3>
                         <?= htmlspecialchars($post['titre']) ?>
@@ -46,7 +48,7 @@
                 <?= $post['texte'] ?>
             </article>
             <div id="conteneurEpisodeSuivPrec">
-                
+
                 <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']-1 ?>">
                 <button class="episodePrec">Episode précédent</button>
             </a>
@@ -87,33 +89,34 @@
         <aside id="blockLireCommentaire">
             <h3 id="lesCommentaires">Les commentaires</h3>
             <?php while ($commentaire = $commentaires->fetch()){ ?>
-            <!-- <form action="lireBlogController.php?episode=<?php/* echo $post['numeroEpisode']*/?>" method="post">
-                    <button name="signaler">Signaler</button>
-                    </form>-->
+
             <div class="miniBlockLireCommentaire">
-                <p><strong><?= htmlspecialchars($commentaire['autheur']) ?></strong> le
-                    <?= $commentaire['comment_date_fr'] ?>
-                </p>
-                <p>
-                    <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
-                </p>
+                <div>
+                    <p><strong class="pseudo"><?= htmlspecialchars($commentaire['autheur']) ?></strong> -
+                        <?= $commentaire['comment_date_fr'] ?>
+                    </p>
+                    <p>
+                        <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
+                    </p>
+                </div>
+                <!-- permet de récupérer le commentaire signalé -->
+                <form action="episode-<?= $post['numeroEpisode']?>" method="post">
+
+                    <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
+
+                    <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
+
+                    <input name="signaler" type="submit" value="Signaler" />
+                </form>
             </div>
-            
-            <!-- permet de récupérer le commentaire signalé -->
-             <form action="episode-<?= $post['numeroEpisode']?>" method="post">
-                 
-                <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
-                
-                <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
-                 
-                <input name="signaler" type="submit" value="Signaler" />
-            </form>
-            
+
+
+
             <?php } $commentaires->closeCursor(); ?>
         </aside>
-       
+
     </section>
-    
+
     <!-- Pied de page -->
     <footer>
         © 2018 - Mentions Légales -

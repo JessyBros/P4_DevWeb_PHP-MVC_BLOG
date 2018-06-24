@@ -1,30 +1,39 @@
-html, body{
+html,
+body {
     margin: 0;
     padding: 0;
 }
+
 body {
-    background-color: white; 
-    font-family: Verdana, sans-serif; 
+    background-color: white;
+    font-family: Verdana, sans-serif;
     font-size: 100%;
     height: 100vh;
     width: 100%;
-}
-a{
-    text-decoration: none;
-    margin: 0;
+    background-color: #0c3c60;
+
 }
 
-#corpsDeLaPage{
+a {
+    text-decoration: none;
+    margin: 0;
+    text-shadow: 1px 1px 2px white;
+    color: #0c3c60;
+}
+
+#corpsDeLaPage {
     position: relative;
     top: 150px;
     text-align: center;
+
 }
 
-#corpsDeLaPage p{
+#corpsDeLaPage p {
     min-width: 270px;
     width: 30%;
     font-size: 200%;
+    background-color: #d1e0eb;
     border: 2px solid black;
     border-radius: 2px;
-    margin: 50px auto;   
+    margin: 50px auto;
 }
