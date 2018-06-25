@@ -45,6 +45,7 @@ RewriteRule ^supprimerUnEpisode$ index.php?action=supprimerUnEpisode
 RewriteRule ^supprimer-episode-([0-9]+)$ index.php?action=supprimerUnEpisode&episode=$1
 
 RewriteRule ^signalerUnCommentaire$ index.php?action=signalerUnCommentaire
+RewriteRule ^commentaire-([0-9]+)$ index.php?action=signalerUnCommentaire&commentaire=$1
 
 RewriteRule ^moderateurPseudoMdp$ index.php?action=moderateurPseudoMdp
 

@@ -29,7 +29,7 @@
     }
 
     #header button {
-        background-color: #0a385b;
+        background-color: white;
         color: #0F056B;
         border: 1px solid #0c3c60;
         border-radius: 5px;
@@ -42,11 +42,12 @@
     #header button:hover {
 
         background-color: white;
+        border: 1px solid white;
         color: #161b26;
     }
 
 
-    a {
+    #menuModerateur a, .headerElement a {
         text-decoration: none;
 
         background-color: #0a385b;
@@ -95,7 +96,7 @@
     <div class="headerElement">
 
         <a href="espaceModerateur">
-            <p>Espace Modérateur</p>
+            Espace Modérateur
         </a>
 
     </div>

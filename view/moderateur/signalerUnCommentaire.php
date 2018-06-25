@@ -1,5 +1,4 @@
-
-<?php require('public/functions/supprimerUnCommentaire.php'); ?> 
+<?php require('public/functions/supprimerUnCommentaire.php'); ?>
 <?php require('public/functions/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -17,47 +16,53 @@
     <?php require('public/textFunctions/headerModerateur.php'); ?>
 
     <section id="corpsDeLaPage">
-        
-        
-        
+
+
+        <h2>Liste des épisodes signalés par les internautes</h2>
         <!-- Afficher la liste des commentaires signalés-->
         <aside id="listeDesCommentairesSignales">
-            <h2>Liste des épisodes signalés par les internautes</h2>
+
             <?php while ($commentaireSignaler = $afficheLesCommentairesSignaler->fetch()) { ?>
             <p>
-            <a  href="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($commentaireSignaler['id'])?>">
-                <p>
-                    commentaire
-                    <?= htmlspecialchars($commentaireSignaler['id']) ?> :
-                    <?= htmlspecialchars($commentaireSignaler['autheur']) ?>
-                    <?= htmlspecialchars($commentaireSignaler['commentaire']) ?>
-                </p>                 
-            </a>            
+                <a href="commentaire-<?= htmlspecialchars($commentaireSignaler['id'])?>">
+                    <p>
+                        <strong>
+                        commentaire
+                        <?= htmlspecialchars($commentaireSignaler['id']) ?> :
+                    </strong>
+                        <?= htmlspecialchars($commentaireSignaler['autheur']) ?>
+                            <?= htmlspecialchars($commentaireSignaler['commentaire']) ?>
+                    </p>
+                </a>
             </p>
             <?php $aucunCommentaireSignaler; ?>
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
-        
-        
-    <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?> 
+
+
+        <!-- Affiche un message d'erreur en cas de trafic d'url-->
+        <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?>
         <?php echo $message; ?>
-       
-        
-        <!-- Afficher le commentaire sélectionné-->        
-        <form id="formEpisodeSignaler" action="index.php?action=signalerUnCommentaire&amp;commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
+
+
+        <!-- Afficher le commentaire sélectionné-->
+        <form id="formEpisodeSignaler" action="commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
             <div>
-                <p>Pseudo :<p>
-                <p><?= htmlspecialchars($commentaireSelectionner['autheur'])?></p>
+                <p>Pseudo :</p>
+                <p>
+                    <?= htmlspecialchars($commentaireSelectionner['autheur'])?>
+                </p>
                 <p>Commentaire :</p>
-                <p><?= htmlspecialchars($commentaireSelectionner['commentaire'])?></p> 
+                <p>
+                    <?= htmlspecialchars($commentaireSelectionner['commentaire'])?>
+                </p>
             </div>
-            
+
             <p>Je souhaite supprimer définitivement ce commmentaire <input type="submit" name="supprimer" value="supprimer" /></p>
             <p>Ce commentaire est valide et je souhaite le conserver <input type="submit" name="conserver" value="conserver" /></p>
-       </form>
-        
-        
+        </form>
+
+
     </section>
 
 </body>
