@@ -35,6 +35,10 @@ a {
     color: #0c3c60;
 }
 
+#confirmationSuppressionEpisode {
+    display: none;
+}
+
 #message {
     color: red;
 }

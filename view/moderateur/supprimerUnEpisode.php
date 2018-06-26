@@ -14,7 +14,9 @@
     <?php require('public/textFunctions/headerModerateur.php'); ?>
 
     <section id="corpsDeLaPage">
-
+<style>#confirmationSuppressionEpisode{
+                display:none;
+            } </style>
         <h1>Supprimer un épisode</h1>
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->

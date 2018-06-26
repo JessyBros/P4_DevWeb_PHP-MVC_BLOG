@@ -8,8 +8,7 @@
     <link href="public/css/moderateur/signalerUnCommentaire.css" rel="stylesheet" />
     <title>Mon blog</title>
     <script src="public/js/menuModerateur.js"></script>
-    <script src="../public/js/supprimerUnCommentaire.js"></script>
-    <script src="../public/js/validerUnCommentaire.js"></script>
+
 </head>
 
 <body>
@@ -39,23 +38,22 @@
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
 
-
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
         <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?>
         <?php echo $message; ?>
 
 
         <!-- Afficher le commentaire sélectionné-->
-        <form id="formEpisodeSignaler" action="commentaire=<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
+        <form id="formEpisodeSignaler" action="commentaire-<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
             <div>
                 <p>Pseudo :</p>
-                <p>
+                <p><em>
                     <?= htmlspecialchars($commentaireSelectionner['autheur'])?>
-                </p>
+                </em></p>
                 <p>Commentaire :</p>
-                <p>
+                <p><em>
                     <?= htmlspecialchars($commentaireSelectionner['commentaire'])?>
-                </p>
+                </em></p>
             </div>
 
             <p>Je souhaite supprimer définitivement ce commmentaire <input type="submit" name="supprimer" value="supprimer" /></p>

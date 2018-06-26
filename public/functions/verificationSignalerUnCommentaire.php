@@ -34,6 +34,15 @@ if (isset($_GET['commentaire']))
 
 elseif($aucunCommentaireSignaler['commentaireSignaler'] != "signaler")
 {
+         ?> 
+        <style>
+      
+        #listeDesCommentairesSignales
+        {
+            display: none;    
+        }
+        </style>
+        <?php
     $message = "Aucun commentaire n'a été signalé :D";
 }
 

@@ -1,26 +1,90 @@
-html, body {
-    margin: 0;
-    padding: 0;
-}
-body {
-    background-color: white; 
-    font-family: Verdana, sans-serif; 
-    font-size: 100%;
-    height: 100vh;
-    width: 100%;
-}
-a{
-    text-decoration: none;
-}
+ html,
+ body {
+     margin: 0;
+     padding: 0;
+ }
 
-#corpsDeLaPage{
-    position: relative;
-    top:50px;
-}
+ body {
+     background-color: white;
+     font-family: Verdana, sans-serif;
+     font-size: 100%;
+     height: 100vh;
+     width: 100%;
+     background-color: #0c3c60;
+ }
 
- #editeur{
-    width: 500px; /* La largeur de l'éditeur */
-    height: 200px; /* La hauteur de l'éditeur */
-    border: 1px solid black; /* Une bordure pour bien voir l'éditeur */
-    padding: 5px; /* Une petite marge intérieure */
-    overflow: auto; /* Cette propriété sert à envoyer le texte 
+ a {
+     text-decoration: none;
+ }
+
+ #corpsDeLaPage {
+     position: relative;
+     top: 60px;
+ }
+
+ #corpsDeLaPage h1 {
+     text-align: center;
+     text-shadow: 1px 1px 2px white;
+ }
+
+ form {
+     max-width: 1500px;
+     margin: auto;
+     text-align: center;
+     color: white;
+ }
+
+ input[name="titre"] {
+     background-color: #d1e0eb;
+     color: #0c3c60;
+     border-radius: 5px;
+     width: 250px;
+ }
+
+ input[name="description"],
+ input[name="imageApercu"] {
+     background-color: #d1e0eb;
+     color: #0c3c60;
+     max-width: 850px;
+     width: 90%;
+     border-radius: 5px;
+ }
+
+ input[name="publie"] {
+     background-color: white;
+     color: #0F056B;
+     border: 1px solid #0c3c60;
+     border-radius: 5px;
+     margin-left: 5px;
+     margin-right: 5px;
+     text-shadow: 1px 1px 2px white;
+
+
+ }
+
+
+ input[name="publie"]:hover {
+
+     background-color: white;
+     border: 1px solid white;
+     color: #161b26;
+ }
+
+
+ #editeur {
+     border-radius: 15px;
+     width: 100%;
+     background-color: #d1e0eb;
+     color: #0c3c60;
+     height: 500px;
+
+     border: 1px solid black;
+
+     padding: 5px;
+
+     overflow: auto;
+     text-align: left;
+     margin-right: 20px;
+     margin-left: 20px;
+
+ }
