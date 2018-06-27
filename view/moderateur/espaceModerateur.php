@@ -1,3 +1,4 @@
+<!-- Menu d'accueil de l'écrivain lors de sa connexion -->
 <!DOCTYPE html>
 <html>
 

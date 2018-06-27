@@ -1,3 +1,4 @@
+<!-- Permet à L'écrivain d'ajouter un commentaire, si celui-ci n'a pas déjà était enregitré.-->
 <?php 
 if ( isset($_POST['publie']) )
 {
@@ -8,6 +9,10 @@ if ( isset($_POST['publie']) )
     {
         echo '<script>alert(" L\'épisode ' . $_POST['numeroEpisode'] . ' existe déjà ");</script>';
            
+    }
+    elseif($numeroEpisode < 1)
+    {
+        echo '<script>alert("Erreur, l\'épisode ne peut pas avoir la valeur 0 ou une valeur négative. ");</script>';
     }
     else
     {

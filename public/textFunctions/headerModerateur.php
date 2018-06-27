@@ -47,7 +47,8 @@
     }
 
 
-    #menuModerateur a, .headerElement a {
+    #menuModerateur a,
+    .headerElement a {
         text-decoration: none;
 
         background-color: #0a385b;

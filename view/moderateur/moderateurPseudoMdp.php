@@ -1,3 +1,5 @@
+<!-- Permet à l'utilisateur de changé son pseudo et son mot de passe (crypté) pour se connecter à son espace modérateur-->
+
 <?php require('public/functions/moderateurPseudoMdp.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -19,9 +21,9 @@
         <h1>Changement du pseudo et/ou du mot de passe</h1>
 
         <form action="index.php?action=moderateurPseudoMdp" method="post">
-            <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
-            <p>Mot de passe : <input name="motDePasse" value="<?php /* $data['motDePasse'] */ ?>" required="" type="text"></p>
 
+            <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
+            <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
             <input type="submit" name="modifier" value="modifier" />
 
         </form>

@@ -1,3 +1,4 @@
+<!-- Permet à l'utilisateur de modifié un épisode en ayant un bref aperçu de celui-ci -->
 <?php require('public/functions/modifierUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -25,21 +26,21 @@
         </div>
 
         <!-- Montre le formulaire préremplis avec la fonction get-->
-        <form action="modifier-episode-<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="formEditionEpisode">
+        <form action="modifier-episode-<?= htmlspecialchars($donneesEpisode['numeroEpisode']) ?>" method="post" id="formEditionEpisode">
             <p>Episode
-                <?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>
+                <?= htmlspecialchars($donneesEpisode['numeroEpisode']) ?>
             </p>
-            <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
-            <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donnéesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
-            <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donnéesEpisode['titre']) ?>" required="" type="text"></p>
-            <p>description : <input name="modifDescription" value="<?= $donnéesEpisode['description'] ?>" required="" type="text"></p>
-            <p>Url de l'image d'aperçu : <input name="modifImageApercu" value="<?= $donnéesEpisode['imageApercu'] ?>" required="" type="text"></p>
+            <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donneesEpisode['numeroEpisode']) ?>" id="numeroEpisode" required="" type="hidden">
+            <input name="modifNumeroEpisode" value="<?= htmlspecialchars($donneesEpisode['id']) ?>" id="numeroEpisode" required="" type="hidden">
+            <p>titre : <input name="modifTitre" value="<?= htmlspecialchars($donneesEpisode['titre']) ?>" required="" type="text"></p>
+            <p>description : <input name="modifDescription" value="<?= $donneesEpisode['description'] ?>" required="" type="text"></p>
+            <p>Url de l'image d'aperçu : <input name="modifImageApercu" value="<?= $donneesEpisode['imageApercu'] ?>" required="" type="text"></p>
 
             <?php require('public/textFunctions/editeurHTML.php'); ?>
 
             <div id="editeur" contentEditable>
                 <article>
-                    <?= $donnéesEpisode['texte'] ?>
+                    <?= $donneesEpisode['texte'] ?>
                 </article>
             </div>
 
@@ -50,6 +51,7 @@
 
         </form>
 
+        <!-- Listes des épisodes-->
         <nav id="listesDesEpisodes">
             <h2>Listes des épisodes</h2>
 

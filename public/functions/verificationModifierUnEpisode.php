@@ -1,3 +1,4 @@
+<!-- Gestion des erreurs-->
 <?php 
 $message = "";
 if (isset($_GET['episode']))
@@ -22,7 +23,7 @@ if (isset($_GET['episode']))
 }
 else
 {
-    $message ="Choississez l'épisode que vous souhaitez modifier en utilisant la liste de gauche.";
+    $message ="Choississez l'épisode que vous souhaitez modifier en utilisant la liste du bas.";
     ?> 
     <style>
         #formEditionEpisode

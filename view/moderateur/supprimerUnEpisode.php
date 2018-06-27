@@ -1,3 +1,4 @@
+<!-- Permet au modérateur de supprimer un épisode-->
 <?php require('public/functions/supprimerUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -14,9 +15,7 @@
     <?php require('public/textFunctions/headerModerateur.php'); ?>
 
     <section id="corpsDeLaPage">
-<style>#confirmationSuppressionEpisode{
-                display:none;
-            } </style>
+
         <h1>Supprimer un épisode</h1>
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
@@ -25,8 +24,8 @@
             <?php echo $message ?>
         </div>
 
+        <!-- La listes des épisodes déjà publiés-->
         <nav id="apercuDesEpisodes">
-
             <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
             <a href="supprimer-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
                 <p onclick="episodeClickUtilisateur()"> Episode
@@ -37,13 +36,13 @@
             <?php } $listEpisode->closeCursor(); ?>
         </nav>
 
-
-        <form action="supprimer-episode-<?= htmlspecialchars($donnéesEpisode['numeroEpisode']) ?>" method="post" id="confirmationSuppressionEpisode">
+        <!-- Vérification après sélection d'un épisode, pour savoir si le modérateur souhaite réellement et définitivement supprimer l'épisode -->
+        <form action="supprimer-episode-<?= htmlspecialchars($donneesEpisode['numeroEpisode']) ?>" method="post" id="confirmationSuppressionEpisode">
             <p>Voulez-vous réellement supprimer l'épisode
-                <?= $donnéesEpisode['numeroEpisode'] ?>
+                <?= $donneesEpisode['numeroEpisode'] ?>
             </p>
             <p>attention celui-ci sera déprimé définitivement !</p>
-            <input name="numeroEpisode" value="<?= $donnéesEpisode['numeroEpisode'] ?>" type="hidden">
+            <input name="numeroEpisode" value="<?= $donneesEpisode['numeroEpisode'] ?>" type="hidden">
             <div>
                 <button name="oui">Oui</button> | <button name="non">Non</button>
             </div>

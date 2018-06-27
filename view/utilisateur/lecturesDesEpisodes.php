@@ -18,10 +18,7 @@
 <body>
 
     <!-- En tête en position fixed -->
-
-
     <?php require('public/textFunctions/headerUtilisateur.php'); ?>
-
 
     <!-- Visuel de l'épisode -->
     <section id="corpsDeLaPage">
@@ -99,6 +96,7 @@
                         <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
                     </p>
                 </div>
+                
                 <!-- permet de récupérer le commentaire signalé -->
                 <form action="episode-<?= $post['numeroEpisode']?>" method="post">
 
@@ -109,9 +107,6 @@
                     <input name="signaler" type="submit" value="Signaler" />
                 </form>
             </div>
-
-
-
             <?php } $commentaires->closeCursor(); ?>
         </aside>
 

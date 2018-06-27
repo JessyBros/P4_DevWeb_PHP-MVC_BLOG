@@ -1,3 +1,6 @@
+<!-- Pages lectures des épisodes pour les utilisateur
+     Fais disparaître le boutton précédent à l'épisode 1, et le boutton suivant au dernier épisode crée.-->
+
 <?php
 if (isset($post['numeroEpisode']))
 {

@@ -131,9 +131,9 @@ function modifierUnEpisode()
          $modifImageApercu = isset($_POST['modifImageApercu']) ? $_POST['modifImageApercu'] : NULL;
     $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode);
     
-    $donnéesEpisodeManager = new ModerateurPostManager();
+    $donneesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
-    $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
+    $donneesEpisode = $donneesEpisodeManager->donneesEpisode($getEpisode );
     
     require('view/moderateur/modifierUnEpisode.php');
 }
@@ -146,9 +146,9 @@ function supprimerUnEpisode()
     $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $donnéesEpisodeManager = new ModerateurPostManager();
+    $donneesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
-    $donnéesEpisode = $donnéesEpisodeManager->donnéesEpisode($getEpisode );
+    $donneesEpisode = $donneesEpisodeManager->donneesEpisode($getEpisode );
     
     $suppressionEpisodeManagers = new ModerateurPostManager();
     
@@ -178,7 +178,7 @@ function signalerUnCommentaire()
 
 function moderateurPseudoMdp()
 {
-    $dataManager = new ModerateurPostManager(); /* récupération donnés modérateur */
+    $dataManager = new ModerateurPostManager(); /* récupération données modérateur */
     $data = $dataManager-> moderateurPseudoMdp();
     
     $modificationPseudoMdpManagers = new ModerateurPostManager();

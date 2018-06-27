@@ -1,3 +1,5 @@
+<!-- Permet l'ajout d'un commentaire à la page Lectures des épisodes, selon l'épisode correspondant-->
+
 <?php 
 if ( isset($_POST['publie']) )
 {
@@ -8,16 +10,8 @@ if ( isset($_POST['publie']) )
    $postComment = $commentManager->postComment($postNumeroEpisode,$postAutheur,$postCommentaire);
     
       if ($postComment)
-        {
-          
-   /*?>
-    <script language="Javascript">
-        document.location.replace("index.php?action=lectureEpisode&;episode=<?= $postNumeroEpisode ?>");
-    </script>
-    <!-- Ne fonctionne que si l'utilisateur ne desactive pas le js-->
-    <?php*/
-       
-            header("Location: Episode/$postNumeroEpisode");
+        {       
+            header("Location: episode-$postNumeroEpisode");
             echo '<script>alert(" '. $postNumeroEpisode . $postAutheur . $postCommentaire .'commentaire ajouté ");</script>';        
         }
         else

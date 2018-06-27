@@ -15,7 +15,7 @@
 <body>
     <?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
-
+    <!-- image de fond avec titre du livre -->
     <section id="page1">
         <h1>Un billet simple pour l'alaska</h1>
     </section>
@@ -25,6 +25,7 @@
         <!-- Aperçu du premier épisode -->
         <h2>Le commencement ce fait toujours par le premier épisode :)</h2>
 
+         <a href="http://www.localhost/blogphpoc/episode-<?= htmlspecialchars($data['numeroEpisode']) ?>">
         <aside id="blockPremierEpisode">
             <h3 class="numeroEpisode">Episode
                 <?= htmlspecialchars($data['numeroEpisode']) ?>
@@ -40,10 +41,9 @@
             <p class="dateEpisode">publié le
                 <?= htmlspecialchars($data['datePublication']) ?>
             </p>
-            <a href="http://www.localhost/blogphpoc/episode-<?= htmlspecialchars($data['numeroEpisode']) ?>">
-                <button class="buttonEpisode">Lire l'épisode</button>
-            </a>
+           
         </aside>
+        </a>
 
 
         <!-- Aperçu des trois derniers épisodes -->
@@ -51,7 +51,7 @@
 
         <section id="conteneurBlockLastEpisode">
             <?php while ($datas = $episodes->fetch()) { ?>
-            
+
             <aside class="blockLastEpisode">
                 <a href="http://www.localhost/blogphpoc/episode-<?= $datas['numeroEpisode'] ?>">
                     <nav class="LastEpisode">
@@ -71,6 +71,7 @@
 
             <?php } $episodes->closeCursor(); ?>
 
+            <!-- block listes des épisodes -->
         </section>
         <a href="listesDesEpisodes">
             <div id="conteneurListeDesEpisodes">Tous les épisodes</div>

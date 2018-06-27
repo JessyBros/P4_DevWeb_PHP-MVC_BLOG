@@ -1,3 +1,4 @@
+<!-- Permet à l'utilisateur d'avoir un bref visuel du rendu des épisodes publiés-->
 <!DOCTYPE html>
 <html>
 
@@ -12,6 +13,7 @@
 <body>
 
     <?php require('public/textFunctions/headerModerateur.php'); ?>-
+
     <section id="corpsDeLaPage">
         <h1>Aperçu des épisodes</h1>
 
@@ -21,6 +23,7 @@
             <?php echo $message ?>
         </div>
 
+        <!-- Affichage de l'épisode séléctionné-->
         <aside id="blockEpisode">
             <div class="headerEpisode">
                 <div class="libeleEpisode">
@@ -38,6 +41,8 @@
             </article>
 
         </aside>
+
+        <!-- Listes des épisodes publiés-->
         <nav id="listesDesEpisodes">
             <h2>Listes des épisodes</h2>
 

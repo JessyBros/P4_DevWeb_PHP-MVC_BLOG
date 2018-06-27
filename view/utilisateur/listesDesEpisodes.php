@@ -13,7 +13,9 @@
 
 <body>
     <?php require('public/textFunctions/headerUtilisateur.php'); ?>
+    
     <section id="corpsDeLaPage">
+        
         <aside id="titre">
             <h1>Les épisodes</h1>
         </aside>

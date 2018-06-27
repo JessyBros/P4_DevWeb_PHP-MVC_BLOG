@@ -1,6 +1,6 @@
+<!-- Gestion des erreurs-->
 <?php 
 $message = "";
-
 
 if (isset($_GET['commentaire']))    
 {
@@ -24,7 +24,7 @@ if (isset($_GET['commentaire']))
     }
     elseif ($episodeSignaler == "nonSignaler")
     {
-        $message = "ce commentaire n'est pas signaler";
+        $message = "ce commentaire n'est pas signalé";
     }
     else
     {

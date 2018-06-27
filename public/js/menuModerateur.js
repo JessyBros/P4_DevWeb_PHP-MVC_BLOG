@@ -1,15 +1,14 @@
+// fonction au clik de l'utilisateur, permet d'affichier le menu ou de le faire disparaître au click de l'utilisateur.
+
+
 var menu = true;
 
-// fonction au clik de l'utilisateur
-function menuModerateur()
-{
-    if (menu)
-    {
+
+function menuModerateur() {
+    if (menu) {
         document.getElementById("menuModerateur").style.display = "block";
         menu = false;
-    }
-    else
-    {
+    } else {
         document.getElementById("menuModerateur").style.display = "none";
         menu = true;
     }

@@ -1,3 +1,5 @@
+<!-- Formulaire qui permet à l'écrivain d'ajouter un épisode à son blog-->
+
 <?php require('public/functions/ajouterUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +17,7 @@
     <?php require('public/textFunctions/headerModerateur.php'); ?>
 
     <section id="corpsDeLaPage">
-
+        
         <h1>Ajouter un épisode</h1>
 
         <form action="index.php?action=ajouterUnEpisode" method="post" id="formAjouter">

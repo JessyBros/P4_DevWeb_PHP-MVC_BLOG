@@ -50,7 +50,7 @@
 
     #header button:hover {
 
-         background-color: white;
+        background-color: white;
         border: 1px solid white;
         color: #161b26;
     }

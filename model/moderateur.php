@@ -67,8 +67,10 @@ class ModerateurPostManager{
      public function verificationEpisodeExistant($numeroEpisode) // dont work
     {   
         $connexion = $this-> connexion($numeroEpisode);
-        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode where numeroEpisode = $numeroEpisode');
-        return $req;
+        $req = $connexion->prepare('SELECT numeroEpisode FROM tableepisode where numeroEpisode = ?');
+        $req->execute(array($numeroEpisode));
+        $post = $req->fetch();
+        return $post;
     }
     
     
@@ -91,7 +93,7 @@ class ModerateurPostManager{
         return $req;
     }
     
-    public function donnéesEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
+    public function donneesEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
     {   
         $connexion = $this-> connexion($postId);
         $req = $connexion->prepare('SELECT * FROM tableepisode WHERE numeroEpisode = ?');

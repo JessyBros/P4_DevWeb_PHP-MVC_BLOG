@@ -1,3 +1,5 @@
+<!--APerçu de tous les épisodes signalés par les utilisateurs-->
+
 <?php require('public/functions/supprimerUnCommentaire.php'); ?>
 <?php require('public/functions/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
@@ -18,6 +20,7 @@
 
 
         <h2>Liste des épisodes signalés par les internautes</h2>
+
         <!-- Afficher la liste des commentaires signalés-->
         <aside id="listeDesCommentairesSignales">
 
@@ -38,12 +41,14 @@
             <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
         </aside>
 
+
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
         <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?>
         <?php echo $message; ?>
 
 
-        <!-- Afficher le commentaire sélectionné-->
+
+        <!-- Afficher seulement le commentaire sélectionné par le modérateur pour savoir si il souhaite le supprimer ou pour le conserver -->
         <form id="formEpisodeSignaler" action="commentaire-<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
             <div>
                 <p>Pseudo :</p>

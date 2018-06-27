@@ -1,3 +1,4 @@
+<!-- Gestion des erreurs-->
 <?php 
 $message = "";
 if (isset($_GET['episode']))
