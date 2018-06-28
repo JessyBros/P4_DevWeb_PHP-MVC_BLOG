@@ -43,7 +43,19 @@ a {
     background-color: #d1e0eb;
     color: #0c3c60;
     border: 1px solid #0F056B;
-    margin: 10px auto 10px auto;
+    margin: 20px auto 20px auto;
+    padding: 10px;
     min-width: 250px;
     width: 60%;
+
+}
+
+footer {
+    position: relative;
+    text-align: center;
+    top: 80px;
+    padding-top: 25px;
+    height: 50px;
+    width: 100%;
+    border-top: 2px solid white;
 }

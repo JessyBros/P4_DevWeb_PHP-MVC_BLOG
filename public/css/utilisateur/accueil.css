@@ -191,6 +191,7 @@ a {
 
 footer {
     position: relative;
+    text-align: center;
     max-width: 1500px;
     width: 100%;
     margin: auto;

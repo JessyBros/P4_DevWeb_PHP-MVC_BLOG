@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <link href="public/css/moderateur/moderateurPseudoMdp.css" rel="stylesheet" />
     <title>modifier un épisode</title>
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuModerateur.js"></script>
 
 </head>

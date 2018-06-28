@@ -80,7 +80,7 @@ input[name="modifier"]:hover {
     background-color: #d1e0eb;
     position: relative;
     top: 15px;
-    width: 100%;
+    width: 95%;
     max-width: 350px;
     overflow-wrap: break-word;
     border-radius: 10px;
@@ -100,10 +100,10 @@ input[name="modifier"]:hover {
 
 #editeur {
     border-radius: 15px;
-    width: 100%;
+    width: 95%;
     background-color: #d1e0eb;
     color: #0c3c60;
-    height: 500px;
+    min-height: 500px;
     /* La hauteur de l'éditeur */
     border: 1px solid black;
     /* Une bordure pour bien voir l'éditeur */
@@ -111,10 +111,11 @@ input[name="modifier"]:hover {
     /* Une petite marge intérieure */
     overflow: auto;
     /* Cette propriété sert à envoyer le texte */
+ margin: auto;
 }
 
 #editeur article {
     text-align: left;
-    margin-right: 20px;
-    margin-left: 20px;
+   
+
 }

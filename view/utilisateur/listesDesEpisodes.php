@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Mon blog</title>
     <link href="public/css/utilisateur/listesDesEpisodes.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuEpisode.js"></script>
     <META NAME="Description" CONTENT="Listes de chaque épisode publié. 'un simple billet pour l'alaska'">
     <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
@@ -13,9 +14,9 @@
 
 <body>
     <?php require('public/textFunctions/headerUtilisateur.php'); ?>
-    
+
     <section id="corpsDeLaPage">
-        
+
         <aside id="titre">
             <h1>Les épisodes</h1>
         </aside>
@@ -37,6 +38,11 @@
         <?php } $listesEpisodes->closeCursor(); ?>
 
     </section>
+
+    <footer id="footer">
+        © 2018 - Mentions Légales -
+    </footer>
+
 
 </body>
 

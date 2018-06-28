@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <link href="public/css/moderateur/apercuDesEpisodes.css" rel="stylesheet" />
     <title>aperçu des épisodes</title>
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuModerateur.js"></script>
 </head>
 

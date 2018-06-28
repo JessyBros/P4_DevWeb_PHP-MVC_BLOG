@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <link href="public/css/moderateur/ajouterUnEpisode.css" rel="stylesheet" />
     <title>ajouter un épisode</title>
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuModerateur.js"></script>
     <script src="public/js/editeurDeTexte.js"></script>
 </head>

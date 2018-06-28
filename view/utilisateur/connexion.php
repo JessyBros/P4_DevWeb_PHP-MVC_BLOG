@@ -8,6 +8,7 @@
     <meta charset="utf-8" />
     <title>Mon blog</title>
     <link href="public/css/utilisateur/connexion.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuEpisode.js"></script>
 
 

@@ -9,6 +9,7 @@
     <meta charset="utf-8" />
     <title>Mon blog</title>
     <link href="public/css/utilisateur/lecturesDesEpisodes.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuEpisode.js"></script>
     <META NAME="Description" CONTENT=" épisode intégral du livre 'un simple billet pour l'alaska'. numéro de l'épisode concercerné, titre, description, texte. Les internautes peuvent également lire mais écrire un commentaires et donnez leur avis sur l'épisode.">
     <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
@@ -96,7 +97,7 @@
                         <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
                     </p>
                 </div>
-                
+
                 <!-- permet de récupérer le commentaire signalé -->
                 <form action="episode-<?= $post['numeroEpisode']?>" method="post">
 
@@ -113,7 +114,7 @@
     </section>
 
     <!-- Pied de page -->
-    <footer>
+    <footer id="footer">
         © 2018 - Mentions Légales -
     </footer>
 

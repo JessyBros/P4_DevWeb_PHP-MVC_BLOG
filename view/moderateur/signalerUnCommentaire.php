@@ -10,7 +10,7 @@
     <link href="public/css/moderateur/signalerUnCommentaire.css" rel="stylesheet" />
     <title>Mon blog</title>
     <script src="public/js/menuModerateur.js"></script>
-
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
 </head>
 
 <body>

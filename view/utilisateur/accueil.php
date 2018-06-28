@@ -6,6 +6,7 @@
     <meta charset="utf-8" />
     <title>Mon blog</title>
     <link href="public/css/utilisateur/accueil.css" rel="stylesheet" />
+    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuEpisode.js"></script>
     <META NAME="Description" CONTENT="Page d'accueil. Blog de Jean Forteroche qui écris un livre s'intitulant 'un billet simple pour l'alaska' Description courte du premier et des trois derniers épisodes publié par l'auteur.">
     <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
