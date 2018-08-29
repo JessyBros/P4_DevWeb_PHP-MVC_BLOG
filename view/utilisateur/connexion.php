@@ -1,4 +1,4 @@
-<?php require('public/functions/espaceConnexion.php'); ?>
+<?php require('public/functions/utilisateur/espaceConnexion.php'); ?>
 
 
 <!DOCTYPE html>

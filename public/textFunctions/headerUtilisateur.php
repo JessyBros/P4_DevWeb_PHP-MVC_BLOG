@@ -84,6 +84,10 @@
          .bouttonHeaderElement:nth-child(2) {
             order: 1;
         }
+        #choixEpisode {
+            top: 59px;
+        }
+    }
 
 </style>
 

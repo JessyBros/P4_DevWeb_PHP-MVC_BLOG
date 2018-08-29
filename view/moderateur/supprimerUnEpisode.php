@@ -1,5 +1,5 @@
 <!-- Permet au modérateur de supprimer un épisode-->
-<?php require('public/functions/supprimerUnEpisode.php'); ?>
+<?php require('public/functions/moderateur/supprimerUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -20,7 +20,7 @@
         <h1>Supprimer un épisode</h1>
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/verificationSupprimerUnEpisode.php'); ?>
+        <?php require('public/functions/moderateur/verificationSupprimerUnEpisode.php'); ?>
         <div id="message">
             <?php echo $message ?>
         </div>
@@ -29,7 +29,7 @@
         <nav id="apercuDesEpisodes">
             <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
             <a href="supprimer-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
-                <p onclick="episodeClickUtilisateur()"> Episode
+                <p> Episode
                     <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
                         <?= htmlspecialchars($listEpisodes['titre']) ?>
                 </p>
@@ -50,7 +50,11 @@
         </form>
 
     </section>
-
+    
+<div id="alerte">
+    <span id="messageAlerte"><?= $messageAlerte ?></span>
+</div>
+    
 </body>
 
 </html>

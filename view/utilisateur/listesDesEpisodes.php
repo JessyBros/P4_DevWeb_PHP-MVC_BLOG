@@ -8,37 +8,40 @@
     <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuEpisode.js"></script>
     <META NAME="Description" CONTENT="Listes de chaque épisode publié. 'un simple billet pour l'alaska'">
-    <META NAME="Identifier-URL" CONTENT="url du site dans l'hébergeur">
+    <META NAME="Identifier-URL" CONTENT="https://unbilletsimplepourlalaska.000webhostapp.com/">
     <META NAME="Keywords" CONTENT="blog, alaska, episodes, listes">
 </head>
 
 <body>
-    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
-    <section id="corpsDeLaPage">
+    <div>
+        <?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
-        <aside id="titre">
-            <h1>Les épisodes</h1>
-        </aside>
+        <section id="corpsDeLaPage">
 
-        <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
-        <aside class="blockEpisodes">
-            <p>Episode :
-                <?= $listesEpisode['numeroEpisode'] ?> -
-                    <?= $listesEpisode['titre'] ?>
-            </p>
-            <p>
-                <?= $listesEpisode['description'] ?>
-            </p>
-            <p>
-                <?= $listesEpisode['datePublication'] ?>
-            </p>
-            <a href="episode-<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
-        </aside>
-        <?php } $listesEpisodes->closeCursor(); ?>
+            <aside id="titre">
+                <h1>Les épisodes</h1>
+            </aside>
 
-    </section>
+            <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
+            <aside class="blockEpisodes">
+                <p>Episode :
+                    <?= $listesEpisode['numeroEpisode'] ?> -
+                        <strong><?= $listesEpisode['titre'] ?></strong>
+                </p>
+                <p>
+                    <?= $listesEpisode['description'] ?>
+                </p>
+                <a id="lireEpisode" href="episode-<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
+                <p>
+                    <?= $listesEpisode['datePublication'] ?>
+                </p>
+                
+            </aside>
+            <?php } $listesEpisodes->closeCursor(); ?>
 
+        </section>
+    </div>
     <footer id="footer">
         © 2018 - Mentions Légales -
     </footer>

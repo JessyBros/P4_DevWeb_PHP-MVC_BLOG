@@ -1,6 +1,7 @@
 <!-- Lors d'un commentaire signalé par un utilisateur,
     Permet à l'écrivain de conserver ce commentaire si celui-ci juge qu'il est respectable.-->
 <?php
+$messageAlerte="";
 if(isset($_POST['conserver']))
 {  
 
@@ -10,13 +11,21 @@ if(isset($_POST['conserver']))
         
         if ($conserverLeCommentairSignaler)
         {
-            echo '<script>alert(" le commentaire ' . $idCommentaire .' a été conserver ");</script>';
+           $messageAlerte=" le commentaire " . $idCommentaire ." a été conserver ";
             header("Location: signalerUnCommentaire");
         
         }
         else
         {
-            echo '<script>alert(" Une erreur est survenu ");</script>';
+            $messageAlerte=" Une erreur est survenu ";
         }
+     ?>
+<style>
+    #alerte {
+        display: block;
+    }
+
+</style>
+<?php
 }
 ?>

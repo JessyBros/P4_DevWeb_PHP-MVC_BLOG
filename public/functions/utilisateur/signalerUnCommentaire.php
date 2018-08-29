@@ -1,6 +1,7 @@
 <!-- Lorsqu'un utilisateur signale un commentaire,
     Lui indique si ce commentaire à bien été signalé ou non-->
 <?php 
+
 if ( isset($_POST['signaler']) )
 {
     $numEpisode = isset($_POST['numEpisode']) ? $_POST['numEpisode'] : NULL;
@@ -10,10 +11,18 @@ if ( isset($_POST['signaler']) )
     
     if ($postSignaler)
     {    
-        echo '<script>alert(" commentaire' . $idCommentaire . ' signalé ");</script>';        
+        $messageAlerte=" commentaire " . $idCommentaire . " signalé ";        
     }
     else
     {
-        echo '<script>alert(" Erreur, lors du signalement du commentaire ");</script>';
+        $messageAlerte=" Erreur, lors du signalement du commentaire ";
     }
+        ?>
+<style>
+    #alerte {
+        display: block;
+    }
+
+</style>
+<?php
 }

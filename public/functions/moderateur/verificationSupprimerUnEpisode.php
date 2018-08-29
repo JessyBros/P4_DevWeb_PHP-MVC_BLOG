@@ -19,6 +19,7 @@ if (isset($_GET['episode']))
     }
     elseif ($_GET['episode'] > 0 && $_GET['episode'] <= $nombreduDernierEpisode['numeroEpisode'] )
     {
+        
         ?> 
         <style>
             #apercuDesEpisodes

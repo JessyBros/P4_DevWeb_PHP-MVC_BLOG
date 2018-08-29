@@ -1,6 +1,6 @@
 <!-- Permet à l'utilisateur de changé son pseudo et son mot de passe (crypté) pour se connecter à son espace modérateur-->
 
-<?php require('public/functions/moderateurPseudoMdp.php'); ?>
+<?php require('public/functions/moderateur/moderateurPseudoMdp.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -30,7 +30,11 @@
         </form>
 
     </section>
-
+    
+<div id="alerte">
+    <span id="messageAlerte"><?= $messageAlerte ?></span>
+</div>
+    
 </body>
 
 </html>

@@ -1,5 +1,5 @@
 <?php
-$etatConnexion = "";     
+$etatConnexion = "";
 if (isset($_POST['connectezVous']))
 {          
     if( (!empty($_POST['pseudo'])) && (!empty($_POST['motDePasse'])) )
@@ -9,7 +9,8 @@ if (isset($_POST['connectezVous']))
                  
         if (  $pseudo==($connexion['pseudo']) &&  password_verify($mdp, $connexion['motDePasse']))
         {
-            header("Location:espaceModerateur");                 
+            header("Location:espaceModerateur");
+            
         }
         else if (  $pseudo!==($connexion['pseudo']) || $mdp!==($connexion['motDePasse']))
         {
@@ -29,4 +30,4 @@ if (isset($_POST['connectezVous']))
         $etatConnexion = "Oublie du mot de passe !";
     } 
 }  
-?>
+

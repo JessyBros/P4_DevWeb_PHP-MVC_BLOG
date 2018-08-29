@@ -18,28 +18,19 @@ body {
     text-shadow: 1px 1px 2px white;
     color: #0c3c60;
     word-wrap: break-word;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
 }
 
 a {
     text-decoration: none;
 }
 
-/*header {
-    position: fixed;
-    z-index: 2;
-    top: 0;
-    height: 40px;
-    width: 100%;
-    background-color: #4D6568;
-    border-bottom: 2px solid #8b9937;
-    display: flex;
-    justify-content: space-around;
-
-}*/
 
 #corpsDeLaPage {
     position: relative;
-    top: 60px;
+    margin-top:  60px;
     width: 95%;
     max-width: 1500px;
     margin: auto;
@@ -50,10 +41,11 @@ a {
     margin: auto;
     background-color: #d1e0eb;
     position: relative;
-    top: 20px;
+    margin-top: 20px;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
+    
 }
 
 .headerEpisode {
@@ -99,7 +91,7 @@ a {
 #blockEcrireCommentaire {
     background-color: #d1e0eb;
     position: relative;
-    top: 40px;
+    margin-top: 30px;
     border-radius: 10px;
 }
 
@@ -129,7 +121,7 @@ a {
 #blockLireCommentaire {
     background-color: #d1e0eb;
     position: relative;
-    top: 50px;
+    margin-top: 20px;
     border-radius: 10px;
     padding: 2px;
 }
@@ -169,13 +161,44 @@ button {
     text-align: center;
 }
 
+ #alerte {
+     top: 100px;
+     text-align: center;
+     position: fixed;
+     width: 100%;
+     margin: auto;
+     animation-name: example;
+     animation-duration: 5s;
+     visibility: hidden;
+     display: none;
+ }
+
+ #messageAlerte {
+     color: white;
+     padding: 20px;
+     font-size: 110%;
+     background-color: SeaGreen;
+     border-radius: 5px;
+
+ }
+
+ @keyframes example {
+     from {
+         visibility: visible;
+     }
+     to {
+         display: none;
+     }
+ }
+
+
 footer {
     text-align: center;
     position: relative;
     text-align: center;
-    top: 130px;
     padding-top: 25px;
     height: 50px;
     width: 100%;
     border-top: 2px solid white;
 }
+

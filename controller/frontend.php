@@ -2,9 +2,10 @@
 require('model/utilisateur.php');
 require('model/moderateur.php');
 
+// Espace UTILISATEUR ! \\
+
 function accueil()
 {
-   
     
     $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
@@ -37,7 +38,6 @@ function listesEpisodes()
 
     $listesEpisodesManager = new UtilisateurPostManager(); /* Listes de chaque épisodes crées*/
     $listesEpisodes = $listesEpisodesManager->listesEpisodes();
-
 
     require('view/utilisateur/listesDesEpisodes.php');
 
@@ -76,10 +76,10 @@ function lectureEpisode()
 
 }
 
+// Espace MODERATEUR ! \\
 
 function espaceModerateur()
 {
-    
     require('view/moderateur/espaceModerateur.php');
 }
 
@@ -97,8 +97,6 @@ function apercuDesEpisodes()
          $post = $postManager->lectureEpisode($_GET['episode']); 
     }
     
-    
-   
     require('view/moderateur/apercuDesEpisodes.php');
 }
 
@@ -110,7 +108,6 @@ function ajouterUnEpisode()
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
     $verificationEpisodeExistantManagers = new ModerateurPostManager(); // 
-    
     
     require('view/moderateur/ajouterUnEpisode.php');
 }

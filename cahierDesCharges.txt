@@ -5,11 +5,3 @@ https://openclassrooms.com/forum/sujet/set-cookie-et-connexion-automatique-95087
 
 -cookie connexion modérateur
 --------
-
--.hataccess -> changé l'url du site
-
--Mise en place du css.
-
--mettre le site sur un site d'hébergement
-
-- meta description

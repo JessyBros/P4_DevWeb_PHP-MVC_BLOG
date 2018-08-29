@@ -1,7 +1,7 @@
 <!--APerçu de tous les épisodes signalés par les utilisateurs-->
 
-<?php require('public/functions/supprimerUnCommentaire.php'); ?>
-<?php require('public/functions/conserverUnCommentaire.php'); ?>
+<?php require('public/functions/moderateur/supprimerUnCommentaire.php'); ?>
+<?php require('public/functions/moderateur/conserverUnCommentaire.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -43,7 +43,7 @@
 
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/verificationSignalerUnCommentaire.php'); ?>
+        <?php require('public/functions/moderateur/verificationSignalerUnCommentaire.php'); ?>
         <?php echo $message; ?>
 
 
@@ -65,9 +65,12 @@
             <p>Ce commentaire est valide et je souhaite le conserver <input type="submit" name="conserver" value="conserver" /></p>
         </form>
 
-
     </section>
-
+    
+<div id="alerte">
+    <span id="messageAlerte"><?= $messageAlerte ?></span>
+</div>
+    
 </body>
 
 </html>

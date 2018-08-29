@@ -1,6 +1,6 @@
-<?php require('public/functions/ajouterUnCommentaire.php'); ?>
-<?php require('public/functions/buttonEpisodeSuivPrec.php'); ?>
-<?php require('public/functions/signalerUnCommentaire.php'); ?>
+<?php require('public/functions/utilisateur/ajouterUnCommentaire.php'); ?>
+<?php require('public/functions/utilisateur/buttonEpisodeSuivPrec.php'); ?>
+<?php require('public/functions/utilisateur/signalerUnCommentaire.php'); ?>
 
 <!DOCTYPE html>
 <html>
@@ -17,101 +17,108 @@
 </head>
 
 <body>
+    <div>
 
-    <!-- En tête en position fixed -->
-    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
+        <!-- En tête en position fixed -->
+        <?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
-    <!-- Visuel de l'épisode -->
-    <section id="corpsDeLaPage">
+        <!-- Visuel de l'épisode -->
+        <section id="corpsDeLaPage">
 
-        <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/verificationLecturesDesEpisodes.php'); ?>
-        <div id="message">
-            <?php echo $message ?>
-        </div>
-
-        <aside id="blockEpisode">
-            <div class="headerEpisode">
-                <div class="libeleEpisode">
-                    <h2>Episode
-                        <?= htmlspecialchars($post['numeroEpisode']) ?>
-                    </h2>
-                    <h3>
-                        <?= htmlspecialchars($post['titre']) ?>
-                    </h3>
-                </div>
+            <!-- Affiche un message d'erreur en cas de trafic d'url-->
+            <?php require('public/functions/utilisateur/verificationLecturesDesEpisodes.php'); ?>
+            <div id="message">
+                <?php echo $message ?>
             </div>
-            <br>
-            <article class="textEpisode">
-                <?= $post['texte'] ?>
-            </article>
-            <div id="conteneurEpisodeSuivPrec">
 
-                <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']-1 ?>">
+            <aside id="blockEpisode">
+                <div class="headerEpisode">
+                    <div class="libeleEpisode">
+                        <h2>Episode
+                            <?= htmlspecialchars($post['numeroEpisode']) ?>
+                        </h2>
+                        <h3>
+                            <?= htmlspecialchars($post['titre']) ?>
+                        </h3>
+                    </div>
+                </div>
+                <br>
+                <article class="textEpisode">
+                    <?= $post['texte'] ?>
+                </article>
+                <div id="conteneurEpisodeSuivPrec">
+
+                    <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']-1 ?>">
                 <button class="episodePrec">Episode précédent</button>
             </a>
-                <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']+1 ?>">
+                    <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']+1 ?>">
                 <button class="episodeSuiv">Episode suivant</button>
             </a>
-            </div>
-        </aside>
-
-        <!-- Ecriture du comentaire -->
-        <aside id="blockEcrireCommentaire">
-            <div id="miniBlockEcrireCommentaire">
-                <div>
-                    <h3>
-                        Écrivez votre commentaire !
-                    </h3>
                 </div>
-                <form action="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']?>" method="post">
-                    <div>
-                        <label for="autheur">Choisissez votre Pseudo</label><br />
-                        <input type="text" id="autheur" name="autheur" />
-                    </div>
-                    <div>
-                        <label for="commentaire">Contenu du commentaire</label><br />
-                        <textarea id="commentaire" name="commentaire"></textarea>
-                    </div>
-                    <div>
-                        <input type="hidden" id="numeroEpisode" name="numeroEpisode" value="<?= $post['numeroEpisode']?>" />
-                    </div>
-                    <div>
-                        <input name="publie" type="submit" value="publie" />
-                    </div>
-                </form>
-            </div>
-        </aside>
+            </aside>
 
-        <!-- Tous les commentaires de l'épisode -->
-        <aside id="blockLireCommentaire">
-            <h3 id="lesCommentaires">Les commentaires</h3>
-            <?php while ($commentaire = $commentaires->fetch()){ ?>
-
-            <div class="miniBlockLireCommentaire">
-                <div>
-                    <p><strong class="pseudo"><?= htmlspecialchars($commentaire['autheur']) ?></strong> -
-                        <?= $commentaire['comment_date_fr'] ?>
-                    </p>
-                    <p>
-                        <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
-                    </p>
+            <!-- Ecriture du comentaire -->
+            <aside id="blockEcrireCommentaire">
+                <div id="miniBlockEcrireCommentaire">
+                    <div>
+                        <h3>
+                            Écrivez votre commentaire !
+                        </h3>
+                    </div>
+                    <form action="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']?>" method="post">
+                        <div>
+                            <label for="autheur">Choisissez votre Pseudo</label><br />
+                            <input type="text" id="autheur" name="autheur" />
+                        </div>
+                        <div>
+                            <label for="commentaire">Contenu du commentaire</label><br />
+                            <textarea id="commentaire" name="commentaire"></textarea>
+                        </div>
+                        <div>
+                            <input type="hidden" id="numeroEpisode" name="numeroEpisode" value="<?= $post['numeroEpisode']?>" />
+                        </div>
+                        <div>
+                            <input name="publie" type="submit" value="publie" />
+                        </div>
+                    </form>
                 </div>
+            </aside>
 
-                <!-- permet de récupérer le commentaire signalé -->
-                <form action="episode-<?= $post['numeroEpisode']?>" method="post">
+            <!-- Tous les commentaires de l'épisode -->
+            <aside id="blockLireCommentaire">
+                <h3 id="lesCommentaires">Les commentaires</h3>
+                <?php while ($commentaire = $commentaires->fetch()){ ?>
 
-                    <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
+                <div class="miniBlockLireCommentaire">
+                    <div>
+                        <p><strong class="pseudo"><?= htmlspecialchars($commentaire['autheur']) ?></strong> -
+                            <?= $commentaire['comment_date_fr'] ?>
+                        </p>
+                        <p>
+                            <?= nl2br(htmlspecialchars($commentaire['commentaire'])) ?>
+                        </p>
+                    </div>
 
-                    <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
+                    <!-- permet de récupérer le commentaire signalé -->
+                    <form action="episode-<?= $post['numeroEpisode']?>" method="post">
 
-                    <input name="signaler" type="submit" value="Signaler" />
-                </form>
-            </div>
-            <?php } $commentaires->closeCursor(); ?>
-        </aside>
+                        <input type="hidden" name="numEpisode" value="<?= $post['numeroEpisode']?>" />
 
-    </section>
+                        <input type="hidden" name="idCommentaire" value="<?= $commentaire['id']?>" />
+
+                        <input name="signaler" type="submit" value="Signaler" />
+                    </form>
+                </div>
+                <?php } $commentaires->closeCursor(); ?>
+            </aside>
+
+        </section>
+        <br>
+    </div>
+    
+    <div id="alerte">
+    <span id="messageAlerte"><?= $messageAlerte ?></span>
+</div>
 
     <!-- Pied de page -->
     <footer id="footer">

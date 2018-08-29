@@ -1,3 +1,5 @@
+<!-- Un éditeur de texte pour modifier ou ajouter un épisode coté modérateur -->
+
 <input type="button" value="G" style="font-weight: bold;" onclick="commande('bold');" />
 <input type="button" value="I" style="font-style: italic;" onclick="commande('italic');" />
 <input type="button" value="S" style="text-decoration: underline;" onclick="commande('underline');" />

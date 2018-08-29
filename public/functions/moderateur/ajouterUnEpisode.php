@@ -1,5 +1,6 @@
 <!-- Permet à L'écrivain d'ajouter un commentaire, si celui-ci n'a pas déjà était enregitré.-->
 <?php 
+$messageAlerte="";
 if ( isset($_POST['publie']) )
 {
     $numeroEpisode = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
@@ -7,12 +8,12 @@ if ( isset($_POST['publie']) )
      
     if ($verificationEpisodeExistant)
     {
-        echo '<script>alert(" L\'épisode ' . $_POST['numeroEpisode'] . ' existe déjà ");</script>';
-           
+        $messageAlerte="L'épisode " . $_POST['numeroEpisode'] . " existe déjà !";           
     }
     elseif($numeroEpisode < 1)
     {
-        echo '<script>alert("Erreur, l\'épisode ne peut pas avoir la valeur 0 ou une valeur négative. ");</script>';
+        $messageAlerte="Erreur, l'épisode ne peut pas avoir la valeur 0 ou une valeur négative. ";
+        
     }
     else
     {
@@ -25,14 +26,21 @@ if ( isset($_POST['publie']) )
         
         if ($ajoutEpisode)
         {
-            echo '<script>alert(" L\'épisode ' . $_POST['numeroEpisode'] . ' a été ajouté ");</script>';
-
+             $messageAlerte=" L'épisode " . $_POST['numeroEpisode'] . " a été ajouté !";
+            
         }
         else
         {
-            echo '<script>alert(" Erreur, aucun épisode n\'a été ajouté ");</script>';
+            $messageAlerte=" Erreur, aucun épisode n\'a été ajouté !";
         }  
-    }       
+    }
+    ?>
+<style>
+    #alerte {
+        display: block;
+    }
+
+</style>
+<?php
 }
-  
-    
+

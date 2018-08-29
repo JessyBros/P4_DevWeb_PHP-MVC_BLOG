@@ -1,3 +1,6 @@
+#--------------------------------------------------
+# protège le fichier .hatccess
+#--------------------------------------------------
 <files .htaccess>
 order allow,deny
 deny from all
