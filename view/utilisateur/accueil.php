@@ -26,24 +26,24 @@
         <!-- Aperçu du premier épisode -->
         <h2>Le commencement ce fait toujours par le premier épisode :)</h2>
 
-         <a href="episode-<?= htmlspecialchars($data['numeroEpisode']) ?>">
-        <aside id="blockPremierEpisode">
-            <h3 class="numeroEpisode">Episode
-                <?= htmlspecialchars($data['numeroEpisode']) ?>
-            </h3>
-            <h4 class="titreEpisode">
-                <?= htmlspecialchars($data['titre']) ?>
-            </h4>
-            <img class="imagePremierEpisode" src="<?= $data['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($data['titre']) ?>">
+        <a href="episode-<?= htmlspecialchars($data['numeroEpisode']) ?>">
+            <aside id="blockPremierEpisode">
+                <h3 class="numeroEpisode">Episode
+                    <?= htmlspecialchars($data['numeroEpisode']) ?>
+                </h3>
+                <h4 class="titreEpisode">
+                    <?= htmlspecialchars($data['titre']) ?>
+                </h4>
+                <img class="imagePremierEpisode" src="<?= $data['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($data['titre']) ?>">
 
-            <p class="textEpisode">
-                <?= htmlspecialchars($data['description']) ?>
-            </p>
-            <p class="dateEpisode">publié le
-                <?= htmlspecialchars($data['datePublication']) ?>
-            </p>
-           
-        </aside>
+                <p class="textEpisode">
+                    <?= htmlspecialchars($data['description']) ?>
+                </p>
+                <p class="dateEpisode">publié le
+                    <?= htmlspecialchars($data['datePublication']) ?>
+                </p>
+
+            </aside>
         </a>
 
 

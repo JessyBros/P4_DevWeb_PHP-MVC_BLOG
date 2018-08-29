@@ -41,11 +41,11 @@
             <?php require('public/textFunctions/editeurHTML.php'); ?>
 
             <div id="editeur" contentEditable>
-        
+
                 <article>
                     <?= $donneesEpisode['texte'] ?>
                 </article>
-               
+
             </div>
 
             <input name="modifTexte" id="modifTexte" required="" type="hidden">
@@ -63,7 +63,7 @@
             <div id="apercuDesEpisodes">
                 <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
                 <a href="modifier-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
-                    <p onclick="episodeClickUtilisateur()"> Episode
+                    <p> Episode
                         <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
                             <?= htmlspecialchars($listEpisodes['titre']) ?>
                     </p>
@@ -73,11 +73,11 @@
         </nav>
 
     </section>
-    
-<div id="alerte">
-    <span id="messageAlerte"><?= $messageAlerte ?></span>
-</div>
-    
+
+    <div id="alerte">
+        <span id="messageAlerte"><?= $messageAlerte ?></span>
+    </div>
+
 </body>
 
 </html>

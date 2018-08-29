@@ -23,7 +23,7 @@ if (isset($_GET['episode']))
 }
 else
 {
-    $message ="Merci de bien vouloir choisir un épisode via le menu 'Choix de l'épisode'";
+    $message ="Merci de bien vouloir choisir un épisode via le menu 'Choix del'épisode'";
     ?> 
     <style>
         #blockEpisode, #blockEcrireCommentaire, #blockLireCommentaire

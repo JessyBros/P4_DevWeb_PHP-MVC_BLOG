@@ -29,5 +29,4 @@ if (isset($_POST['connectezVous']))
     {
         $etatConnexion = "Oublie du mot de passe !";
     } 
-}  
-
+}

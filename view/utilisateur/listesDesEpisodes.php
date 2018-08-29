@@ -36,7 +36,7 @@
                 <p>
                     <?= $listesEpisode['datePublication'] ?>
                 </p>
-                
+
             </aside>
             <?php } $listesEpisodes->closeCursor(); ?>
 

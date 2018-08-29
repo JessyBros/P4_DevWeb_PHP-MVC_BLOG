@@ -50,8 +50,8 @@
 
             <div id="apercuDesEpisodes">
                 <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
-                <a href="http://localhost/blogphpoc/apercuDesEpisodes-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
-                    <p onclick="episodeClickUtilisateur()"> Episode
+                <a href="apercuDesEpisodes-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+                    <p> Episode
                         <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
                             <?= htmlspecialchars($listEpisodes['titre']) ?>
                     </p>

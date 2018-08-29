@@ -112,41 +112,41 @@ input[name="modifier"]:hover {
     /* Une petite marge intérieure */
     overflow: auto;
     /* Cette propriété sert à envoyer le texte */
- margin: auto;
+    margin: auto;
 }
 
 #editeur article {
     text-align: left;
-   
+
 
 }
 
 #alerte {
-     top: 100px;
-     text-align: center;
-     position: fixed;
-     width: 100%;
-     margin: auto;
-     animation-name: example;
-     animation-duration: 5s;
-     visibility: hidden;
-     display: block;
- }
+    top: 100px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    animation-name: example;
+    animation-duration: 5s;
+    visibility: hidden;
+    display: block;
+}
 
- #messageAlerte {
-     color: white;
-     padding: 20px;
-     font-size: 110%;
-     background-color: SeaGreen;
-     border-radius: 5px;
+#messageAlerte {
+    color: white;
+    padding: 20px;
+    font-size: 110%;
+    background-color: SeaGreen;
+    border-radius: 5px;
 
- }
+}
 
- @keyframes example {
-     from {
-         visibility: visible;
-     }
-     to {
-         display: none;
-     }
- }
+@keyframes example {
+    from {
+        visibility: visible;
+    }
+    to {
+        display: none;
+    }
+}

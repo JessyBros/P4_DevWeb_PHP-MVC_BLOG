@@ -49,7 +49,7 @@
 
 
         <!-- Afficher seulement le commentaire sélectionné par le modérateur pour savoir si il souhaite le supprimer ou pour le conserver -->
-        <form id="formEpisodeSignaler" action="commentaire-<?= htmlspecialchars($_GET['commentaire'])?>" method="post" id="formAjouter">
+        <form id="formEpisodeSignaler" action="signalerUnCommentaire" method="post" id="formAjouter">
             <div>
                 <p>Pseudo :</p>
                 <p><em>
@@ -62,15 +62,16 @@
             </div>
 
             <p>Je souhaite supprimer définitivement ce commmentaire <input type="submit" name="supprimer" value="supprimer" /></p>
+            <input type="hidden" name="numeroCommentaire" value="<?= htmlspecialchars($_GET['commentaire'])?>">
             <p>Ce commentaire est valide et je souhaite le conserver <input type="submit" name="conserver" value="conserver" /></p>
         </form>
 
     </section>
-    
-<div id="alerte">
-    <span id="messageAlerte"><?= $messageAlerte ?></span>
-</div>
-    
+
+    <div id="alerte">
+        <span id="messageAlerte"><?= $messageAlerte ?></span>
+    </div>
+
 </body>
 
 </html>

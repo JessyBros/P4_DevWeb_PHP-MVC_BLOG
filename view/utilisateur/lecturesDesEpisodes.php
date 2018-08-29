@@ -48,10 +48,10 @@
                 </article>
                 <div id="conteneurEpisodeSuivPrec">
 
-                    <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']-1 ?>">
+                    <a href="episode-<?= $post['numeroEpisode']-1 ?>">
                 <button class="episodePrec">Episode précédent</button>
             </a>
-                    <a href="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']+1 ?>">
+                    <a href="episode-<?= $post['numeroEpisode']+1 ?>">
                 <button class="episodeSuiv">Episode suivant</button>
             </a>
                 </div>
@@ -65,7 +65,7 @@
                             Écrivez votre commentaire !
                         </h3>
                     </div>
-                    <form action="http://www.localhost/blogphpoc/episode-<?= $post['numeroEpisode']?>" method="post">
+                    <form action="episode-<?= $post['numeroEpisode']?>" method="post">
                         <div>
                             <label for="autheur">Choisissez votre Pseudo</label><br />
                             <input type="text" id="autheur" name="autheur" />
@@ -115,10 +115,10 @@
         </section>
         <br>
     </div>
-    
+
     <div id="alerte">
-    <span id="messageAlerte"><?= $messageAlerte ?></span>
-</div>
+        <span id="messageAlerte"><?= $messageAlerte ?></span>
+    </div>
 
     <!-- Pied de page -->
     <footer id="footer">

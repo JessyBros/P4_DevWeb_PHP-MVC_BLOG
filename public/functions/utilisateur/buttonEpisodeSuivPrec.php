@@ -7,18 +7,24 @@ if (isset($post['numeroEpisode']))
     if ( $post['numeroEpisode'] == 1 )
     {
         ?>
-        <style>
-            .episodePrec{display: none;}
-        </style>
-        <?php 
+    <style>
+        .episodePrec {
+            display: none;
+        }
+
+    </style>
+    <?php 
     }
     elseif ( $post['numeroEpisode'] === $nombreduDernierEpisode['numeroEpisode'] ) 
     {
         ?>
-        <style>
-            .episodeSuiv{display: none;}
-        </style>
-        <?php
+    <style>
+        .episodeSuiv {
+            display: none;
+        }
+
+    </style>
+    <?php
     }
 }
 ?>

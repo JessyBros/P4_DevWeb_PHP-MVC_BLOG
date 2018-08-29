@@ -18,10 +18,10 @@
     <?php require('public/textFunctions/headerModerateur.php'); ?>
 
     <section id="corpsDeLaPage">
-        
+
         <h1>Ajouter un épisode</h1>
 
-        <form action="index.php?action=ajouterUnEpisode" method="post" id="formAjouter">
+        <form action="ajouterUnEpisode" method="post" id="formAjouter">
             <p>Episode
                 <input name="numeroEpisode" value="<?= htmlspecialchars($nombreduDernierEpisode['numeroEpisode'] +1) ?>" id="numeroEpisode" required="" type="text">
             </p>
@@ -35,14 +35,14 @@
             <div id="editeur" contentEditable></div>
 
             <input name="texte" id="texte" required="" type="hidden">
-            <input onclick="ajoutEpisode();" type="submit" name="publie" value="Publié" />
+            <input type="submit" name="publie" value="Publié" />
         </form>
 
     </section>
-<div id="alerte">
-    <span id="messageAlerte"><?= $messageAlerte ?></span>
-</div>
-    
+    <div id="alerte">
+        <span id="messageAlerte"><?= $messageAlerte ?></span>
+    </div>
+
 </body>
 
 </html>

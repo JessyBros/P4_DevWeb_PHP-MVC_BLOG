@@ -13,7 +13,8 @@ if ( isset($_POST['publie']) )
       if ($postComment)
         {       
             
-            $messageAlerte = " Votre commentaire '" . $postCommentaire . "' a bien été ajouté à l'épisode " . $postNumeroEpisode ;        
+            $messageAlerte = " Votre commentaire '" . $postCommentaire . "' a bien été ajouté à l'épisode " . $postNumeroEpisode ;
+           header("Refresh: 3;url=episode-".$postNumeroEpisode);
         }
         else
         {

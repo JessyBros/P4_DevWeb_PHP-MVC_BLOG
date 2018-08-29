@@ -9,18 +9,18 @@ if (isset($_GET['commentaire']))
     
     if ($episodeSignaler == "signaler")
     {
-        ?> 
-        <style>
-        #formEpisodeSignaler
-        {
-            display: block;
-        } 
-        #listeDesCommentairesSignales
-        {
-            display: none;    
-        }
-        </style>
-        <?php
+        ?>
+<style>
+    #formEpisodeSignaler {
+        display: block;
+    }
+
+    #listeDesCommentairesSignales {
+        display: none;
+    }
+
+</style>
+<?php
     }
     elseif ($episodeSignaler == "nonSignaler")
     {
@@ -34,19 +34,17 @@ if (isset($_GET['commentaire']))
 
 elseif($aucunCommentaireSignaler['commentaireSignaler'] != "signaler")
 {
-         ?> 
-        <style>
-      
-        #listeDesCommentairesSignales
-        {
-            display: none;    
+         ?>
+    <style>
+        #listeDesCommentairesSignales {
+            display: none;
         }
-        </style>
-        <?php
+
+    </style>
+    <?php
     $message = "Aucun commentaire n'a été signalé :D";
 }
 
     
 
 ?>
-    

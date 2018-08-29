@@ -4,16 +4,16 @@ $messageAlerte="";
 
 if(isset($_POST['oui']))
 {  
-    $supEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
+    $supEpisode  = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
     $suppressionEpisode = $suppressionEpisodeManagers->suppressionEpisode($supEpisode);
     
-    $supCommentaire  = isset($donnéesEpisode['numeroEpisode']) ? $_GET['episode'] : NULL;
+    $supCommentaire  = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
     $suppressionCommentaire = $suppressionCommentaireManagers->suppressionCommentaire($supCommentaire);
         
     if ($suppressionEpisode && $suppressionCommentaire)
     {
-        $messageAlerte="L'épisode " . $supEpisode . " a bien été supprimé ";    
-        header("Location: supprimerUnEpisode");
+        $messageAlerte="L'épisode ".$supEpisode." a bien été supprimé "; 
+         header("Refresh: 3;url=supprimerUnEpisode");
     }
     else
     {
@@ -27,11 +27,11 @@ elseif (isset($_POST['non']))
 }
 
  ?>
-<style>
-    #alerte {
-        display: block;
-    }
+    <style>
+        #alerte {
+            display: block;
+        }
 
-</style>
-<?php
+    </style>
+    <?php
 ?>

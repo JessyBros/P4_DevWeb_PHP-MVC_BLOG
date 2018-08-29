@@ -30,7 +30,7 @@ a {
 
 #corpsDeLaPage {
     position: relative;
-    margin-top:  60px;
+    margin-top: 60px;
     width: 95%;
     max-width: 1500px;
     margin: auto;
@@ -41,11 +41,11 @@ a {
     margin: auto;
     background-color: #d1e0eb;
     position: relative;
-    margin-top: 20px;
+    margin-top: 65px;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
-    
+
 }
 
 .headerEpisode {
@@ -161,35 +161,35 @@ button {
     text-align: center;
 }
 
- #alerte {
-     top: 100px;
-     text-align: center;
-     position: fixed;
-     width: 100%;
-     margin: auto;
-     animation-name: example;
-     animation-duration: 5s;
-     visibility: hidden;
-     display: none;
- }
+#alerte {
+    top: 100px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    margin: auto;
+    animation-name: example;
+    animation-duration: 5s;
+    visibility: hidden;
+    display: none;
+}
 
- #messageAlerte {
-     color: white;
-     padding: 20px;
-     font-size: 110%;
-     background-color: SeaGreen;
-     border-radius: 5px;
+#messageAlerte {
+    color: white;
+    padding: 20px;
+    font-size: 110%;
+    background-color: SeaGreen;
+    border-radius: 5px;
 
- }
+}
 
- @keyframes example {
-     from {
-         visibility: visible;
-     }
-     to {
-         display: none;
-     }
- }
+@keyframes example {
+    from {
+        visibility: visible;
+    }
+    to {
+        display: none;
+    }
+}
 
 
 footer {
@@ -201,4 +201,3 @@ footer {
     width: 100%;
     border-top: 2px solid white;
 }
-

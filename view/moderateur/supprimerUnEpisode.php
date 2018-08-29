@@ -38,7 +38,7 @@
         </nav>
 
         <!-- Vérification après sélection d'un épisode, pour savoir si le modérateur souhaite réellement et définitivement supprimer l'épisode -->
-        <form action="supprimer-episode-<?= htmlspecialchars($donneesEpisode['numeroEpisode']) ?>" method="post" id="confirmationSuppressionEpisode">
+        <form action="supprimerUnEpisode" method="post" id="confirmationSuppressionEpisode">
             <p>Voulez-vous réellement supprimer l'épisode
                 <?= $donneesEpisode['numeroEpisode'] ?>
             </p>

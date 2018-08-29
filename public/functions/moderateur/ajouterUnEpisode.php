@@ -43,4 +43,3 @@ if ( isset($_POST['publie']) )
 </style>
 <?php
 }
-

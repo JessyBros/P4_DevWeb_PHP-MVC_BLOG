@@ -21,7 +21,7 @@
 
         <h1>Changement du pseudo et/ou du mot de passe</h1>
 
-        <form action="index.php?action=moderateurPseudoMdp" method="post">
+        <form action="moderateurPseudoMdp" method="post">
 
             <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
             <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
@@ -30,11 +30,11 @@
         </form>
 
     </section>
-    
-<div id="alerte">
-    <span id="messageAlerte"><?= $messageAlerte ?></span>
-</div>
-    
+
+    <div id="alerte">
+        <span id="messageAlerte"><?= $messageAlerte ?></span>
+    </div>
+
 </body>
 
 </html>

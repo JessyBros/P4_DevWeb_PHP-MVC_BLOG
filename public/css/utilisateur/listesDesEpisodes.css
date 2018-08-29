@@ -51,7 +51,7 @@ a {
     padding: 10px;
     min-width: 250px;
     width: 60%;
-    border-radius:5px;
+    border-radius: 5px;
 }
 
 html,
@@ -107,11 +107,13 @@ a {
     padding: 10px;
     min-width: 250px;
     width: 60%;
-    border-radius:5px;
+    border-radius: 5px;
 }
-#lireEpisode{
-    font-style: italic;float:right;
-    
+
+#lireEpisode {
+    font-style: italic;
+    float: right;
+
 }
 
 
