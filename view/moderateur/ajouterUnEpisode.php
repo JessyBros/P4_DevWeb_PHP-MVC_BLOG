@@ -1,6 +1,4 @@
 <!-- Formulaire qui permet à l'écrivain d'ajouter un épisode à son blog-->
-
-<?php require('public/functions/moderateur/ajouterUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
 

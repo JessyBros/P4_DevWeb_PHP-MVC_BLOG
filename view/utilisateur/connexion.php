@@ -1,6 +1,3 @@
-<?php require('public/functions/utilisateur/espaceConnexion.php'); ?>
-
-
 <!DOCTYPE html>
 <html>
 

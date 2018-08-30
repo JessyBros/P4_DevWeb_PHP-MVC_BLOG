@@ -19,7 +19,6 @@
         <h1>Aperçu des épisodes</h1>
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/moderateur/verificationApercuDesEpisodes.php'); ?>
         <div id="message">
             <?php echo $message ?>
         </div>

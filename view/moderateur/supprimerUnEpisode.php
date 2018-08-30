@@ -1,5 +1,4 @@
 <!-- Permet au modérateur de supprimer un épisode-->
-<?php require('public/functions/moderateur/supprimerUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
 

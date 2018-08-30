@@ -1,7 +1,4 @@
-<!--APerçu de tous les épisodes signalés par les utilisateurs-->
-
-<?php require('public/functions/moderateur/supprimerUnCommentaire.php'); ?>
-<?php require('public/functions/moderateur/conserverUnCommentaire.php'); ?>
+<!--Aperçu de tous les épisodes signalés par les utilisateurs-->
 <!DOCTYPE html>
 <html>
 
@@ -43,7 +40,6 @@
 
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/moderateur/verificationSignalerUnCommentaire.php'); ?>
         <?php echo $message; ?>
 
 

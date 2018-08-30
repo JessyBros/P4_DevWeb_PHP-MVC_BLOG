@@ -1,6 +1,4 @@
 <!-- Permet à l'utilisateur de changé son pseudo et son mot de passe (crypté) pour se connecter à son espace modérateur-->
-
-<?php require('public/functions/moderateur/moderateurPseudoMdp.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +10,6 @@
     <script src="public/js/menuModerateur.js"></script>
 
 </head>
-
 
 <body>
     <?php  require('public/textFunctions/headerModerateur.php'); ?>

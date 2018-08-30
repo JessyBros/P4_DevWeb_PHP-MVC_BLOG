@@ -1,20 +1,10 @@
 <?php
-class ModerateurPostManager{
 
-    // connexion à la BASE DE DONNE
-     private function connexion()
-    {
-        try
-        {
-            $db = new PDO('mysql:host=localhost;dbname=billetalaska;charset=utf8', 'root', '');
-        }
-        catch(Exception $e)
-        {
-            die('Erreur : '.$e->getMessage());
-        }
-        return $db;
-    }
-    
+namespace Blog\Projet\Model;
+
+require_once("model/Manager.php");
+
+class ModerateurPostManager extends Manager{
     
        public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
     {   

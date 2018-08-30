@@ -1,7 +1,3 @@
-<?php require('public/functions/utilisateur/ajouterUnCommentaire.php'); ?>
-<?php require('public/functions/utilisateur/buttonEpisodeSuivPrec.php'); ?>
-<?php require('public/functions/utilisateur/signalerUnCommentaire.php'); ?>
-
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +22,6 @@
         <section id="corpsDeLaPage">
 
             <!-- Affiche un message d'erreur en cas de trafic d'url-->
-            <?php require('public/functions/utilisateur/verificationLecturesDesEpisodes.php'); ?>
             <div id="message">
                 <?php echo $message ?>
             </div>

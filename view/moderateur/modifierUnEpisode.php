@@ -1,5 +1,4 @@
 <!-- Permet à l'utilisateur de modifié un épisode en ayant un bref aperçu de celui-ci -->
-<?php require('public/functions/moderateur/modifierUnEpisode.php'); ?>
 <!DOCTYPE html>
 <html>
 
@@ -22,7 +21,6 @@
         <h1>Modifier un épisode</h1>
 
         <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <?php require('public/functions/moderateur/verificationModifierUnEpisode.php'); ?>
         <div id="message">
             <?php echo $message ?>
         </div>
