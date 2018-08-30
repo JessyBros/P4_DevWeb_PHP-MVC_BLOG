@@ -1,52 +1,42 @@
-<!DOCTYPE html>
-<html>
+<?php $css = "public/css/utilisateur/listesDesEpisodes.css" ?>
+<?php $menu = "public/js/menuEpisode.js" ?>
+<?php $description = "Listes de chaque épisode publié. 'un simple billet pour l'alaska'" ?>
+<?php $keywords = "blog, alaska, episodes, listes" ?>
 
-<head>
-    <meta charset="utf-8" />
-    <title>Mon blog</title>
-    <link href="public/css/utilisateur/listesDesEpisodes.css" rel="stylesheet" />
-    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
-    <script src="public/js/menuEpisode.js"></script>
-    <META NAME="Description" CONTENT="Listes de chaque épisode publié. 'un simple billet pour l'alaska'">
-    <META NAME="Identifier-URL" CONTENT="https://unbilletsimplepourlalaska.000webhostapp.com/">
-    <META NAME="Keywords" CONTENT="blog, alaska, episodes, listes">
-</head>
+<?php ob_start(); ?>
 
-<body>
+<div>
+    <?php require('public/textFunctions/headerUtilisateur.php'); ?>
 
-    <div>
-        <?php require('public/textFunctions/headerUtilisateur.php'); ?>
+    <section id="corpsDeLaPage">
 
-        <section id="corpsDeLaPage">
+        <aside id="titre">
+            <h1>Les épisodes</h1>
+        </aside>
 
-            <aside id="titre">
-                <h1>Les épisodes</h1>
-            </aside>
+        <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
+        <aside class="blockEpisodes">
+            <p>Episode :
+                <?= $listesEpisode['numeroEpisode'] ?> -
+                    <strong><?= $listesEpisode['titre'] ?></strong>
+            </p>
+            <p>
+                <?= $listesEpisode['description'] ?>
+            </p>
+            <a id="lireEpisode" href="episode-<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
+            <p>
+                <?= $listesEpisode['datePublication'] ?>
+            </p>
 
-            <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
-            <aside class="blockEpisodes">
-                <p>Episode :
-                    <?= $listesEpisode['numeroEpisode'] ?> -
-                        <strong><?= $listesEpisode['titre'] ?></strong>
-                </p>
-                <p>
-                    <?= $listesEpisode['description'] ?>
-                </p>
-                <a id="lireEpisode" href="episode-<?= $listesEpisode['numeroEpisode']?>">Lire l'épisode</a>
-                <p>
-                    <?= $listesEpisode['datePublication'] ?>
-                </p>
+        </aside>
+        <?php } $listesEpisodes->closeCursor(); ?>
 
-            </aside>
-            <?php } $listesEpisodes->closeCursor(); ?>
+    </section>
+</div>
+<footer id="footer">
+    © 2018 - Mentions Légales -
+</footer>
 
-        </section>
-    </div>
-    <footer id="footer">
-        © 2018 - Mentions Légales -
-    </footer>
+<?php $content = ob_get_clean(); ?>
 
-
-</body>
-
-</html>
+<?php require('view/template.php'); ?>

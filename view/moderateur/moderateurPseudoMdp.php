@@ -1,37 +1,31 @@
 <!-- Permet à l'utilisateur de changé son pseudo et son mot de passe (crypté) pour se connecter à son espace modérateur-->
-<!DOCTYPE html>
-<html>
+<?php $css = "public/css/moderateur/moderateurPseudoMdp.css" ?>
+<?php $menu = "public/js/menuModerateur.js" ?>
+<?php $description = "espace moderateur de JeanForteroche" ?>
+<?php $keywords = "CRUD, episode, commentaire" ?>
 
-<head>
-    <meta charset="utf-8" />
-    <link href="public/css/moderateur/moderateurPseudoMdp.css" rel="stylesheet" />
-    <title>modifier un épisode</title>
-    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
-    <script src="public/js/menuModerateur.js"></script>
+<?php ob_start(); ?>
 
-</head>
+<?php  require('public/textFunctions/headerModerateur.php'); ?>
 
-<body>
-    <?php  require('public/textFunctions/headerModerateur.php'); ?>
+<section id="corpsDeLaPage">
 
-    <section id="corpsDeLaPage">
+    <h1>Changement du pseudo et/ou du mot de passe</h1>
 
-        <h1>Changement du pseudo et/ou du mot de passe</h1>
+    <form action="moderateurPseudoMdp" method="post">
 
-        <form action="moderateurPseudoMdp" method="post">
+        <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
+        <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
+        <input type="submit" name="modifier" value="modifier" />
 
-            <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
-            <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
-            <input type="submit" name="modifier" value="modifier" />
+    </form>
 
-        </form>
+</section>
 
-    </section>
+<div id="alerte">
+    <span id="messageAlerte"><?= $messageAlerte ?></span>
+</div>
 
-    <div id="alerte">
-        <span id="messageAlerte"><?= $messageAlerte ?></span>
-    </div>
+<?php $content = ob_get_clean(); ?>
 
-</body>
-
-</html>
+<?php require('view/template.php'); ?>

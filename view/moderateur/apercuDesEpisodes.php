@@ -1,67 +1,60 @@
 <!-- Permet à l'utilisateur d'avoir un bref visuel du rendu des épisodes publiés-->
-<!DOCTYPE html>
-<html>
+<?php $css = "public/css/moderateur/apercuDesEpisodes.css" ?>
+<?php $menu = "public/js/menuModerateur.js" ?>
+<?php $description = "espace moderateur de JeanForteroche" ?>
+<?php $keywords = "CRUD, episode, commentaire" ?>
 
-<head>
-    <meta charset="utf-8" />
-    <link href="public/css/moderateur/apercuDesEpisodes.css" rel="stylesheet" />
-    <title>aperçu des épisodes</title>
-    <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
-    <script src="public/js/menuModerateur.js"></script>
-</head>
+<?php ob_start(); ?>
 
 
-<body>
+<?php require('public/textFunctions/headerModerateur.php'); ?>-
 
-    <?php require('public/textFunctions/headerModerateur.php'); ?>-
+<section id="corpsDeLaPage">
+    <h1>Aperçu des épisodes</h1>
 
-    <section id="corpsDeLaPage">
-        <h1>Aperçu des épisodes</h1>
+    <!-- Affiche un message d'erreur en cas de trafic d'url-->
+    <div id="message">
+        <?php echo $message ?>
+    </div>
 
-        <!-- Affiche un message d'erreur en cas de trafic d'url-->
-        <div id="message">
-            <?php echo $message ?>
+    <!-- Affichage de l'épisode séléctionné-->
+    <aside id="blockEpisode">
+        <div class="headerEpisode">
+            <div class="libeleEpisode">
+                <h2>Episode
+                    <?= htmlspecialchars($post['numeroEpisode']) ?>
+                </h2>
+                <h3>
+                    <?= htmlspecialchars($post['titre']) ?>
+                </h3>
+            </div>
         </div>
+        <br>
+        <article class="textEpisode">
+            <?= $post['texte'] ?>
+        </article>
 
-        <!-- Affichage de l'épisode séléctionné-->
-        <aside id="blockEpisode">
-            <div class="headerEpisode">
-                <div class="libeleEpisode">
-                    <h2>Episode
-                        <?= htmlspecialchars($post['numeroEpisode']) ?>
-                    </h2>
-                    <h3>
-                        <?= htmlspecialchars($post['titre']) ?>
-                    </h3>
-                </div>
-            </div>
-            <br>
-            <article class="textEpisode">
-                <?= $post['texte'] ?>
-            </article>
+    </aside>
 
-        </aside>
-
-        <!-- Listes des épisodes publiés-->
-        <nav id="listesDesEpisodes">
-            <h2>Listes des épisodes</h2>
+    <!-- Listes des épisodes publiés-->
+    <nav id="listesDesEpisodes">
+        <h2>Listes des épisodes</h2>
 
 
-            <div id="apercuDesEpisodes">
-                <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
-                <a href="apercuDesEpisodes-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
-                    <p> Episode
-                        <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
-                            <?= htmlspecialchars($listEpisodes['titre']) ?>
-                    </p>
-                </a>
+        <div id="apercuDesEpisodes">
+            <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+            <a href="apercuDesEpisodes-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
+                <p> Episode
+                    <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
+                        <?= htmlspecialchars($listEpisodes['titre']) ?>
+                </p>
+            </a>
 
-                <?php } $listEpisode->closeCursor(); ?>
-            </div>
-        </nav>
-    </section>
+            <?php } $listEpisode->closeCursor(); ?>
+        </div>
+    </nav>
+</section>
 
+<?php $content = ob_get_clean(); ?>
 
-</body>
-
-</html>
+<?php require('view/template.php'); ?>

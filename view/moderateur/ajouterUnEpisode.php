@@ -1,6 +1,10 @@
 <!-- Formulaire qui permet à l'écrivain d'ajouter un épisode à son blog-->
-<!DOCTYPE html>
-<html>
+<?php $css = "public/css/moderateur/ajouterUnEpisode.css" ?>
+<?php $menu = "public/js/menuModerateur.js" ?>
+<?php $description = "espace moderateur de JeanForteroche" ?>
+<?php $keywords = "CRUD, episode, commentaire" ?>
+
+<?php ob_start(); ?>
 
 <head>
     <meta charset="utf-8" />
@@ -8,7 +12,7 @@
     <title>ajouter un épisode</title>
     <link rel="icon" type="image/png" href="public/images/faviconAlaska.png" />
     <script src="public/js/menuModerateur.js"></script>
-    <script src="public/js/editeurDeTexte.js"></script>
+
 </head>
 
 
@@ -41,6 +45,7 @@
         <span id="messageAlerte"><?= $messageAlerte ?></span>
     </div>
 
-</body>
+    <script src="public/js/editeurDeTexte.js"></script>
+    <?php $content = ob_get_clean(); ?>
 
-</html>
+    <?php require('view/template.php'); ?>
