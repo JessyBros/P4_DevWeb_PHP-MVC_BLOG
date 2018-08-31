@@ -103,7 +103,7 @@
     </div>
 
     <div class="headerElement">
-        <a href="http://localhost/blogphpoc/">
+        <a href="accueil">
             <button>Déconnexion</button>
         </a>
     </div>

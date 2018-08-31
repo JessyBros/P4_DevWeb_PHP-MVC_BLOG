@@ -40,7 +40,7 @@ class UtilisateurPostManager extends Manager{
     public function premierEpisode() // affiche le premier episode
     {
         $connexion = $this-> connexion();
-        $req = $connexion->query('SELECT * FROM tableepisode Limit 1');
+        $req = $connexion->query('SELECT * FROM tableepisode ORDER BY numeroEpisode ASC Limit 1');
         $req->execute(array());
         $post = $req->fetch();
         return $post;

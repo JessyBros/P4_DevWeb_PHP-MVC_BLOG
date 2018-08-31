@@ -1,4 +1,3 @@
-<!-- Le routeur -->
 <?php
 require('controller/frontend.php');
 

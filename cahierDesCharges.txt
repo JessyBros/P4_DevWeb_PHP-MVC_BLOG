@@ -1,7 +1,7 @@
 Cahier des charges Blog PHP
 
 -----
-https://openclassrooms.com/forum/sujet/set-cookie-et-connexion-automatique-95087
 
--cookie connexion modérateur
+Ecrire les épisodes.
+Récupérer la base de donné et le mettre sous forme de fichier.
 --------

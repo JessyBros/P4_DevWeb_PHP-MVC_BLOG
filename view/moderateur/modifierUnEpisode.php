@@ -71,4 +71,5 @@
 
 <?php $content = ob_get_clean(); ?>
 
+ <script src="public/js/editeurDeTexte.js"></script>
 <?php require('view/template.php'); ?>

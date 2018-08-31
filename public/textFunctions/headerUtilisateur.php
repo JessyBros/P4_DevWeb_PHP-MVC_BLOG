@@ -95,13 +95,13 @@
 
     <div class="headerElement" id="jeanForteroche">
 
-        <a href="http://www.localhost/blogphpoc/">
+        <a href="accueil">
             <!-- faux lien -->
             <img class="jeanForterocheElement" src="public/images/jeanForteroche.jpg" />
         </a>
 
         <div class="jeanForterocheElement">
-            <a href="http://www.localhost/blogphpoc/">Jean Forteroche</a>
+            <a href="accueil">Jean Forteroche</a>
             <!-- faux lien -->
         </div>
 

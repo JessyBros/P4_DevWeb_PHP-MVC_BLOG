@@ -1,7 +1,4 @@
-<!-- Permet l'ajout d'un commentaire à la page Lectures des épisodes, selon l'épisode correspondant-->
-
 <?php 
-$messageAlerte = "";
 if ( isset($_POST['publie']) )
 {
     $postNumeroEpisode = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
@@ -20,11 +17,4 @@ if ( isset($_POST['publie']) )
         {
             $messageAlerte = " Erreur, aucun commentaire n'a été ajouté ";
         }
-        ?>
-<style>
-    #alerte {
-        display: block;
-    }
-</style>
-<?php
 }

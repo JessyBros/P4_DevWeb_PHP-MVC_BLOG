@@ -1,5 +1,4 @@
 <?php
-$etatConnexion = "";
 if (isset($_POST['connectezVous']))
 {          
     if( (!empty($_POST['pseudo'])) && (!empty($_POST['motDePasse'])) )

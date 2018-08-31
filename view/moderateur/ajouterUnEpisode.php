@@ -37,13 +37,15 @@
             <div id="editeur" contentEditable></div>
 
             <input name="texte" id="texte" required="" type="hidden">
-            <input type="submit" name="publie" value="Publié" />
+            <input onclick="ajoutEpisode()" type="submit" name="publie" value="Publié" />
         </form>
 
     </section>
     <div id="alerte">
         <span id="messageAlerte"><?= $messageAlerte ?></span>
     </div>
+    
+    
 
     <script src="public/js/editeurDeTexte.js"></script>
 
