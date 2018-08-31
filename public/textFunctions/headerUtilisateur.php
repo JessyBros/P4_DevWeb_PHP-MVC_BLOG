@@ -78,10 +78,10 @@
         #header #bouttonHeader {
             flex-direction: column;
         }
-         .bouttonHeaderElement:nth-child(1) {
+        .bouttonHeaderElement:nth-child(1) {
             order: 2;
         }
-         .bouttonHeaderElement:nth-child(2) {
+        .bouttonHeaderElement:nth-child(2) {
             order: 1;
         }
         #choixEpisode {

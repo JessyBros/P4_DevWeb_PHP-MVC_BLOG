@@ -16,13 +16,5 @@ if(isset($_POST['supprimer']))
         $messageAlerte=" Une erreur est survenu lors de la suppresion du commentaire ";
          header("Refresh: 3;url=signalerUnCommentaire");
     }
-    ?>
-    <style>
-        #alerte {
-            display: block;
-        }
-
-    </style>
-    <?php
 }
 ?>

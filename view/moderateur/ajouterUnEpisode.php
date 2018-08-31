@@ -46,6 +46,7 @@
     </div>
 
     <script src="public/js/editeurDeTexte.js"></script>
+
     <?php $content = ob_get_clean(); ?>
 
     <?php require('view/template.php'); ?>

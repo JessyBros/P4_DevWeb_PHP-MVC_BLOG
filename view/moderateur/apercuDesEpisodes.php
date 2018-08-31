@@ -42,7 +42,8 @@
 
 
         <div id="apercuDesEpisodes">
-            <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+
+            <?php  foreach ($listEpisode as $listEpisodes  ): ?>
             <a href="apercuDesEpisodes-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
                 <p> Episode
                     <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
@@ -50,7 +51,7 @@
                 </p>
             </a>
 
-            <?php } $listEpisode->closeCursor(); ?>
+            <?php endforeach; ?>
         </div>
     </nav>
 </section>

@@ -43,26 +43,26 @@
     <h2>Les trois derniers épisodes actuels</h2>
 
     <section id="conteneurBlockLastEpisode">
-        <?php while ($datas = $episodes->fetch()) { ?>
+        <?php  foreach ($episodes as $episode): ?> 
 
         <aside class="blockLastEpisode">
-            <a href="episode-<?= $datas['numeroEpisode'] ?>">
+            <a href="episode-<?= $episode['numeroEpisode'] ?>">
                 <nav class="LastEpisode">
                     <h3 class="titreEpisode">Episode
-                        <?= htmlspecialchars($datas['numeroEpisode']) ?>
+                        <?= htmlspecialchars($episode['numeroEpisode']) ?>
                     </h3>
-                    <img class="imageEpisode" src="<?= $datas['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($datas['titre']) ?>">
+                    <img class="imageEpisode" src="<?= $episode['imageApercu']?>" alt="ErreurAffichage : <?= htmlspecialchars($episode['titre']) ?>">
                     <p class="dateEpisode">publié le
-                        <?= htmlspecialchars($datas['datePublication']) ?>
+                        <?= htmlspecialchars($episode['datePublication']) ?>
                     </p>
                     <p class="textEpisode">
-                        <?= htmlspecialchars($datas['description']) ?>
+                        <?= htmlspecialchars($episode['description']) ?>
                     </p>
                 </nav>
             </a>
         </aside>
 
-        <?php } $episodes->closeCursor(); ?>
+        <?php endforeach; ?>
 
         <!-- block listes des épisodes -->
     </section>

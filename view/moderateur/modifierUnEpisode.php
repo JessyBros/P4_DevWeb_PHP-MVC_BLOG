@@ -36,7 +36,6 @@
             <article>
                 <?= $donneesEpisode['texte'] ?>
             </article>
-
         </div>
 
         <input name="modifTexte" id="modifTexte" required="" type="hidden">
@@ -52,14 +51,15 @@
 
 
         <div id="apercuDesEpisodes">
-            <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+
+            <?php  foreach ($listEpisode as $listEpisodes  ): ?>
             <a href="modifier-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
                 <p> Episode
                     <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
                         <?= htmlspecialchars($listEpisodes['titre']) ?>
                 </p>
             </a>
-            <?php } $listEpisode->closeCursor(); ?>
+            <?php endforeach; ?>
         </div>
     </nav>
 

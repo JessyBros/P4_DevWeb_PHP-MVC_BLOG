@@ -16,7 +16,7 @@
 
         <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
         <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
-        <input type="submit" name="modifier" value="modifier" />
+        <input type="submit" name="modifierAcces" value="modifier" />
 
     </form>
 

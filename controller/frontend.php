@@ -1,19 +1,22 @@
 <?php
-require('model/utilisateur.php');
-require('model/moderateur.php');
+require('model/Utilisateur.php');
+require('model/Moderateur.php');
+
+use \Blog\Projet\Model\UtilisateurPostManager;
+use \Blog\Projet\Model\ModerateurPostManager;
 
 // Espace UTILISATEUR ! \\
 
 function accueil()
 {
     
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $postManager = new Blog\Projet\Model\UtilisateurPostManager(); /* aperçu du premier épisode*/
+    $postManager = new UtilisateurPostManager(); /* aperçu du premier épisode*/
     $data = $postManager->premierEpisode();
 
-    $postManagers = new Blog\Projet\Model\UtilisateurPostManager(); // aperçu des trois derniers épisodes
+    $postManagers = new UtilisateurPostManager(); // aperçu des trois derniers épisodes
     $episodes = $postManagers->dernierEpisode(); 
 
     require('view/utilisateur/accueil.php');
@@ -21,10 +24,10 @@ function accueil()
 
 function connexion()
 {
-    $connexionManager = new Blog\Projet\Model\UtilisateurPostManager(); /* connexion à l'espace modérateur */
+    $connexionManager = new UtilisateurPostManager(); /* connexion à l'espace modérateur */
     $connexion = $connexionManager-> connexionDuModerateur();
     
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
      require('public/functions/utilisateur/espaceConnexion.php');
@@ -35,10 +38,10 @@ function connexion()
 
 function listesEpisodes()
 {
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $listesEpisodesManager = new Blog\Projet\Model\UtilisateurPostManager(); /* Listes de chaque épisodes crées*/
+    $listesEpisodesManager = new UtilisateurPostManager(); /* Listes de chaque épisodes crées*/
     $listesEpisodes = $listesEpisodesManager->listesEpisodes();
 
     require('view/utilisateur/listesDesEpisodes.php');
@@ -49,38 +52,39 @@ function lectureEpisode()
 {
    
     
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager(); /* header */
+    $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
-    $postManager = new Blog\Projet\Model\UtilisateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
+    $postManager = new UtilisateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
     if (isset($_GET['episode']))
     {
          $post = $postManager->lectureEpisode($_GET['episode']); 
     }
      
 
-    $nombreduDernierEpisodeManager = new Blog\Projet\Model\UtilisateurPostManager(); /* nombre du dernier épisode */
+    $nombreduDernierEpisodeManager = new UtilisateurPostManager(); /* nombre du dernier épisode */
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
 
 
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager();  /* récupère tous les commentaires selon l'épisodes*/
+    $commentManager = new UtilisateurPostManager();  /* récupère tous les commentaires selon l'épisodes*/
     if (isset($_GET['episode']))
     {
           $commentaires = $commentManager->getComments($_GET['episode']);
     }
    
 
-    $commentManager = new Blog\Projet\Model\UtilisateurPostManager();  /* ajout un commentaire de la part de l'utilisateur */
+    $commentManager = new UtilisateurPostManager();  /* ajout un commentaire de la part de l'utilisateur */
     
-    $signalementDuCommentaire  = new Blog\Projet\Model\UtilisateurPostManager();
+    $signalementDuCommentaire  = new UtilisateurPostManager();
 
-    
+    require('public/functions/utilisateur/verificationLecturesDesEpisodes/message.php');
     require('public/functions/utilisateur/ajouterUnCommentaire.php');
     require('public/functions/utilisateur/buttonEpisodeSuivPrec.php'); 
     require('public/functions/utilisateur/signalerUnCommentaire.php');
-    $message = "";
     require('view/utilisateur/lecturesDesEpisodes.php');
-    require('public/functions/utilisateur/verificationLecturesDesEpisodes.php');
+    require('public/functions/utilisateur/verificationLecturesDesEpisodes/messageCss.php');
+    require('public/functions/utilisateur/messageAlerteCss.php');
+    
     
 
 }
@@ -94,47 +98,49 @@ function espaceModerateur()
 
 function apercuDesEpisodes()
 {
-    $listEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new Blog\Projet\Model\ModerateurPostManager(); /* nombre du dernier épisode */
+    $nombreduDernierEpisodeManager = new ModerateurPostManager(); /* nombre du dernier épisode */
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $postManager = new Blog\Projet\Model\ModerateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
+    $postManager = new ModerateurPostManager(); /* récupération de l'épisode selon le choix de l'utilisateur*/
      if (isset($_GET['episode']))
     {
          $post = $postManager->lectureEpisode($_GET['episode']); 
     }
     
-    $message = "";
+    require('public/functions/moderateur/verificationApercuDesEpisodes/message.php');
     require('view/moderateur/apercuDesEpisodes.php');
-    require('public/functions/moderateur/verificationApercuDesEpisodes.php');
+    require('public/functions/moderateur/verificationApercuDesEpisodes/messageCss.php');
+    
 }
 
 function ajouterUnEpisode()
 {
-    $ajoutEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager();
+    $ajoutEpisodeManagers = new ModerateurPostManager();
     
-    $nombreduDernierEpisodeManager = new Blog\Projet\Model\ModerateurPostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $verificationEpisodeExistantManagers = new Blog\Projet\Model\ModerateurPostManager(); // 
+    $verificationEpisodeExistantManagers = new ModerateurPostManager(); // 
     
     
     require('public/functions/moderateur/ajouterUnEpisode.php');
     
     require('view/moderateur/ajouterUnEpisode.php');
+    require('public/functions/moderateur/messageAlerteCss.php');
 }
 
 function modifierUnEpisode()
 {
-    $listEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new Blog\Projet\Model\ModerateurPostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $modificationEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager();
+    $modificationEpisodeManagers = new ModerateurPostManager();
          $modifNumeroEpisode = isset($_POST['modifNumeroEpisode']) ? $_POST['modifNumeroEpisode'] : NULL;
          $modifTitre = isset($_POST['modifTitre']) ? $_POST['modifTitre'] : NULL;
          $modifDescription = isset($_POST['modifDescription']) ? $_POST['modifDescription'] : NULL;
@@ -142,66 +148,72 @@ function modifierUnEpisode()
          $modifImageApercu = isset($_POST['modifImageApercu']) ? $_POST['modifImageApercu'] : NULL;
     $modificationEpisode = $modificationEpisodeManagers->modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode);
     
-    $donneesEpisodeManager = new Blog\Projet\Model\ModerateurPostManager();
+    $donneesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
     $donneesEpisode = $donneesEpisodeManager->donneesEpisode($getEpisode );
     
+    require('public/functions/moderateur/verificationModifierUnEpisode/message.php');
     require('public/functions/moderateur/modifierUnEpisode.php');
-    $message = "";
     require('view/moderateur/modifierUnEpisode.php');
-    require('public/functions/moderateur/verificationModifierUnEpisode.php');
+    require('public/functions/moderateur/verificationModifierUnEpisode/messageCss.php');
+    require('public/functions/moderateur/messageAlerteCss.php');
+    
 }
 
 function supprimerUnEpisode()
 {
-    $listEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager(); 
+    $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
-    $nombreduDernierEpisodeManager = new Blog\Projet\Model\ModerateurPostManager();
+    $nombreduDernierEpisodeManager = new ModerateurPostManager();
     $nombreduDernierEpisode = $nombreduDernierEpisodeManager->nombreduDernierEpisode();
     
-    $donneesEpisodeManager = new Blog\Projet\Model\ModerateurPostManager();
+    $donneesEpisodeManager = new ModerateurPostManager();
         $getEpisode  = isset($_GET['episode']) ? $_GET['episode'] : NULL;
     $donneesEpisode = $donneesEpisodeManager->donneesEpisode($getEpisode );
     
-    $suppressionEpisodeManagers = new Blog\Projet\Model\ModerateurPostManager();
+    $suppressionEpisodeManagers = new ModerateurPostManager();
     
-    $suppressionCommentaireManagers = new Blog\Projet\Model\ModerateurPostManager();
+    $suppressionCommentaireManagers = new ModerateurPostManager();
     
+    require('public/functions/moderateur/verificationSupprimerUnEpisode/message.php');
     require('public/functions/moderateur/supprimerUnEpisode.php');
-    
     require('view/moderateur/supprimerUnEpisode.php');
+    require('public/functions/moderateur/verificationSupprimerUnEpisode/messageCss.php');
+    require('public/functions/moderateur/messageAlerteCss.php');
 }
 
 function signalerUnCommentaire()
 {
-    $afficheLesCommentairesSignalerManager = new Blog\Projet\Model\ModerateurPostManager();
+    $afficheLesCommentairesSignalerManager = new ModerateurPostManager();
     $afficheLesCommentairesSignaler = $afficheLesCommentairesSignalerManager->afficheLesCommentairesSignaler();
     
-    $commentaireSelectionnerManager = new Blog\Projet\Model\ModerateurPostManager();
+    $commentaireSelectionnerManager = new ModerateurPostManager();
         $idCommentaire  = isset($_GET['commentaire']) ? $_GET['commentaire'] : NULL;
     $commentaireSelectionner = $commentaireSelectionnerManager->commentaireSelectionner($idCommentaire);
     
-    $supprimerUnCommentaireSignalerManager = new Blog\Projet\Model\ModerateurPostManager();
+    $supprimerUnCommentaireSignalerManager = new ModerateurPostManager();
     
-    $conserverLeCommentairSignalerManager = new Blog\Projet\Model\ModerateurPostManager();
+    $conserverLeCommentairSignalerManager = new ModerateurPostManager();
     
-    $aucunCommentaireSignalerManager = new Blog\Projet\Model\ModerateurPostManager(); /* aperçu du premier épisode*/
+    $aucunCommentaireSignalerManager = new ModerateurPostManager(); /* aperçu du premier épisode*/
     $aucunCommentaireSignaler = $aucunCommentaireSignalerManager->aucunCommentaireSignaler();
     
+    
+    require('public/functions/moderateur/verificationSignalerUnCommentaire/message.php');
     require('public/functions/moderateur/supprimerUnCommentaire.php');
     require('public/functions/moderateur/conserverUnCommentaire.php'); 
-    $message = "";
     require('view/moderateur/signalerUnCommentaire.php');
-    require('public/functions/moderateur/verificationSignalerUnCommentaire.php');
+    require('public/functions/moderateur/verificationSignalerUnCommentaire/messageCss.php');
+    require('public/functions/moderateur/messageAlerteCss.php');
 }
 
 function moderateurPseudoMdp()
 {
-    $dataManager = new Blog\Projet\Model\ModerateurPostManager(); /* récupération données modérateur */
+    $dataManager = new ModerateurPostManager(); /* récupération données modérateur */
     $data = $dataManager-> moderateurPseudoMdp();
     
-    $modificationPseudoMdpManagers = new Blog\Projet\Model\ModerateurPostManager();
+    $modificationPseudoMdpManagers = new ModerateurPostManager();
         $pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : NULL;
         $motDePasse = isset($_POST['motDePasse']) ? $_POST['motDePasse'] : NULL;        
     $modificationPseudoMdp = $modificationPseudoMdpManagers->modificationPseudoMdp($pseudo,$motDePasse);
@@ -209,4 +221,5 @@ function moderateurPseudoMdp()
     require('public/functions/moderateur/moderateurPseudoMdp.php');
     
     require('view/moderateur/moderateurPseudoMdp.php');
+    require('public/functions/moderateur/messageAlerteCss.php');
 }

@@ -16,7 +16,7 @@
     <!-- Afficher la liste des commentaires signalés-->
     <aside id="listeDesCommentairesSignales">
 
-        <?php while ($commentaireSignaler = $afficheLesCommentairesSignaler->fetch()) { ?>
+        <?php  foreach ($afficheLesCommentairesSignaler as $commentaireSignaler  ): ?>
         <p>
             <a href="commentaire-<?= htmlspecialchars($commentaireSignaler['id'])?>">
                 <p>
@@ -30,12 +30,15 @@
             </a>
         </p>
         <?php $aucunCommentaireSignaler; ?>
-        <?php } $afficheLesCommentairesSignaler->closeCursor(); ?>
+        <?php endforeach; ?>
     </aside>
 
 
     <!-- Affiche un message d'erreur en cas de trafic d'url-->
-    <?php echo $message; ?>
+    <div id="message">
+        <?php echo $message ?>
+    </div>
+
 
 
 

@@ -20,13 +20,5 @@ if(isset($_POST['conserver']))
             $messageAlerte=" Une erreur est survenu ";
              header("Refresh: 3;url=signalerUnCommentaire");
         }
-     ?>
-    <style>
-        #alerte {
-            display: block;
-        }
-
-    </style>
-    <?php
 }
 ?>

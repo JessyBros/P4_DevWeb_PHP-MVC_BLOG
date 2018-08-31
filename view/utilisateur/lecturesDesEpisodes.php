@@ -74,7 +74,8 @@
         <!-- Tous les commentaires de l'épisode -->
         <aside id="blockLireCommentaire">
             <h3 id="lesCommentaires">Les commentaires</h3>
-            <?php while ($commentaire = $commentaires->fetch()){ ?>
+
+            <?php  foreach ($commentaires as $commentaire): ?>
 
             <div class="miniBlockLireCommentaire">
                 <div>
@@ -96,7 +97,7 @@
                     <input name="signaler" type="submit" value="Signaler" />
                 </form>
             </div>
-            <?php } $commentaires->closeCursor(); ?>
+            <?php endforeach; ?>
         </aside>
 
     </section>

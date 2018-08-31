@@ -24,14 +24,8 @@ if(isset($_POST['oui']))
 elseif (isset($_POST['non']))
 {
      header("Location: supprimerUnEpisode");
-}
 
- ?>
-    <style>
-        #alerte {
-            display: block;
-        }
 
-    </style>
-    <?php
+
+    }
 ?>

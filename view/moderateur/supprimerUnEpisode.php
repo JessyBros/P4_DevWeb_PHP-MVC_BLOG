@@ -13,21 +13,21 @@
     <h1>Supprimer un épisode</h1>
 
     <!-- Affiche un message d'erreur en cas de trafic d'url-->
-    <?php require('public/functions/moderateur/verificationSupprimerUnEpisode.php'); ?>
     <div id="message">
         <?php echo $message ?>
     </div>
 
     <!-- La listes des épisodes déjà publiés-->
     <nav id="apercuDesEpisodes">
-        <?php while ($listEpisodes = $listEpisode->fetch()) { ?>
+
+        <?php  foreach ($listEpisode as $listEpisodes  ): ?>
         <a href="supprimer-episode-<?= htmlspecialchars($listEpisodes['numeroEpisode']) ?>">
             <p> Episode
                 <?= htmlspecialchars($listEpisodes['numeroEpisode']) ?> :
                     <?= htmlspecialchars($listEpisodes['titre']) ?>
             </p>
         </a>
-        <?php } $listEpisode->closeCursor(); ?>
+        <?php endforeach; ?>
     </nav>
 
     <!-- Vérification après sélection d'un épisode, pour savoir si le modérateur souhaite réellement et définitivement supprimer l'épisode -->

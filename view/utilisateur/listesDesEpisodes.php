@@ -14,7 +14,9 @@
             <h1>Les épisodes</h1>
         </aside>
 
-        <?php while ($listesEpisode = $listesEpisodes->fetch()) { ?>
+
+        <?php  foreach ($listesEpisodes as $listesEpisode ): ?>
+
         <aside class="blockEpisodes">
             <p>Episode :
                 <?= $listesEpisode['numeroEpisode'] ?> -
@@ -29,7 +31,7 @@
             </p>
 
         </aside>
-        <?php } $listesEpisodes->closeCursor(); ?>
+        <?php endforeach; ?>
 
     </section>
 </div>

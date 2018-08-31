@@ -34,12 +34,4 @@ if ( isset($_POST['publie']) )
             $messageAlerte=" Erreur, aucun épisode n\'a été ajouté !";
         }  
     }
-    ?>
-<style>
-    #alerte {
-        display: block;
-    }
-
-</style>
-<?php
 }

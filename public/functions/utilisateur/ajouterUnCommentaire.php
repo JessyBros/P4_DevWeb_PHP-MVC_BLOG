@@ -25,7 +25,6 @@ if ( isset($_POST['publie']) )
     #alerte {
         display: block;
     }
-
 </style>
 <?php
 }

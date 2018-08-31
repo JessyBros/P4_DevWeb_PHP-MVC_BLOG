@@ -1,7 +1,7 @@
 <!-- Modification du pseudo et mdp de connexion cote modérateur-->
 <?php 
 $messageAlerte="";
-if (isset($_POST['modifier']))
+if (isset($_POST['modifierAcces']))
 {
     if ($modificationPseudoMdp)
     {
@@ -11,13 +11,5 @@ if (isset($_POST['modifier']))
     {
         $messageAlerte=" Erreur, la modification a échoué ";
     }  
-?>
-<style>
-    #alerte {
-        display: block;
-    }
-
-</style>
-<?php
 }
 ?>

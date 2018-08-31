@@ -85,7 +85,7 @@ input[name="conserver"]:hover {
     animation-name: example;
     animation-duration: 5s;
     visibility: hidden;
-    display: block;
+    display: none;
 }
 
 #messageAlerte {

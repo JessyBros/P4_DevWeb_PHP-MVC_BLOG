@@ -1,6 +1,5 @@
 // fonction au clik de l'utilisateur, permet d'affichier le menu ou de le faire disparaître au click de l'utilisateur.
 
-
 var menu = true;
 
 
