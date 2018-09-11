@@ -1,6 +1,4 @@
-<!-- Permet à L'écrivain d'ajouter un commentaire, si celui-ci n'a pas déjà était enregitré.-->
 <?php 
-$messageAlerte="";
 if ( isset($_POST['publie']) )
 {
     $numeroEpisode = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
@@ -34,4 +32,8 @@ if ( isset($_POST['publie']) )
             $messageAlerte=" Erreur, aucun épisode n\'a été ajouté !";
         }  
     }
+}
+else
+{
+    $messageAlerte="";
 }

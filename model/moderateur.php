@@ -6,6 +6,22 @@ require_once("model/Manager.php");
 
 class ModerateurPostManager extends Manager{
     
+    
+     // utilisé pour les pages (aperçu/modification/suppression)
+    
+    public function listEpisode() // affiche tous les épisodes seulement numéro et son titre
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT numeroEpisode, titre FROM tableepisode ORDER BY numeroEpisode ASC');
+        return $req;
+    }
+    
+    
+    
+    
+    
+    // page aperçuEpisode \\
+    
        public function lectureEpisode($postId) // renvoie l'épisode selon le choix de l'utilisateur
     {   
         $connexion = $this-> connexion($postId);
@@ -15,16 +31,6 @@ class ModerateurPostManager extends Manager{
         return $post;
     }
 
-   
-    // + function listEpisode() + nombreduDernierEpisode()
-    
-    public function listEpisode() // affiche tous les épisodes seulement numéro et son titre
-    {   
-        $connexion = $this-> connexion();
-        $req = $connexion->query('SELECT numeroEpisode, titre FROM tableepisode ORDER BY numeroEpisode ASC');
-        return $req;
-    }
-    
      
     
     // page ajouterUnEpisode \\
@@ -67,7 +73,7 @@ class ModerateurPostManager extends Manager{
     
     // page modifierUnEpisode \\
     
-    // + fuction listEpisode() + nombreduDernierEpisode()
+    // + fuction listEpisode()
     
     public function modificationEpisode($modifTitre,$modifDescription,$modifTexte,$modifImageApercu,$modifNumeroEpisode)
     {   
@@ -166,14 +172,14 @@ class ModerateurPostManager extends Manager{
     }
     
     
-       public function modificationPseudoMdp($pseudo,$motDePasse)
+       public function modificationPseudoMdp($pseudo,$nouveauMotDePasse)
     {   
-        $connexion = $this-> connexion($pseudo,$motDePasse);
-        $motDePasse = password_hash($motDePasse, PASSWORD_DEFAULT);
+        $connexion = $this-> connexion($pseudo,$nouveauMotDePasse);
+        $nouveauMotDePasse = password_hash($nouveauMotDePasse, PASSWORD_DEFAULT);
         $req = $connexion->prepare('UPDATE moderateur SET pseudo = ?, motDePasse = ?');
         $req->execute(array(
             $pseudo,
-            $motDePasse
+            $nouveauMotDePasse
         ));
         return $req;
     }

@@ -38,6 +38,8 @@ function connexion()
 
 function listesEpisodes()
 {
+    
+    
     $commentManager = new UtilisateurPostManager(); /* header */
     $choixEpisode = $commentManager->choixEpisode();
 
@@ -93,11 +95,13 @@ function lectureEpisode()
 
 function espaceModerateur()
 {
+    require('public/functions/verificationConnexion.php');
     require('view/moderateur/espaceModerateur.php');
 }
 
 function apercuDesEpisodes()
 {
+    require('public/functions/verificationConnexion.php');
     $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
@@ -118,6 +122,7 @@ function apercuDesEpisodes()
 
 function ajouterUnEpisode()
 {
+    require('public/functions/verificationConnexion.php');
     $ajoutEpisodeManagers = new ModerateurPostManager();
     
     $nombreduDernierEpisodeManager = new ModerateurPostManager();
@@ -134,6 +139,7 @@ function ajouterUnEpisode()
 
 function modifierUnEpisode()
 {
+    require('public/functions/verificationConnexion.php');
     $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
@@ -162,6 +168,7 @@ function modifierUnEpisode()
 
 function supprimerUnEpisode()
 {
+    require('public/functions/verificationConnexion.php');
     $listEpisodeManagers = new ModerateurPostManager(); 
     $listEpisode = $listEpisodeManagers->listEpisode();
     
@@ -185,6 +192,7 @@ function supprimerUnEpisode()
 
 function signalerUnCommentaire()
 {
+    require('public/functions/verificationConnexion.php');
     $afficheLesCommentairesSignalerManager = new ModerateurPostManager();
     $afficheLesCommentairesSignaler = $afficheLesCommentairesSignalerManager->afficheLesCommentairesSignaler();
     
@@ -210,13 +218,15 @@ function signalerUnCommentaire()
 
 function moderateurPseudoMdp()
 {
+    require('public/functions/verificationConnexion.php');
     $dataManager = new ModerateurPostManager(); /* récupération données modérateur */
     $data = $dataManager-> moderateurPseudoMdp();
     
     $modificationPseudoMdpManagers = new ModerateurPostManager();
         $pseudo = isset($_POST['pseudo']) ? $_POST['pseudo'] : NULL;
-        $motDePasse = isset($_POST['motDePasse']) ? $_POST['motDePasse'] : NULL;        
-    $modificationPseudoMdp = $modificationPseudoMdpManagers->modificationPseudoMdp($pseudo,$motDePasse);
+        $motDePasseActuel = isset($_POST['motDePasseActuel']) ? $_POST['motDePasseActuel'] : NULL;
+        $nouveauMotDePasse = isset($_POST['nouveauMotDePasse']) ? $_POST['nouveauMotDePasse'] : NULL;              
+    $modificationPseudoMdp = $modificationPseudoMdpManagers->modificationPseudoMdp($pseudo,$nouveauMotDePasse);
         
     require('public/functions/moderateur/moderateurPseudoMdp.php');
     

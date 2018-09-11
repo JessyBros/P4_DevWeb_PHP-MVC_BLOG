@@ -1,6 +1,4 @@
-<!-- Suppression du commentaire après vérification-->
 <?php
-$messageAlerte="";
 if(isset($_POST['supprimer']))
 {  
     $idCommentaire  = isset($_POST['numeroCommentaire']) ? $_POST['numeroCommentaire'] : NULL;
@@ -16,5 +14,9 @@ if(isset($_POST['supprimer']))
         $messageAlerte=" Une erreur est survenu lors de la suppresion du commentaire ";
          header("Refresh: 3;url=signalerUnCommentaire");
     }
+}
+else
+{
+    $messageAlerte="";
 }
 ?>

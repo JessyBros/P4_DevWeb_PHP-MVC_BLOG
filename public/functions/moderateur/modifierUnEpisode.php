@@ -1,6 +1,4 @@
-<!-- Modifie l'épisode après vérification -->
 <?php 
-$messageAlerte="";
 if (isset($_POST['modifier']))
 {
     if ($modificationEpisode)
@@ -19,5 +17,9 @@ if (isset($_POST['modifier']))
 
 </style>
 <?php
+}
+else
+{
+    $messageAlerte="";
 }
 ?>

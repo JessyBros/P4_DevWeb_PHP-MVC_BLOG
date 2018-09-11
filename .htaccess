@@ -16,7 +16,7 @@ Options +FollowSymlinks
 # Activation du module de réécriture d'URL :
 RewriteEngine on
 
-ErrorDocument 404 http://localhost/blogphpoc
+ErrorDocument 404 http://u747361221.hostingerapp.com
 
 #--------------------------------------------------
 # Règles de réécriture d'URL : Utilisateur

@@ -14,8 +14,11 @@
 
     <form action="moderateurPseudoMdp" method="post">
 
-        <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
-        <p>Mot de passe : <input name="motDePasse" value="" required="" type="text"></p>
+           <p>Pseudo : <input name="pseudo" value="<?= htmlspecialchars($data['pseudo']) ?>" required="" type="text"></p>
+        
+        <p>Mot de passe actuel : <input name="motDePasseActuel" value="" required="" type="text"></p>
+        
+        <p>Nouveau mot de passe : <input name="nouveauMotDePasse" value="" required="" type="text"></p>
         <input type="submit" name="modifierAcces" value="modifier" />
 
     </form>

@@ -103,7 +103,7 @@
     </div>
 
     <div class="headerElement">
-        <a href="accueil">
+        <a href="public/functions/deconnexion.php">
             <button>Déconnexion</button>
         </a>
     </div>

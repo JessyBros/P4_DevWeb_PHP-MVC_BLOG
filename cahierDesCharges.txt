@@ -1,7 +1,0 @@
-Cahier des charges Blog PHP
-
------
-
-Ecrire les épisodes.
-Récupérer la base de donné et le mettre sous forme de fichier.
---------

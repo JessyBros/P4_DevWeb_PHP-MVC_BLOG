@@ -9,8 +9,7 @@ class Manager
     {
         try
         {
-            $db = new \PDO('mysql:host=localhost;dbname=billetalaska;charset=utf8', 'root', '');
-             /*$db = new \PDO('mysql:host=localhost;dbname=id6283130_unbilletsimplepourlalaska','id6283130_jeanforteroche','jeanforteroche');*/
+           $db = new \PDO('mysql:host=localhost;dbname=u747361221_ryru','u747361221_ryru','rafalef1');
         }
         catch(Exception $e)
         {

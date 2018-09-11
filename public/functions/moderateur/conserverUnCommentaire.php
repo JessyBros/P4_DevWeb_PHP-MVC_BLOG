@@ -1,7 +1,4 @@
-<!-- Lors d'un commentaire signalé par un utilisateur,
-    Permet à l'écrivain de conserver ce commentaire si celui-ci juge qu'il est respectable.-->
 <?php
-
 if(isset($_POST['conserver']))
 {  
 

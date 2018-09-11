@@ -1,7 +1,4 @@
-<!-- Suppression de l'épisode après vérification -->
 <?php
-$messageAlerte="";
-
 if(isset($_POST['oui']))
 {  
     $supEpisode  = isset($_POST['numeroEpisode']) ? $_POST['numeroEpisode'] : NULL;
@@ -23,9 +20,11 @@ if(isset($_POST['oui']))
 }
 elseif (isset($_POST['non']))
 {
-     header("Location: supprimerUnEpisode");
+     $messageAlerte="";
+     header("Refresh: 3;url=supprimerUnEpisode");
 
-
-
-    }
+}
+else{
+    $messageAlerte="";
+}
 ?>

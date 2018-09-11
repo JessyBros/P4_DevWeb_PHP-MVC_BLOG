@@ -6,16 +6,6 @@ require_once("model/Manager.php");
 class UtilisateurPostManager extends Manager{
     
     
-      public function nombreduDernierEpisode() // affiche le numéro correspondant au dernier épisode
-    {   
-        $connexion = $this-> connexion();
-        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode DESC Limit 1');
-        $req->execute(array());
-        $retour = $req->fetch();
-        return $retour;
-    }
-    
-    
     // Header Menu \\
     public function choixEpisode() // affiche le numéro correspondant au dernier épisode
     {   
@@ -65,6 +55,16 @@ class UtilisateurPostManager extends Manager{
         $post = $req->fetch();
         return $post;
     }
+    
+      public function nombreduDernierEpisode() // affiche le numéro correspondant au dernier épisode
+    {   
+        $connexion = $this-> connexion();
+        $req = $connexion->query('SELECT numeroEpisode FROM tableepisode ORDER BY numeroEpisode DESC Limit 1');
+        $req->execute(array());
+        $retour = $req->fetch();
+        return $retour;
+    }
+    
     
     // les commentaires
     public function getComments($postId) // montre les commentaire du plus récents au plus ancien selon l'épisode
